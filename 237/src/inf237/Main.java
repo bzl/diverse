@@ -1,6 +1,5 @@
 package inf237;
 
-import java.text.DecimalFormat;
 
 public class Main {
 
@@ -9,7 +8,6 @@ public class Main {
 		double test = 1.9230769230769231;
 		double test2 = 1.56262341;
 
-		DecimalFormat df = new DecimalFormat("#.00");
 
 	    
 	    
