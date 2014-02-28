@@ -11,7 +11,16 @@ public class Main {
 
 	    
 	    
-		System.out.printf("%.3f %.3f", test, test2);
+		//System.out.printf("%.3f %.3f", test, test2);
+		
+		int i = 0;
+		int j = 1;
+		int n = 2;
+		
+		System.out.println(i%2);
+		System.out.println(j%2);
+		System.out.println(n%2);
+		
 		
 		// System.out.println(System.getProperty("java.version"));
 	}
