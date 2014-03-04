@@ -5,8 +5,8 @@ public class Main {
 
 	public static void main(String[] args){
 
-		double test = 1.9230769230769231;
-		double test2 = 1.56262341;
+//		double test = 1.9230769230769231;
+//		double test2 = 1.56262341;
 
 
 	    

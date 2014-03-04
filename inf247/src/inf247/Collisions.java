@@ -17,7 +17,7 @@ public class Collisions {
 		}
 		//Stores the baudot code for lookup
 		int[][] alpha5bit = new int[][]{{1, 1, 0, 0, 0}, {1, 0, 0, 1, 1}, {0, 1, 1, 1, 0}, {1, 0, 0, 1, 0}, {1, 0, 0, 0, 0}, {1, 0, 1, 1, 0}, {0, 1, 0, 1, 1}, {0, 0, 1, 0, 1}, {0, 1, 1, 0, 0}, {1, 1, 0, 1, 0}, {1, 1, 1, 1, 0}, {0, 1, 0, 0, 1}, {0, 0, 1, 1, 1}, {0, 0, 1, 1, 0}, {0, 0, 0, 1, 1}, {0, 1, 1, 0, 1}, {1, 1, 1, 0, 1}, {0, 1, 0, 1, 0}, {1, 0, 1, 0, 0}, {0, 0, 0, 0, 1}, {1, 1, 1, 0, 0}, {0, 1, 1, 1, 1}, {1, 1, 0, 0, 1}, {1, 0, 1, 1, 1}, {1, 0, 1, 0, 1}, {1, 0, 0, 0, 1}, {0, 0, 0, 1, 0}, {0, 1, 0, 0, 0}, {1, 1, 1, 1, 1}, {1, 1, 0, 1, 1}, {0, 0, 1, 0, 0}, {0, 0, 0, 0, 0}};
-int acc = 0;
+		int acc = 0;
 		int[] wheelpositions = new int[]{47,53,59,61,64,65,67,69,71,73}; //the different positions the wheel can take on.
 		for (int j = 0; j < 10; j++) { //Iterates through all the wheels
 			for (int xor = 0; xor < 5; xor++) { //Iterates through all the XOR possitions
@@ -60,13 +60,13 @@ int acc = 0;
 				if(collisions == 0){
 					//System.out.println("Wheel "+wheelID+" had 0 collisions in XOR pos "+ xorpos);
 					//System.out.println(Arrays.toString(wheel));
-					
+
 					for(int tall : debug){
 						System.out.println(tall);
 					}
 				}
 			}
-			break;
+			//break; < ---------------------------- Hvorfor i helvete var denne her? Si i fra om dere legger inn noe som ser fucky ut.
 		}
 		System.out.println(acc);
 	}

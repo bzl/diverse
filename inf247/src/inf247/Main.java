@@ -1,9 +1,6 @@
 package inf247;
 
-import java.awt.AlphaComposite;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class Main {
 
