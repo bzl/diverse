@@ -35,7 +35,7 @@ public class Main {
 		 * 
 		 * Om rippleadder er false brukes test tallene fra oppgave teksten.
 		 */
-		boolean rippleadder = true;
+		boolean rippleadder = false;
 
 
 		String[] alphabetX; // Sigma, input alphabet
