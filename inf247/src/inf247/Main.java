@@ -101,12 +101,12 @@ public class Main {
 						unknown3[g] = 0;
 						unknown4[g] = 0;
 						unknown5[g] = 1;
-					}else if(Arrays.equals(result, new int[]{0,0,0,0,1})){
-						unknown1[g] = 1;
-						unknown2[g] = 0;
-						unknown3[g] = 0;
-						unknown4[g] = 0;
-						unknown5[g] = 1;
+//					}else if(Arrays.equals(result, new int[]{0,0,0,0,1})){ posioned
+//						unknown1[g] = 1;
+//						unknown2[g] = 0;
+//						unknown3[g] = 0;
+//						unknown4[g] = 0;
+//						unknown5[g] = 1;
 					}
 				} else if(cipher[g].equals("31")){//[0, 0, 1, 0, 0]
 					int[] result = xor(plainText.charAt(g), firstFiveWheels);
@@ -190,12 +190,12 @@ public class Main {
 						unknown3[g] = 0;
 						unknown4[g] = 0;
 						unknown5[g] = 1;
-					}else if(Arrays.equals(result, new int[]{1,1,1,1,0})){
-						unknown1[g] = 1;
-						unknown2[g] = 0;
-						unknown3[g] = 0;
-						unknown4[g] = 0;
-						unknown5[g] = 1;
+//					}else if(Arrays.equals(result, new int[]{1,1,1,1,0})){ //posioned
+//						unknown1[g] = 1;
+//						unknown2[g] = 0;
+//						unknown3[g] = 0;
+//						unknown4[g] = 0;
+//						unknown5[g] = 1;
 					}
 				} else if(cipher[g].equals("30")){//[1, 1, 0, 1, 1]
 					int[] result = xor(plainText.charAt(g), firstFiveWheels);
@@ -251,7 +251,7 @@ public class Main {
 		}
 		System.out.println(teller);
 
-		int[] wheelSizes = new int[]{47,53,59,61,64,65,67,69,71,73}; //the different positions the wheel can take on.
+		int[] wheelSizes = new int[]{53,59,64,67,69}; //the different positions the wheel can take on.
 
 		//copy pasta koden nedefra dirr fra first5wh, den er disfunk som faaaaan
 		for(int k = 0; k<unknownWheels.length; k++){ //Iterate through all the 5 unknown wheels we have
@@ -278,7 +278,7 @@ public class Main {
 					
 				
 				if(collision == 0){
-					System.out.println("Wheel "+k+" has been identified with size "+wheelSizes[i]);
+					System.out.println("Wheel "+k+" can have size "+wheelSizes[i]);
 					//break;
 				}
 			}
