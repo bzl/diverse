@@ -38,6 +38,7 @@ public class Main {
 
 		int[][] unknownWheels = new int[][]{unknown1, unknown2, unknown3, unknown4, unknown5};
 
+		int[] tempFix = new int[]{1, 1, 1, 0, 1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 1, -1, 0, -1, -1, 1, 1, 0, 1, 0, -1, -1, -1, -1, -1, 0, 1, 1, 1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 1, -1, -1, -1, 0, 0, -1, -1, 1, -1, -1};
 
 		alpha5bits = new int[][]{{1, 1, 0, 0, 0}, {1, 0, 0, 1, 1}, {0, 1, 1, 1, 0}, {1, 0, 0, 1, 0}, {1, 0, 0, 0, 0}, {1, 0, 1, 1, 0}, {0, 1, 0, 1, 1}, {0, 0, 1, 0, 1}, {0, 1, 1, 0, 0}, {1, 1, 0, 1, 0}, {1, 1, 1, 1, 0}, {0, 1, 0, 0, 1}, {0, 0, 1, 1, 1}, {0, 0, 1, 1, 0}, {0, 0, 0, 1, 1}, {0, 1, 1, 0, 1}, {1, 1, 1, 0, 1}, {0, 1, 0, 1, 0}, {1, 0, 1, 0, 0}, {0, 0, 0, 0, 1}, {1, 1, 1, 0, 0}, {0, 1, 1, 1, 1}, {1, 1, 0, 0, 1}, {1, 0, 1, 1, 1}, {1, 0, 1, 0, 1}, {1, 0, 0, 0, 1}, {0, 0, 0, 1, 0}, {0, 1, 0, 0, 0}, {1, 1, 1, 1, 1}, {1, 1, 0, 1, 1}, {0, 0, 1, 0, 0}, {0, 0, 0, 0, 0}};
 
@@ -48,12 +49,12 @@ public class Main {
 		int teller = 0;
 		for(int g = 0; g < cipher.length; g++){
 			int[] firstFiveWheels = new int[]{wheel47[g%47],wheel61[g%61],wheel73[g%73],wheel71[g%71],wheel65[g%65]};
-			if(g == 34){
-				System.out.println(cipher[g]);
-				System.out.println(plainText.charAt(g));
-				System.out.println(Arrays.toString(firstFiveWheels));
-			}
-			
+			//			if(g == 34){
+			//				System.out.println(cipher[g]);
+			//				System.out.println(plainText.charAt(g));
+			//				System.out.println(Arrays.toString(firstFiveWheels));
+			//			}
+
 			/* Below is the logic that primarily deals with identifying machine
 			 * positions in which the first five wheels are all identified, so
 			 * that we can use the data from the wheels, xor the plaintext
@@ -86,6 +87,10 @@ public class Main {
 						unknown3[g] = 0;
 						unknown4[g] = 0;
 						unknown5[g] = 0;
+					}else if(Arrays.equals(result, new int[]{1,0,0,0,0})){
+						System.out.println("bomb1");
+						if(tempFix[g%53] != -1)
+							System.out.println("defused");
 					}
 				} else if(cipher[g].equals("28")){ //[0, 1, 0, 0, 0]
 					int[] result = xor(plainText.charAt(g), firstFiveWheels);
@@ -101,12 +106,15 @@ public class Main {
 						unknown3[g] = 0;
 						unknown4[g] = 0;
 						unknown5[g] = 1;
-//					}else if(Arrays.equals(result, new int[]{0,0,0,0,1})){ posioned
-//						unknown1[g] = 1;
-//						unknown2[g] = 0;
-//						unknown3[g] = 0;
-//						unknown4[g] = 0;
-//						unknown5[g] = 1;
+					}else if(Arrays.equals(result, new int[]{0,0,0,0,1})){ //posioned
+						System.out.println("bomb2");
+						if(tempFix[g%53] != -1)
+							System.out.println("defused");
+						//						unknown1[g] = 1;
+						//						unknown2[g] = 0;
+						//						unknown3[g] = 0;
+						//						unknown4[g] = 0;
+						//						unknown5[g] = 1;
 					}
 				} else if(cipher[g].equals("31")){//[0, 0, 1, 0, 0]
 					int[] result = xor(plainText.charAt(g), firstFiveWheels);
@@ -175,6 +183,16 @@ public class Main {
 						unknown3[g] = 0;
 						unknown4[g] = 0;
 						unknown5[g] = 0;
+					}else if(Arrays.equals(result, new int[]{0,1,1,1,1})){
+						System.out.println("bomb3");
+						if(tempFix[g%53] != -1){
+							if(tempFix[g%53] == 1){
+								unknown1[g] = 1;
+								unknown5[g] = 1;
+							} else if (tempFix[g%53] == 0){
+								//kan vel egentlig ikke si en drit, siden det fortsatt er to muligheter, ingen ting er ekskludert
+							}
+						}
 					}
 				} else if(cipher[g].equals("24")){ //[1, 0, 1, 1, 1]
 					int[] result = xor(plainText.charAt(g), firstFiveWheels);
@@ -190,12 +208,25 @@ public class Main {
 						unknown3[g] = 0;
 						unknown4[g] = 0;
 						unknown5[g] = 1;
-//					}else if(Arrays.equals(result, new int[]{1,1,1,1,0})){ //posioned
-//						unknown1[g] = 1;
-//						unknown2[g] = 0;
-//						unknown3[g] = 0;
-//						unknown4[g] = 0;
-//						unknown5[g] = 1;
+					}else if(Arrays.equals(result, new int[]{1,1,1,1,0})){ //posioned
+						System.out.println("bomb4");
+						if(tempFix[g%53] != -1){
+							if(tempFix[g%53] == 1){
+								unknown1[g] = 0;
+								unknown5[g] = 0;
+							} else if (tempFix[g%53] == 0){
+								unknown1[g] = 1;
+								unknown2[g] = 0;
+								unknown3[g] = 0;
+								unknown4[g] = 0;
+								unknown5[g] = 1;
+							}
+						}
+						//						unknown1[g] = 1;
+						//						unknown2[g] = 0;
+						//						unknown3[g] = 0;
+						//						unknown4[g] = 0;
+						//						unknown5[g] = 1;
 					}
 				} else if(cipher[g].equals("30")){//[1, 1, 0, 1, 1]
 					int[] result = xor(plainText.charAt(g), firstFiveWheels);
@@ -249,7 +280,7 @@ public class Main {
 				}
 			}
 		}
-		System.out.println(teller);
+		//		System.out.println(teller);
 
 		int[] wheelSizes = new int[]{53,59,64,67,69}; //the different positions the wheel can take on.
 
@@ -260,31 +291,30 @@ public class Main {
 				Arrays.fill(wheel, -1);
 				int collision = 0;
 				for(int j = 0; j < cipher.length; j++){ //Iterate through the entire ciphers worth of length
-					
+
 					int wj = j%wheel.length;
-					
+
 					int currentUnknown = unknownWheels[k][j];
-					
+
 					if(currentUnknown != -1){
-						
+
 						if((wheel[wj] == 1 || wheel[wj] == 0) && wheel[wj] != currentUnknown){
-							 collision++;
-							 break;
+							collision++;
+							break;
 						} else{
 							wheel[wj] = currentUnknown;
 						}
 					}
 				}
-					
-				
+
+
 				if(collision == 0){
 					System.out.println("Wheel "+k+" can have size "+wheelSizes[i]);
 					//break;
 				}
 			}
 		}
-		
-		
+
 		//		for (int j = 0; j < unknownWheels.length; j++) { //Iterates through all the actual wheels >0-4
 		//			for (int k = 0; k < wheelSizes.length; k++) { //Iterates through all wheel sizes >0-9
 		//				int collisions = 0;
@@ -322,17 +352,4 @@ public class Main {
 	}
 
 }
-
-
-//byte b1 = (byte) 30;
-//String s1 = String.format("%5s", Integer.toBinaryString(b1 & 0xFF)).replace(' ', '0');
-//System.out.println(s1); // 10000001
-//
-//byte b2 = (byte) 15;
-//String s2 = String.format("%5s", Integer.toBinaryString(b2 & 0xFF)).replace(' ', '0');
-//System.out.println(s2); // 00000010
-//
-//byte b3 = (byte) ((byte) b1^b2);
-//String s3 = String.format("%5s", Integer.toBinaryString(b3 & 0xFF)).replace(' ', '0');
-//System.out.println(s3); // 00000010
 
