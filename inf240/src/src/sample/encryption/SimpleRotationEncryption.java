@@ -43,8 +43,8 @@ public class SimpleRotationEncryption {
 
 
 		String cip1 = "PNRFNE PVCURE RE SBE YRGG. SVAA SYRER HGSBEQEVATRE CNN FVXXREURGFOYBTTRA GVY AFZ.";
-		String cip2 = "ULFC://TXBYS.AKY. FLMG.FA/GSD/QM/GGXAEVDVFSRF? ";
-		String cip3 = "32 19 1C 12 1B 57 2F 38 25 57 04 18 1A 57 13 12 03 03 12 57 12 05 57 18 11 03 12 57 15 05 02 1C 03 57 16 01 57 1A 16 1B 00 16 05 12 59 57 3C 16 19 04 1C 1D 12 57 13 02 57 12 05 57 1E 19 03 12 05 12 04 04 12 05 03 57 1E 57 16 19 16 1B 0E 04 12 57 16 01 57 1A 16 1B 00 16 05 12 48 ";
+		//String cip2 = "ULFC://TXBYS.AKY. FLMG.FA/GSD/QM/GGXAEVDVFSRF? ";
+		//String cip3 = "32 19 1C 12 1B 57 2F 38 25 57 04 18 1A 57 13 12 03 03 12 57 12 05 57 18 11 03 12 57 15 05 02 1C 03 57 16 01 57 1A 16 1B 00 16 05 12 59 57 3C 16 19 04 1C 1D 12 57 13 02 57 12 05 57 1E 19 03 12 05 12 04 04 12 05 03 57 1E 57 16 19 16 1B 0E 04 12 57 16 01 57 1A 16 1B 00 16 05 12 48 ";
 
 
 
@@ -85,20 +85,20 @@ public class SimpleRotationEncryption {
 		return ciphertext;
 	}
 
-	private static String rotationAdvanced(int rot, String cipherText) {
-		String alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,?! /\\:;'-*+<>\"=_()&^%$#@[]{}";
-		String plaintext = "";
-
-		for (int i = 0; i < cipherText.length(); i++) {
-
-			int original = alphabet.indexOf(""+cipherText.charAt(i));
-			original += rot;
-			original %= 92;
-			plaintext += alphabet.charAt(original);
-
-		}
-		return plaintext;
-	}
+//	private static String rotationAdvanced(int rot, String cipherText) {
+//		String alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,?! /\\:;'-*+<>\"=_()&^%$#@[]{}";
+//		String plaintext = "";
+//
+//		for (int i = 0; i < cipherText.length(); i++) {
+//
+//			int original = alphabet.indexOf(""+cipherText.charAt(i));
+//			original += rot;
+//			original %= 92;
+//			plaintext += alphabet.charAt(original);
+//
+//		}
+//		return plaintext;
+//	}
 
 
 }

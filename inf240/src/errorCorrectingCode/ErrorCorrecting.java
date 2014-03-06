@@ -106,29 +106,29 @@ public class ErrorCorrecting {
 		return syndrome;
 	}
 
-	/**
-	 * Deprecated(not in use) method that calculates the hammingdistance 
-	 * between two int arrays with equal length. 
-	 * E.g {1,1,1,1} and {1,1,0,0} has a hamming distance of two.
-	 * 
-	 * @param tab1 The first of two arrays to be compared
-	 * @param tab2 The second of two arrays to be compared
-	 * @return hamming distance between two arrays.
-	 */
-	private static int hammingDistance(int[] tab1, int[] tab2){
-		int distance = 0;
-		if((tab1.length != tab2.length)){
-			System.out.println("hammingDistance() was called with invalid input.");
-			return -1;
-		}
-		for(int i = 0; i < tab1.length; i++){
-			//iterate through entire first array, compare with second, increment if no match.
-			if(tab1[i] != tab2[i]){
-				distance++;
-			}
-		}
-		return distance;
-	}
+//	/**
+//	 * Deprecated(not in use) method that calculates the hammingdistance 
+//	 * between two int arrays with equal length. 
+//	 * E.g {1,1,1,1} and {1,1,0,0} has a hamming distance of two.
+//	 * 
+//	 * @param tab1 The first of two arrays to be compared
+//	 * @param tab2 The second of two arrays to be compared
+//	 * @return hamming distance between two arrays.
+//	 */
+//	private static int hammingDistance(int[] tab1, int[] tab2){
+//		int distance = 0;
+//		if((tab1.length != tab2.length)){
+//			System.out.println("hammingDistance() was called with invalid input.");
+//			return -1;
+//		}
+//		for(int i = 0; i < tab1.length; i++){
+//			//iterate through entire first array, compare with second, increment if no match.
+//			if(tab1[i] != tab2[i]){
+//				distance++;
+//			}
+//		}
+//		return distance;
+//	}
 
 	/**
 	 * Checks a vector (key) with a matrix, to see if vector is present.

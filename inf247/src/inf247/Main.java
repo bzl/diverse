@@ -280,7 +280,7 @@ public class Main {
 				}
 			}
 		}
-		//		System.out.println(teller);
+				System.out.println(teller);
 
 		int[] wheelSizes = new int[]{53,59,64,67,69}; //the different positions the wheel can take on.
 
