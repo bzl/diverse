@@ -16,7 +16,7 @@ public class FolderCreation {
 		boolean didSucceed = newFolder.mkdir();
 		System.out.println("New folder was "+(didSucceed ? "created." : "not created."));
 
-		long currTime = System.currentTimeMillis();
+		//long currTime = System.currentTimeMillis();
 
 		//		for(File fil : newFolder.listRoots()){
 		//			System.out.println(fil);
@@ -37,17 +37,17 @@ public class FolderCreation {
 	 * @param folder
 	 * @return size of folder/file
 	 */
-	private static long sizeOfFolder(File folder){
-		long size = 0;
-		if(folder.isFile()){//Basecase
-			System.out.println(folder.toString());
-			return folder.length();
-		} 
-
-		for(File subFile : folder.listFiles()){//Recursive case (if not file, we can assume its a folder)
-			size += sizeOfFolder(subFile);
-		}
-		return size;
-	}
+//	private static long sizeOfFolder(File folder){
+//		long size = 0;
+//		if(folder.isFile()){//Basecase
+//			System.out.println(folder.toString());
+//			return folder.length();
+//		} 
+//
+//		for(File subFile : folder.listFiles()){//Recursive case (if not file, we can assume its a folder)
+//			size += sizeOfFolder(subFile);
+//		}
+//		return size;
+//	}
 
 }

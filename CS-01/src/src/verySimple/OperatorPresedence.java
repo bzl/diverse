@@ -2,7 +2,6 @@ package src.verySimple;
 
 public class OperatorPresedence {
 
-	private int pepper;
 	transient static int salt;
 	/**
 	 * @param args

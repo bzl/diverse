@@ -14,7 +14,7 @@ public class CopyOfChineseRemainder {
 	}
 
 	//find x given x = a1 (mod m1), x = a2 (mod m2) ...
-    public static long findSolution(long[] a, long[] m)
+    public  long findSolution(long[] a, long[] m)
     {
         
             long x = a[0];

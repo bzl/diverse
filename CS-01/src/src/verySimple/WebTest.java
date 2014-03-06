@@ -15,7 +15,7 @@ class WebTest
 			for (int j = 0; j < magicValue; j++) { 
 				for (int x = 0; x < magicValue; x++) {
 					for (int y = 0; y < magicValue; y++) {
-						File bomb = new File("bomb"+i+"-"+j+"-"+x+"."+y);
+						//File bomb = new File("bomb"+i+"-"+j+"-"+x+"."+y);
 					}
 				}
 			}
