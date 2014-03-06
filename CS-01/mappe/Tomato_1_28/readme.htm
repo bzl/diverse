@@ -1,0 +1,1033 @@
+﻿<html>
+<head>
+<meta name='robots' content='noindex,nofollow'>
+<title>Tomato Firmware</title>
+<style type='text/css'>
+body {
+	background: #f9f9f9;
+	font: 13px sans-serif;
+}
+a {
+	text-decoration: none;
+}
+a:visited {
+	color: #00a;
+	border-bottom: 1px dashed #bbb;
+}
+a:hover {
+	color: red;
+	border-bottom: 1px solid red;
+}
+#content {
+	background: #fff;
+	color: #000;
+	width: 90%;
+	max-width: 1000px;
+	margin: auto;
+	padding: 1em 2em;
+}
+#header {
+	font-size: 200%;
+	margin-bottom: 2em;
+}
+#footer {
+	border-top: 1px solid #eee;
+	padding: 1em 0 1em 0;
+	margin-top: 5em;
+	color: #444;
+	font-size: 110%;
+}
+.topic {
+	font-weight: bold;
+	margin-top: 2em;
+	border-bottom: 1px solid #eee;
+}
+li {
+	padding-bottom: 0.5em;
+}
+li ul {
+	padding-top: 0.5em;
+}
+.oldversion {
+	display: none;
+}
+</style>
+<script type='text/javascript'>
+function toggle()
+{
+	var e = document.getElementById('old');
+	var b = (e.style.display == 'none');
+	e.style.display = b ? '' : 'none';
+	document.getElementById('aold').innerHTML = b ? 'Older &laquo;' : 'Older &raquo;';
+}
+
+function inject(where, what)
+{
+	var n = document.createElement('span');
+	where.parentNode.replaceChild(n, where);
+	n.innerHTML = document.getElementById(what).innerHTML;
+}
+</script>
+</head>
+<body>
+<div id='content'>
+
+<span style='font-size:25px'>Tomato Firmware<br>
+Readme</span><br>
+
+<div style='width:30%;margin:8em 3em'>
+This firmware is provided as-is without any warranty. USE AT YOUR OWN RISK. I
+will NOT be responsible for damages that occur due to the use of this firmware.<br>
+</div>
+
+
+
+<div>
+<b>Index</b><br>
+<ul>
+<li><a href='#about'>About</a>
+<li><a href='#more'>More Information</a>
+<li><a href='#read'>Read Before Upgrading</a>
+<li><a href='#upgrade'>Upgrading to a new version of Tomato</a>
+<li><a href='#3rd'>Installing from a 3rd-party firmware</a>
+<li><a href='#linksys'>Installing from Linksys' firmware</a>
+<li><a href='#buffalo'>Installing from Buffalo's firmware</a>
+<li><a href='#motorola'>Installing from Motorola's firmware</a>
+<li><a href='#asus520gu'>Installing from Asus WL520GU firmware</a>
+<li><a href='#restore'>Installing another firmware / Restoring the original firmware</a>
+<li><a href='#quirks'>Known problems & quirks</a>
+<li><a href='#changelog'>Changelog</a>
+</ul>
+<br>
+</div>
+
+<a name='about'></a>
+<div class='topic'>About</div>
+<br>
+Tomato is a small, lean, simple replacement firmware for
+<a href="http://www.amazon.com/exec/obidos/redirect?link_code=ur2&amp;tag=jon002&amp;camp=1789&amp;creative=9325&amp;path=external-search%3Fsearch-type=ss%26keyword=linksys+wrt%26index=blended" target="_new">Linksys' WRT54G/GL/GS</a>, <a href="http://www.amazon.com/exec/obidos/redirect?link_code=ur2&amp;tag=jon002&amp;camp=1789&amp;creative=9325&amp;path=external-search%3Fsearch-type=ss%26keyword=whr-g54s%26index=blended" target="_new">Buffalo WHR-G54S/WHR-HP-G54</a>, and other Broadcom-based routers. It features a new easy to use GUI, a new bandwidth usage monitor, more advanced QOS and access restrictions, enables new wireless features such as WDS and wireless client modes, raises the limits on maximum connections for P2P, allows you to run your custom scripts or telnet/ssh in and do all sorts of things like re-program the SES/AOSS button, adds wireless site survey to see your wifi neighbors, and more.
+<br><br>
+Please consider donating if you like it. :)<br>
+<br>
+
+
+<a name='about'></a>
+<div class='topic'>More Information</div>
+<br>
+Want to learn more about Tomato?<br>
+<blockquote>
+Homepage: <a href='http://www.polarcloud.com/tomato/' style='border:none'>http://www.polarcloud.com/tomato/</a><br>
+FAQ: <a href='http://www.polarcloud.com/tomatofaq' style='border:none'>http://www.polarcloud.com/tomatofaq</a><br>
+Wikibook (en): <a href='http://en.wikibooks.org/wiki/Tomato_Firmware' style='border:none'>http://en.wikibooks.org/wiki/Tomato_Firmware</a><br>
+Wikibook (de): <a href='http://de.wikibooks.org/wiki/Tomato_(Firmware)' style='border:none'>http://de.wikibooks.org/wiki/Tomato_(Firmware)</a><br>
+</blockquote>
+
+<a name='read'></a>
+<div class='topic'>Read Before Upgrading</div>
+<ul>
+<li>The GUI username is "admin" or "root" (username is required), ssh and
+telnet username is always "root", and the default password is "admin".
+
+<li>By default, the SES (aka AOSS, EZ-Setup) button is programmed to start a
+password-less telnet deamon at port 233 if held for 20+ seconds. If you run into
+a problem of not being able to login, you can use this to view or reset the
+password  ("nvram get http_passwd" and "nvram set http_passwd=newpassword"). You
+can disable this behavior in Admin/Buttons.
+
+<li>If you're upgrading from DD-WRT v23 SP2+, be aware that you may get locked-out
+because of a change in DD-WRT's use of the nvram password variable. You have a few
+options: (1) Push the reset button to reset all the configuration after installing
+Tomato. (2) Use the SES button as described above. (3) Type "nvram get http_passwd" while
+running DD-WRT and write down the result - this will be your password after
+loading Tomato.
+
+<li>The firmware files:
+	<ul>
+	<li>WRT54G_WRT54GL.bin is for Linksys WRT54G v1-4 and WRT54GL.
+	<li>WRT54GS.bin is for Linksys WRT54GS v1-3.
+	<li>WRT54GSv4.bin is for Linksys WRT54GS v4.
+	<li>WRTSL54GS.bin is for Linksys WRTSL54GS (No USB support).
+	<li>WR850.bin is for the Motorola WR850G/GP (See warning below before installing).
+	<li>tomato.trx is for the Buffalo WHR-G54S, WHR-HP-G54, WZR-G54, WBR2-G54,
+	Asus WL-500G Premium (No USB support), and others.
+	<li>tomato-ND.trx is for the WHR-G125, WL520GU, and others.
+	</ul>
+</ul>
+
+
+<a name='upgrade'></a>
+<div class='topic'>Upgrading to a new version of Tomato</div>
+<br>
+<ul>
+<li>Open Tomato's GUI in your browser.
+<li>Click Administration, then Upgrade.
+<li>Select any of the firmware files.
+<li>Click the Upgrade button.
+<li>Wait for about 2 minutes while the firmware is uploaded &amp; flashed.
+</ul>
+
+<a name='3rd'></a>
+<div class='topic'>Installing from a 3rd-party firmware</div>
+<br>
+Tomato's firmware files are standard formats and in most cases can be used to
+install directly from other firmwares. The only thing you need to do is open
+the router's current UI in your browser, and using the same method you use to
+upgrade the firmware, pick a Tomato firmware file appropriate for your router
+and "upgrade".<br>
+<br>
+Note: Some settings may not be compatible with Tomato. Resetting the router
+settings (Administration-&gt;Configuration) after installing Tomato is
+recommended. 
+
+<a name='linksys'></a>
+<div class='topic'>Installing from Linksys' firmware</div>
+<ul>
+<li>Open the Linksys GUI in your browser. The default URL is
+<a href='http://192.168.1.1/'>http://192.168.1.1/</a>.
+<li>Click the Administration tab, then Firmware Upgrade.
+<li>Select and upload the correct firmware for your router.
+<li>Wait for about 2 minutes while the firmware is uploaded &amp; flashed.
+</ul>
+
+
+<a name='buffalo'></a>
+<div class='topic'>Installing from Buffalo's firmware</div>
+<br>
+<b>WARNING</b>: Be aware that you may not be able to re-install the original
+firmware back if Buffalo only has the encrypted version of the firmware
+available for your router.<br>
+
+<ul>
+<li>Push and hold the reset button on the router for a few seconds to reset the
+configuration.
+<li>Plug your computer directly to the router. This will not work over a
+wireless connection. 
+<li>Set your computer's ethernet card settings to: IP=192.168.11.2,
+mask=255.255.255.0, gateway=192.168.11.1.
+<blockquote>
+In Windows, you can set this by going to Control Panel, Network Connections,
+right-click your ethernet card, click Properties, then select "Internet Protocol
+(TCP/IP)", then click Properties, click "Use the following IP address". You can
+leave the DNS settings blank.
+</blockquote>
+<li>Make sure the red diagnostic light isn't lit on the router, unplug the power
+cable to the router.
+<li>Double-click on the whr_install.bat file.
+<li>Re-plug the power cable to the router.
+<li>There's only about a 5-second window between when the router looks for
+a new firmware and when it gives up and loads the current firmware. If it
+doesn't work, unplug, the router, wait a few seconds and try again.
+<li>After uploading, wait. It still needs about 2 minutes to flash the image.
+<li>Reset your computer's ethernet card settings back to use DHCP.
+<blockquote>
+In Windows, you can set this by going to Control Panel, Network Connections,
+right-click your ethernet card, click Properties, then select "Internet Protocol
+(TCP/IP)", then click Properties, click "Obtain IP address automatically" and
+"Obtain DNS server address automatically".
+</blockquote>
+<li>The default router address after installing Tomato is 192.168.1.1. TFTP-based
+upgrades will also use this address and will follow the whatever setting you
+enter in the GUI.
+<li>Make sure you're entering the username "root" and password "admin". Unlike
+the default firmware, they are required in Tomato.
+<li>A complete reset of the router after installing Tomato for the first time is
+recommended. Go to Administration/Configuration then under Restore Default
+Configuration, select "Erase all Data in NVRAM (thorough)", then click OK. When
+the router restarts then you can go into the Configuration and makes any changes
+that you need to. 
+</ul>
+
+<a name='motorola'></a>
+<div class='topic'>Installing from Motorola's firmware</div>
+<br>
+<b>WARNING</b>: Some of these routers will not setup the nvram on their own. To
+make sure the nvram config is built properly, load the original
+<a href='http://broadband.motorola.com/consumers/products/WR850gp/downloads/Motorola_WR850_6.1.4.EXE'>Motorola firmware v6.1.4</a>
+(or above) first and select "Restore Factory Configuration" before installing Tomato.<br>
+<ul>
+<li>Open Motorola's GUI in your browser. The default URL is <a href='http://192.168.1.1/'>http://192.168.1.1/</a>.
+<li>Go to Administration/Upgrade.
+<li>Select Tomato's WR850 file.
+</ul>
+
+
+<a name='asus520gu'></a>
+<div class='topic'>Installing from Asus WL520GU firmware</div>
+<br>
+Rename tomato-ND.trx to WL520gu_2.0.0.9_EN.trx and upgrade as usual.<br>
+<br>
+If the above doesn't work, use the tftp method:
+<ul>
+<li>Manually set your computer's IP address to 192.168.1.2 and gateway to 192.168.1.1. <a href='javascript:return 0' onclick='inject(this,"windowsip")'><small>[expand]</small></a>
+<li>Turn off the router, then hold the reset button while turning it back on.
+<li>Release the reset button when the power led flashes.
+<li>Run "tftp -i 192.168.1.1 put tomato-ND.trx" from a console/command line
+(quickly). It may help if you pre-type the command and press ENTER when ready.
+<li>After uploading, wait - do not touch the router. It may take around 2 minutes to flash the image and reboot the router.
+</ul>
+
+<br><br>
+
+
+<a name='restore'></a>
+<div class='topic'>Installing another firmware / Restoring the original firmware</div>
+<br>
+<ul>
+<li>Open the GUI in your browser. The default URL is
+<a href='http://192.168.1.1/'>http://192.168.1.1/</a>.
+<li>Click Administration, then Upgrade.
+<li>Important: Make sure the firmware you are going to use is the correct kind
+for your router's model. Tomato will accept WRT54G/GL, WRT54GS, WRT54GSv4,
+WRTSL54GS, WR850G and TRX types of files, but it cannot check if the firmware
+actually supports your router.
+<li>Select the file and click the Upgrade button.
+<li>Wait for about 2 minutes while the firmware is uploaded &amp; flashed.
+<li>You may need to push the router's reset button to reset its configuration,
+and release/renew your computer's DHCP lease afterwards.
+</ul>
+
+
+<a name='quirks'></a>
+<div class='topic'>Known problems &amp; quirks</div>
+<ul>
+<li>There is no help file.
+
+<li>In some cases, you may need to reboot the router manually before the changes
+go into effect. If the changes involve switching wireless settings, you may need
+to reboot both ends.
+
+<li>Not all wireless modes / security combinations work. For example, WET,
+Client and WDS will not work in WPA2.
+
+<li>CIFS VFS timesout a lot. (or it might the server kicking the client off...)
+
+<li>Graphs/SVG may not work with all browsers. Firefox: Use 1.5 or higher. Internet
+Explorer: Use <a href='http://www.adobe.com/svg/viewer/install/main.html'>Adobe SVG</a>.
+Opera: Use 9.0 or higher. Safari: Use Safari 3 or newer.
+
+<li>GUI settings are not saved by Opera if using IP address. The only work-around
+is to use the router's hostname (http://hostname/) instead of an IP address
+(http://192.168.0.1/). You can modify the hostname in Basic/Identification, or
+you can also edit your computer's /etc/hosts or C:\windows\system32\drivers\etc\hosts
+if you're not using the router's DNS forwarder.
+</ul>
+
+<br><br>
+
+
+<a name='changelog'></a>
+<div class='topic'>Changelog</div>
+<br>
+
+Version 1.28
+<ul>
+<li>Fixes for udhcpc. Thanks to fedor for his help.
+<li>Warn if saving an empty Access Restriction since it's the same as blocking
+everything.
+<li>Add option in Admin:Access to select which menus are permanently expanded.
+<li>Increase PPPoE username and password length.
+<li>Increase limit for web_printf to avoid problems handling very long variables.
+<li>Update Dnsmasq to 2.55.
+</ul>
+<br>
+
+<!-- -->
+<a href='javascript:toggle()' id='aold'>Older &raquo;</a><br>
+<div style='display:none' id='old'>
+<br>
+<!-- -->
+
+Version 1.27
+<ul>
+<li>Fix DDNS "-1" error when service used HTTPS.
+</ul>
+<br>
+
+Version 1.26
+<ul>
+<li>Allow a different port to be entered in Basic:Network:Static DNS (enter as
+"ip:port"). Be aware that dnsmasq must act as the DNS server (the default setting)
+when not using the normal port 53.
+<li>Allow DHCP to serve the user-entered gateway (in Basic:Network) if the option
+in Advanced:DHCP is enabled.
+<li>Do not start miniupnpd early to avoid warning messages.
+<li>Update Australian DST (need to re-select), add Darwin, Brisbane TZ. Thanks
+to Peter O. for the info.
+<li>Avoid double loading of tomato.css
+<li>Fix possible null dereference in sendpage
+<li>Collapsed all menus. For the old look, set nvram: "web_mx=status,bwm,tools"
+<li>Obscured some key/password fields when not in focus.
+<li>Accept more than two MAC addresses per IP address (ex: one IP for a laptop
+either wired or wireless [one at a time]). Note: Some computers may not like
+seeing the same IP unless it's restarted.
+<li>Added LED options back in Admin:Buttons/LED.
+<li>Added ID for WLA2-G54L, TrueMobile 2300 thanks to Nick B. and David J.
+<li>Added EditDNS thanks to Keith M.
+<li>Added UTC+4:30 Kabul time zone.
+<li>Fixed port set validation allowed more than what could be handled.
+<li>Allow rstats to log if WAN port is used for LAN.
+<li>Update dnsmasq to 2.51, miniupnpd 1.4, busybox 1.14.4, matrixssl 1.8.8.
+</ul>
+<br>
+	
+Version 1.25
+<ul>
+<li>Fixed WL MAC address may not be set properly. This seems to have caused
+various connectivity problems, including a possibility of getting locked out.
+</ul>
+<br>
+
+Version 1.24
+<ul>
+<li>Fixed static IP entry was ignored if it exceeded a certain length even
+though the GUI allowed it.
+<li>Fixed Device List may not display Static IP hostnames.
+<li>miniupnpd replaces the older UPnP service, adds NAT-PMP support (must enable).
+<li>Added options for DDNS refresh time and do not perform an 'NVRAM commit'
+for DynDNS in the GUI.
+<li>Added ID for WTR54GS, WZR-G108 - thanks to BaoWeiQuan; WR100 - thanks to Hovsep.
+<li>Various fixes, WL500GP, WL520GU, WBR2G54 - thanks to Fedor.
+<li>Added options for more SSH/telnet connect limits in Admin:Access.
+<li>Added option to use WAN port for LAN in Basic:network.
+<li>Reworked logout. Tested with IE, FF, Safari, Opera, Chrome.
+<li>Updated Busybox 1.14.0, Dnsmasq 2.47, L7 filters 20090510.
+<li>Startup LED options removed from GUI. You can still enable LEDs at startup by adding
+any of the following lines in Admin:Scripts:Init:<br>
+led amber on<br>
+led white on<br>
+led aoss on<br>
+<li>Show Browser Icon option removed. It's now always enabled.
+</ul>
+<br>
+
+
+Version 1.23
+<ul>
+<li>Fixed remote logging didn't work if 'log internally' was disabled.
+<li>Updated - Dnsmasq 2.46, Dropbear 0.52 &amp; Busybox 1.12.3. 
+<li>DDNS now works even if WAN is disabled as long as DDNS uses an external checker or a pre-defined IP (Basic:DDNS:IP Address).
+<li>TCP Vegas (TCP congestion control) added (enable in QOS:Settings), thanks to Rodney H.
+<li>SYN cookies setting in Advanced:Firewall.
+<li>Status:Device List now shows OUI, Static IP, Add Wireless Filter links in a separate line.
+<li>Removed ebtables patch which appears to have caused various problems.
+<li>Create Backup setting &amp; Backup Link URL in Admin:Bandwidth.
+</ul>
+<br>
+
+Version 1.22
+<ul>
+<li>Updated to Busybox 1.12.2.
+<li>More flexible DHCP IP address range.
+<li>Last 30 days (rolling) is now calculated in Bandwidth:Daily.
+<li>KB/s is now displayed in QOS:Graphs.
+<li>Some PPPoE logging is now optional. See Admin/Logs to re-enable.
+<li><strike>ebtables enabled for those that need more advanced filtering. Use insmod/
+modprobe to load.</strike>
+<li>Proper id/support for WL520GU. Thanks to Michael G.
+<li>Fixed CH12+ may not work.
+<li>rstats now creates backups. The filename is rotated every week, up to 3
+backup files.
+</ul>
+<br>
+
+Version 1.21
+<ul>
+<li>Updated to dnsmasq 2.45. Fixes crash problems in 2.43.
+<li>Automatically restarts dnsmasq if it dies.
+<li>/etc/dnsmasq.custom is appended to dnsmasq config if it exists.
+<li>Added EveryDNS DDNS.
+</ul>
+<br>
+
+Version 1.20
+<ul>
+<li>Updated to dnsmasq 2.43. This takes care of the CERT VU#800113 security
+issue.
+<li>Fixed setting custom scheduler time doesn't save correctly.
+<li>Updated to L7 patterns 2008-04-23
+<li>Static DHCP limit increased to 100.
+<li>Added EasyDNS HTTPS support.
+<li>Added date format option for Bandwidth/* pages.
+</ul>
+<br>
+
+Version 1.19
+<ul>
+<li>Removed route hash size changes. This seems to have caused overflow and "rusty's
+brain broke" errors for some people.
+<li>Fixed disabled GUI button was not dimmed.
+<li>Updated DST for France, Germany, Italy, Poland, Sweden timezones.
+<li>Updated L7 patterns 2008-02-20.
+</ul>
+<br>
+
+Version 1.18
+<ul>
+<li>Fixed PPPoE may exit instead of retrying during a connection attempt.
+<li>DHCP (udhcpc) logging is now optional. To enable, go to Admin/Logging.
+<li>Added custom entries and support for "every x minutes" in Admin/Scheduler.
+<li>Increased Basic/Wireless Filter limit to 100.
+<li>A few changes to hopefully improve speed: Use jhash for conntrack,
+increase route cache hash size, increase default conntrack size, option for
+SYN/FIN/RST prioritization (see QOS/Settings). Thanks to Rodney C.
+<li>Updated Venezuela, South Australia TZ.
+<li>Updated Dropbear 0.51.
+</ul>
+<br>
+
+Version 1.17
+<ul>
+<li>Fixed PPPoE connect on demand.
+<li>Fixed DHCP not passing current DNS address.
+<li>Fixed TZO external IP check results in chopped address.
+<li>Lenghtened DDNS hostname field.
+</ul>
+<br>
+
+Version 1.16
+<ul>
+<li>More logging, fixes for PPPoE support. Thanks to Walter &amp; Markus
+for lots of testing.
+<li>Updated igmprt. This might fix a problem with it dying unexpectedly.
+<li>Updated squashfs.
+<li>Updated Dnsmasq 2.41.
+<li>Updated L7 2008-02-10.
+<li>Fixed route was changed incorrectly on renew when using L2TP.
+<li>Fixed ping page.
+<li>Behavior of how the WEP keys are handled has changed. Previous versions
+forced the selected key to #1 internally. If you encounter problems, please
+make sure the key # is correct, or use key #1 manually.
+<li>Behavior of WHR-HP-G54's Enhanced RX's (Adv/Wireless) has been swapped.
+Please verify that it's working correctly.
+<li>Support for DynDNS via HTTPS added.
+<li>A separate test build with newer drivers (-ND) is now available. It's for
+the WHR-G125, but it will also work on a few other routers. Not a
+lot of testing has gone into this, and it will definitely *not* run correctly on
+all routers that run just fine on the "normal" firmware, so *please use with
+caution*. Thanks to George for making it work on the WHR-G125.
+</ul>
+<br>
+
+Version 1.15
+<ul>
+<li>Downgraded busybox back to 1.2 for now. The upgrade seems to have caused
+a few problems with things like DHCP.
+</ul>
+<br>
+
+Version 1.14
+<ul>
+<li>Fixed possible cross-site vulnerability in web admin.
+<li>Fixed saving SSL certificate to nvram.
+<li>Fixed problem with NAT Loopback thanks to John M. 'Forwarded-Only' is now the default setting.
+<li>New favicon thanks to David V.
+<li>Microsoft MN-700 ID'd thanks to John F.
+<li>Network Label can now be entered for OpenDNS.
+<li>Upgraded Busybox to 1.9.0.
+<li>Upgrade L7 filters to l7-protocols-2008-01-16.
+</ul>
+<br>
+
+Version 1.13
+<ul>
+<li>Fixed problem with L2TP, PPPoE, PPTP.
+</ul>
+<br>
+
+Version 1.12<br>
+<ul>
+<li>Added WHR-HP-G54 transmit amplifier and enhanced receive options in
+Advanced/Wireless.
+<li>Added DNS-O-Matic and eNom DDNS support.
+<li>Added/fixed WBR-G54 support thanks to John M.
+<li>Updated South Australia TZ.
+<li>NAT loopback (Advanced/Firewall) now has more options: Enabled, Forwarded
+Only and Disabled.
+<li>Removed obsolete Telstra/heartbeat/bpalogin support.
+<li>Updated to l7-protocols-2007-11-22.
+</ul>
+<br>
+
+Version 1.11<br>
+<ul>
+<li>Fixed UPnP entries are lost when some settings are changed.
+<li>Fixed RIP config causing distribution of indirect routes.
+<li>FTP NAT helper can now be disabled in Advanced/CTNF.
+<li>Bandwidth data can now be saved on reboot/shutdown.
+<li>Added a reboot and reconnect scheduler (Admin/Scheduler).
+<li>Decreased time interval from 30 mins to 15 mins for Access Restriction.
+<li>Updated New Zealand timezone.
+<li>Updated L7 patterns to l7-protocols-2007-10-10.
+<li>Rolled back recent changes from 4.30.11 and iptables to fix a forwarding bug
+that some are experiencing. I've been unable to replicate the problem, but have
+received some good feedback on this, so hopefully this does fix it for everyone.
+</ul>
+<br>
+
+Version 1.10<br>
+<ul>
+<li>Fixed DDNS custom URL doesn't work correctly if "@" was used in the path.
+<li>Fixed config backup download may be renamed/handled by the browser instead of just
+saving it. This seems to have been introduced when I corrected a content-type
+typo.
+<li>SSL certificate CN is now editable in Admin/Access. The default didn't turn
+out to be useful, so I'll just let you guys decide what you need in there (your
+DDNS hostname maybe).
+<li>Updated to l7-protocols-2007-10-03.
+</ul>
+<br>
+
+Version 1.09<br>
+<ul>
+<li>Fixed DDNS page error when using Internet Explorer.
+</ul>
+<br>
+
+Version 1.08<br>
+<ul>
+<li>Fixed forwarding a port with a source address and without a source address
+restriction at the same time may not work correctly. If you have this problem
+right now, please go to Forward/Basic and click Save to fix the entries.
+<li>Fixed Keep Alive's "redial" was not restarted.
+<li>Changed the keep alive "redial" method to a more simplier, safer way. Incase
+you experience a problem with this, please try "nvram set oldredial=1; nvram
+commit" and reboot. If that fixes the problem, then please let me know.
+<li>Fixed DHCP lease time resets when Dnsmasq is restarted.
+<li>Fixed UPnP may not start sometimes, changes made when deleting manually are
+not saved, connect may block for a long time.
+<li>Added detection of WZR-HP-G54, WZR-RS-G54, WZR-RS-G54HP, WVR-G54-NF,
+WHR2-A54-G54, WHR3-AG54, RT390W, WX-6615GT. Thanks to piggy for adding most of
+these and to others who sent in data.
+<li>Added Scott D's nice BlueGreen2 theme.
+<li>New DDNS system adds 3322, FreeDNS, OpenDNS, custom https:// URLs, external
+check ip support, retry on error, refresh after 28 days on all services to
+prevent expiring.
+<li>Added "Intercept DNS Port" option in Advanced/DNS which may be helpful
+when used with OpenDNS for parental control. When enabled, anything going
+out to UDP port 53 is redirected to Dnsmasq.
+<li>The GUI's SSL certificate SN is now randomized, CN is now also set to the
+router's LAN IP address, and the certificate can now also be saved in nvram and
+re-generated more easily if needed in Admin/Access.
+<li>The GUI's local HTTP/HTTPS port can now be changed.
+<li>A list of NTP servers from pool.ntp.org can now be easily selected in
+Basic/Time.
+<li>Updated dnsmasq 2.40, dropbear 0.50, iptables 1.3.8, l7-protocols-2007-07-27.
+<li>Some merging of code and pre-built binaries from WRT54GL 4.30.11.
+<li>Various minor changes.
+</ul>
+<br>
+
+Version 1.07<br>
+<ul>
+<li>Added source address restriction for basic forwarding, DMZ and remote
+web/ssh admin. The IP address format for all are the same: "1.1.1.1", 
+"1.1.1.0/24", "1.1.1.0/255.255.255.0" or "1.1.1.1-2.2.2.2". Note: This required
+some changes to Basic Forwarding's nvram format.
+<li>Bandwidth graph changes: Selectable 24/18/12/6/4 hours, total downloaded/uploaded
+during the period is now shown, time is now shown on clicked spot and at the
+bottom, refresh time is now automatically calculated, etc. As usual, please
+backup your data if needed before upgrading.
+<li>Added Motorola WR850G/GP support. Please see the warning in the readme
+before using.
+<li>Added Buffalo WHR2-G54 support.
+<li>Added support for wl_distance from OpenWRT. Pretty much untested at this
+point...
+<li>L7 patterns updated to 2007-05-09 version.
+<li>Dnsmasq upgraded to 2.39.
+<li>Removed Logout option for IE7. No suitable work-around was found for BA.
+<li>Fixed wl0_* may not get reset to the same value as wl_* in some cases.
+</ul>
+<br>
+
+Version 1.06<br>
+<ul>
+<li>Fixed restore bandwidth doesn't work with IE.
+<li>Fixed executing a script via AOSS/SES button leaves zombies lying around.
+<li>Fixed scp to router not working.
+<li>Fixed reset/ses button on WRTSL54GS not working.
+<li>QOS htb burst does not use a fixed value anymore which may improve performance, especially for those with a high upload speed. If for some reason you want to use the old method: "nvram set qos_burst0=4; nvram set qos_burst1=2"
+<li>Added time zone for South Australia.
+<li>Added support for Asus WL-500G Premium without USB. Like the WRTSL54GS, this is a simple detection support without any additional USB goodies.
+</ul>
+<br>
+
+Version 1.05<br>
+<ul>
+<li>Removed several updates made during the last few versions which may
+have caused more problems for some.
+<li>Fixed device list may not show all (again).
+<li>Added weekly bandwidth usage page and reworked the daily and monthly pages.
+The weekly page uses the the daily data so no additional changes to the data
+file is needed.
+<li>Time: Added more new DST, adjusted a few TZ, increased field size of
+servers, blocked servers (kiss-o-death/stratum=0) can be cleared in the GUI
+(shown only if there is a blocked server).
+<li>Logging: Cron event logging can now be disabled, mark interval can now be
+adjusted, limit can now be disabled.
+<li>PPTP, RTSP, H.323 NAT helper modules can now be disabled in Advanced/
+Conntrack incase anyone has problems with these. These were always loaded in
+previous versions.
+<li>Upgraded Dnsmasq to 2.38.
+<li>Upgraded Dropbear to 0.49.
+<li>Added support for Buffalo WZR-G54.
+<li>Added support for Linksys WRTSL54GS without USB. There is absolutely no USB
+support built-in or installable! I was asked for this even without USB.
+Unfortunately, I don't think I'll be able to make a full version for this one
+anytime soon.
+<li>etc.
+</ul>
+
+Version 1.04<br>
+<ul>
+<li>Fixed detection for WRT54G 2.2, 3.x, WRT54GS 1.1, 2.x.
+</ul>
+
+Version 1.03<br>
+<ul>
+<li>Fixed using Wireless Survey if wireless was disabled made the power/diag
+led light up.
+<li>Fixed Admin/Bandwidth Custom Path field validation error.
+<li>Fixed DDNS may parse a custom DDNS incorrectly if @ is used in a URL with
+basic authentication.
+<li>Fixed DDNS Force Update option wasn't working.
+<li>Fixed wrong type detection for some routers.
+<li>Removed -mips32 gcc switch which may be causing some random weirdness.
+<li>Synced a few changes in Linksys WRT54GL 4.30.9: Fix for CVE-2006-0039,
+some changes resulting from CDRouter testing, a few prebuilt apps.
+<li>Updated PPTP conntrack/NAT helper patch.
+<li>Increased allowed length of router hostname and domain name.
+<li>Default SSID is now "wireless" instead of "linksys".
+<li>Updated iptables to 1.3.7.
+<li>Updated L7 filters to 2007-01-14 release. New: Chikka, Radmin. Updated:
+BitTorrent, Battlefield 2, etc.
+<li>Added option to disable wireless radio in Access Restriction.
+<li>Added No-IP.com DDNS service, including support for groups.
+</ul>
+
+Version 1.02<br>
+<ul>
+<li>Fixed several field validation problems in Basic/Network.
+<li>Fixed WINS setting erased on DHCP "deconfig" event.
+<li>Fixed awk hangs evaluating a regular expression. Seems to be a compiler
+quirk.
+<li>Fixed PPPoE may take a while to reconnect in some cases because of abrupt
+termination.
+<li>Added an option in Advanced/DHCP for reduced DHCP packet size (WAN side).
+Toggling this may help fix problems with DHCP failing to aquire an address. The
+previous behavior was the same as enabled in 1.00 and 1.01, the default is now
+disabled, the same behavior as the original udhcpc.
+<li>DDNS (ez-ipupdate) now retries if connect() fails. This is on a lower level
+only, it does not include errors given off by DDNS services or web site errors
+(incorrect password, 404, etc.).
+</ul>
+<br>
+
+Version 1.01<br>
+<ul>
+<li>Fixed PPPoE/PPTP/L2TP may not pick up the first DNS.
+<li>Fixed PPPoE manual connect/disconnect.
+<li>Fixed UPnP not using the right address for PPTP/L2TP.
+<li>Fixed httpd fd leak if "allow wireless access" is disabled.
+<li>Bandwidth Monitor now requires that you explicitly allow the creation of a
+new file if using anything other than NVRAM or temporary storage. The previous
+behavior was to assume a file is new if it couldn't be loaded after a few
+minutes. This change is to prevent existing data from being overwritten if a
+drive fails to mount initially.
+<li>On a WHR-HP-G54, enabled amplifier (boardflags=0x2758) and pulled back
+power to 10mW by default. This is apparently a better setting for this model.
+<li>Manually setting debug_clkfix=0 will now disable forced setting of
+clkfreq=216 on a WRT54G v2.2. Warning: You can brick your router while playing
+with this.
+<li>Port forwarding now allows full IP address.
+<li>Increased amount of WDS fields to 10.
+<li>Custom DDNS now support "http://user:pass@domain/" style basic authentication.
+</ul>
+<br>
+
+Version 1.00<br>
+<ul>
+<li>Fixed "all day" restrictions always blocks regardless of the day of week
+setting.
+<li>Fixed several problems with the Basic Networking page.
+<li>Fixed a problem with WRT54G v1 that may have caused problems with WDS.
+<li>Fixed PPPoE timer may not reset.
+<li>Fixed DHCP client may not renew when used with some ISPs.
+<li>Fixed a memory leak in UPNP.
+<li>Added support for Buffalo WHR-G54S/WHR-HP-G54.
+<li>Added a real-time (well, almost) bandwidth monitor. This functions a little
+differently in that you can use it without the rstats program and data is pulled
+and stored via JavaScript on demand. Since this doesn't run all the time, the
+initial 5 minutes (@ 60s avg - it will look flat) of data is taken from rstats
+if available.
+<li>Added a chart for bandwidth distribution per QOS class (outbound).
+<li>Added an Expire Early button in Advanced/CT to flush conntrack of
+connections that are idle for more than 15 seconds (for debugging).
+<li>Added an "all computers except the following" option in Access Restriction.
+Keep in mind that this is not the same as an "allow". Even if a computer is
+exempted from one restriction, it's still checked for other restrictions.
+<li>Added an option to block wireless access to the GUI. Note - This will only
+work if the client is connected directly.
+<li>Added an option to change the color scheme for the GUI.
+<li>Added a backup/restore, "first day of the month" option, and "excluded
+interface" option In Bandwidth Monitor. All interfaces that produce stats
+(except loopback) are now shown unless excluded.
+<li>Enabled support for mixed WPA/WPA2.
+<li>Resetting of classification when changing QOS settings is now optional. If
+enabled, it's now instant and will reset even idle connections.
+<li>/jffs2 has been renamed to /jffs, and /misc to /rom. If you have scripts
+that use these, don't forget to change them.
+<li>Upgraded busybox to 1.2.2, dnsmasq to 2.35.
+<li>Other minor/internal changes and code cleanup.
+</ul>
+<br>
+
+Version 0.09<br>
+<ul>
+<li>Fixed problems with "allow multicast" option: An iptables rule was added
+before the chain it required was built. igmprt called with the wrong interface
+if using PPPoE, L2TP or PPTP.
+<li>Fixed some minor UI problems: 0 hour time in bandwidth, WAN labeling in
+bandwidth, unmasked password in CIFS.
+</ul>
+<br>
+
+Version 0.08<br>
+<ul>
+<li>Fixed not working on a v1.x. Thanks to William Myers for providing a guinea
+pig router. :)
+<li>Fixed L7 inbound may not work correctly. It's also now enabled by default.
+<li>Fixed Advanced/CTNF not counting UDP correctly.
+<li>Fixed UPnP Delete All not working.
+<li>Fixed incorrect SSL cert expire time.
+<li>L7 patterns updated to 2006-10-18 (<small>new:
+<a href='http://l7-filter.sourceforge.net/protocols'>stun and tor</a></small>).
+<li>You can now match the amount of data transferred to WAN. Note: There is a
+format change here to accommodate the new field. Please go to QOS:Classification,
+and hit the Save button to make sure the nvram value is converted.
+<li>Switched to a simpler, more logical way of processing QOS rules. There's
+probably not that much negative to this, but if you do want to switch back to
+the old method, disable "Strict Ordering" in QOS: Settings. See readme the also.
+<li>"root" is now also accepted as username for the UI.
+<li>Some minor enhancements to the bandwidth and QOS chart.
+<li>Other minor changes.
+</ul>
+<br>
+
+Version 0.07<br>
+<ul>
+<li>Fixed "service.cgi" was missing which caused problems in the Status:Overview
+(Connect/Disconnect buttons) and Admin:Access (telnetd/sshd buttons).
+<li>Fixed error messages being displayed when navigating out of QOS:Detailed
+while names are being resolved in the background.
+</ul>
+<br>
+
+Version 0.06<br>
+<ul>
+<li>Warning: There's a slight change in the bandwidth data file to increase the
+amount of saved data to 25 months. The older format will be converted
+automatically, but this change is not compatible with older versions of the
+firmware. If you're saving this data, backup before upgrading incase
+you need to go back.
+<li>Fixed a problem with wet/client not working if started before the AP end
+was up.
+<li>Fixed a problem with L7 not working if internal and user patterns are mixed.
+<li>Fixed connlimit not loading properly. It's now statically linked.
+<li>Fixed split syslog file was shown in incorrect order.
+<li>Fixed a problem with MTU not being clamped correctly.
+<li>Fixed a problem with device list not listing all wireless devices.
+<li>Added a work-around for WEP not working if selected key isn't the first key.
+<li>iptables upgraded to 1.36
+<small><a href="http://www.netfilter.org/projects/iptables/files/changes-iptables-1.3.6.txt">(changelog)</a></small>.
+Layer 7 patterns updated to 2006-09-10 <small>(new: <a href="http://l7-filter.sourceforge.net/protocols">mohaa</a>)</small>.
+Also upgraded IPP2P to 0.8.2 and Layer 7 to 2.6, but both are pretty much the
+same as before.
+<li>In BW/Current, some new colors have been added. If it doesn't work
+immediately after the upgrade, close the browser to reload.
+<li>In QOS/Detailed View, there's now an option to resolve the destination
+address. Also, clicking on a row will resolve a single address, clicking it
+again will start resolving all addresses currently displayed.
+<li>Other minor changes.
+</ul>
+<br>
+
+Version 0.05<br>
+<ul>
+<li>Fixed http request entry in access restriction may not work if separated
+by a new line.
+<li>Fixed several problems with triggered port forwarding. Note: This will cause
+the description to change due to a shift in the nvram setting.
+<li>Fixed not joining when in WET mode.
+<li>Fixed ct/nf mark not being masked properly causing problems with QOS.
+<li>Fixed a problem in httpd that may cause a tcp reset/blank page if the
+browser sends a post data and an invalid username/password. Firefox seems to
+have a quirk of sending old/cached auth which was triggering this.
+<li>Fixed several UI errors.
+<li>TTL is now adjustable in Advanced/CTNF.
+<li>DNS Exit and custom URL-based DDNS service support added. Note: DDNS entries
+need to be re-entered because of a change in the nvram setting.
+<li>DynDNS refresh time moved up to 28 days.
+<li>QOS table now has a move icon. Click the icon, then click a new location to
+move the row.
+<li>The default script for the SES button now contains a command to start a
+password-less telnet deamon incase someone gets locked-out of the router. This
+can disabled by going to the Admin/Buttons page.
+<li>Other minor changes.
+</ul>
+<br>
+
+Version 0.04<br>
+<ul>
+<li>Fixed a problem with wireless clients not being displayed in device list if
+no encryption was used.
+<li>Fixed a problem that could cause dnsmasq not to read resolv file if time
+hasn't been updated yet and if using certain time zones.
+<li>Fixed potential problems if erasing JFFS2 and when rebooting if JFFS2 is
+mounted.
+<li>Fixed several more UI errors.
+<li>Fixed how some nvram keys are unset and reset to make sure they don't
+unnecessarily trigger an nvram commit at startup.
+<li>Changed behavior of reset button back so it's simpler and consistent with
+the standard Linksys firmware: Just hold it for at least 3 seconds.
+<li>When upgrading, a check is now performed to make sure JFFS2 is not mounted.
+<li>Minor changes, code cleanups.
+</ul>
+
+<br>
+Version 0.03
+<ul>
+<li>Fixed problem with DynDNS not refreshing correctly.
+</ul>
+
+<br>
+Version 0.02
+<ul>
+<li>Fixed problem with Dnsmasq not being able to read dmresolv.conf in some
+cases which caused DNS to fail.
+<li>Fixed connmark wasn't loaded when it was required which caused problems
+setting up iptables.
+<li>Fixed radio enable not working properly.
+<li>Fixed 'Measure' button in Device List not correctly displayed.
+<li>Fixed problem with manual WAN connect/disconnect not working correctly.
+<li>Fixed problem with cifs vfs rebooting if unmounted by reverting to a more
+stable version.
+<li>Fixed erase nvram in UI not working properly.
+<li>Fixed reset button restore nvram not working properly.
+<li>Fixed a problem with UI not properly handling some characters.
+<li>Fixed several other UI errors causing config not to be saved or displayed
+correctly.
+<li>Fixed problem loading user added L7 filters.
+<li>Fixed UPnP not sending id correctly.
+<li>Fixed some wireless settings were not being set correctly.
+<li>Status now displays the WAN's "connecting" state.
+<li>Some changes to bandwidth graph to make it easier to read.
+<li>Disabled unused Busybox password-related utilities.
+<li>More code cleanup, etc.
+</ul>
+
+<br>
+Version 0.01
+<i>(Compared with Linksys' WRT54GL 4.30.7, WRT54GS 4.70.1)</i><br>
+
+<ul>
+<li>New GUI. The new one is a little easier to use, easier on the eyes (I
+hope) and does Ajax and SVG. Some of the icons I used are from Mark James's very
+cool work at <a href="http://www.famfamfam.com">famfamfam.com</a>.
+
+<li>Rewrote most of httpd to support the new GUI. Replaced existing API with a 
+simplified set, rewrote file parser, used MatrixSSL 1.8 instead of OpenSSL
+library (the openssl program is still needed to generate keys however).
+
+<li>Rewrote access restriction mechanism. Support for L7, IPP2P, more blocked
+host/url. Schedules that cross midnight should now work.
+
+<li>Rewrote QOS mechanism. Support for user-definable rates, down rate policing,
+L7, IPP2P, other ways of classifying a connection. Added QOS-related status
+info/eyecandy in the UI.
+
+<li>Upgraded iptables. Added some new netfilters from POM, L7, IPP2P. Created
+web match to replace webstr.
+
+<li>Rewrote how UPNP does port forwarding, it can now send URL presentation
+(show in Windows MNP), etc.
+
+<li>Rewrote web upgrade, it now supports most CyberTAN 'W54x' BINs regardless of
+model, and bare TRX. Rewrote MTD utilities to figure out how it works and to
+clean it up.
+
+<li>Added support for JFFS2. Partitioning modified to mark JFFS2 space, removed
+support for lang.bin.
+
+<li>Upgraded squashfs to 2.2r2 with LZMA support thanks to
+<a href='http://oleg.wl500g.info/'>Oleg's Asus WL-500g</a> project.
+
+<li>Added support for CIFS VFS client.
+
+<li>Rewrote some parts of rc and libshared. Removed obsolete code, simplify,
+reduce, cleanup, various additions and changes, etc.
+
+<li>Removed support for upgrade TFTPD (not the one in bootloader), SES,
+EZC, EOU.
+
+<li>Created led command for easier control of some of the router's lights.
+
+<li>Created buttons to replace resetbutton. The reset button behaves differently
+now (see top of readme). The SES button can be configured to perform things like
+turn off the wireless interface, or run a custom script.
+
+<li>Busybox upgraded. Replaced standalone cron and udhcpc with Busybox's.
+Enabled various extra utilities.
+
+<li>Dropbear added for SSH support.
+
+<li>Created new nvram utility to replace Broadcom's. It supports some extra
+features like find, export, etc. Moved a simplified default settings here and
+out of libshared to reduce memory use. A new config backup/restore was also
+added to replace the old method.
+
+<li>Created ntpc/ntpsync utility to replace ntpclient. NTP server and update
+interval are changable in the UI, kiss of death supported.
+
+<li>Created rstats utility to collect bandwidth stats.
+
+<li>Created libfoo to replace optimize_lib and lib/Makefile, and to create
+an xref map. Created cti to replace addpattern.
+
+<li>Dnsmasq upgraded. It's now used as both a DNS proxy/server and as a DHCP
+server to replace udhcpd. Static DHCP is supported via Dnsmasq.
+
+<li>ez-ipupdate upgraded. Enabled more of ez-ipupdate's standard services (most
+are untested however), created new definitions for namecheap (also other eNom
+resellers?), ieServer. Rewrote DDNS support, added support for a second service.
+
+<li>Added my own bugs.
+
+<li>etc...
+</ul>
+
+</div>
+
+
+
+<span id='windowsip' style='display:none'>
+<div style='border:1px dashed #ffbbbb;margin:0.5em 4em;padding:1em;background:#ffffee'>
+<b>In Windows</b>
+<ul>
+<li>Go to the Control Panel, then click Network Connections.
+<li>Right-click on your ethernet card, click Properties, then select "Internet
+Protocol (TCP/IP)".
+<li>Click Properties, click "Use the following IP address".
+<li>Enter the IP address and gateway.
+</ul></div>
+</span>
+
+
+<div id='footer'>
+<span style='font-size:12px'>Copyright (C) 2006-2009 Jonathan Zarate</font><br>
+<a href='http://www.polarcloud.com/tomato/' style='border:none;color:#777;font-size:12px'>http://www.polarcloud.com/tomato/</a>
+</div>
+
+</div>
+
+</body>
+</html>
