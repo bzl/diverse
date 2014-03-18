@@ -47,6 +47,7 @@ public class Main {
 		//		System.out.println(Arrays.toString(xor(plainText.charAt(1), new int[]{0,1,0,1,0}))); //11001
 		//		System.out.println(Arrays.toString(xor(plainText.charAt(2), new int[]{0,1,0,1,0}))); //00100
 		int teller = 0;
+		int bababooey = 0;
 		for(int g = 0; g < cipher.length; g++){
 			int[] firstFiveWheels = new int[]{wheel47[g%47],wheel61[g%61],wheel73[g%73],wheel71[g%71],wheel65[g%65]};
 			//			if(g == 34){
@@ -60,15 +61,15 @@ public class Main {
 			 * that we can use the data from the wheels, xor the plaintext
 			 * (which we know), and then compare with the ciphertext.
 			 */
-			boolean fullFirstFiveWheels = true;
+			int number_of_known_wheels = 0;
 			for (int i : firstFiveWheels) {
-				if(i == -1){
-					fullFirstFiveWheels = false;
-					break;
+				if(i != -1){
+					number_of_known_wheels++;
 				}
 			}
+			
 			teller++;
-			if(fullFirstFiveWheels){
+			if(number_of_known_wheels == 5){
 				teller++;
 				/*
 				 * 5, 28, 31, 27 and 20 deals with baud codes of weight 1
@@ -88,9 +89,9 @@ public class Main {
 						unknown4[g] = 0;
 						unknown5[g] = 0;
 					}else if(Arrays.equals(result, new int[]{1,0,0,0,0})){
-						System.out.println("bomb1");
+						System.out.println("taint");
 						if(tempFix[g%53] != -1)
-							System.out.println("defused");
+							System.out.println("resolveable");
 					}
 				} else if(cipher[g].equals("28")){ //[0, 1, 0, 0, 0]
 					int[] result = xor(plainText.charAt(g), firstFiveWheels);
@@ -107,9 +108,9 @@ public class Main {
 						unknown4[g] = 0;
 						unknown5[g] = 1;
 					}else if(Arrays.equals(result, new int[]{0,0,0,0,1})){ //posioned
-						System.out.println("bomb2");
+						System.out.println("taint");
 						if(tempFix[g%53] != -1)
-							System.out.println("defused");
+							System.out.println("resolveable");
 						//						unknown1[g] = 1;
 						//						unknown2[g] = 0;
 						//						unknown3[g] = 0;
@@ -184,7 +185,7 @@ public class Main {
 						unknown4[g] = 0;
 						unknown5[g] = 0;
 					}else if(Arrays.equals(result, new int[]{0,1,1,1,1})){
-						System.out.println("bomb3");
+						System.out.println("taint");
 						if(tempFix[g%53] != -1){
 							if(tempFix[g%53] == 1){
 								unknown1[g] = 1;
@@ -209,7 +210,7 @@ public class Main {
 						unknown4[g] = 0;
 						unknown5[g] = 1;
 					}else if(Arrays.equals(result, new int[]{1,1,1,1,0})){ //posioned
-						System.out.println("bomb4");
+						System.out.println("taint");
 						if(tempFix[g%53] != -1){
 							if(tempFix[g%53] == 1){
 								unknown1[g] = 0;
@@ -279,6 +280,7 @@ public class Main {
 					}
 				}
 			}
+			
 		}
 				System.out.println(teller);
 

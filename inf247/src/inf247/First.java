@@ -2,7 +2,7 @@ package inf247;
 
 import java.util.Arrays;
 
-public class FirstFiveWheels {
+public class First {
 
 	private static String alphabet;
 	private static int[][] alpha5bit;
@@ -14,12 +14,17 @@ public class FirstFiveWheels {
 		String plainText = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		alphabet = plainText;
 
-		for(int i=2; i<50; i++){ //Fills the "cleartext" variable with the alphabet 49 times.
+		for(int i=2; i<50; i++){ //Fills the "plainText" variable with the alphabet 49 times.
 			plainText = plainText+alphabet;
 		}
 		alpha5bit = new int[][]{{1, 1, 0, 0, 0}, {1, 0, 0, 1, 1}, {0, 1, 1, 1, 0}, {1, 0, 0, 1, 0}, {1, 0, 0, 0, 0}, {1, 0, 1, 1, 0}, {0, 1, 0, 1, 1}, {0, 0, 1, 0, 1}, {0, 1, 1, 0, 0}, {1, 1, 0, 1, 0}, {1, 1, 1, 1, 0}, {0, 1, 0, 0, 1}, {0, 0, 1, 1, 1}, {0, 0, 1, 1, 0}, {0, 0, 0, 1, 1}, {0, 1, 1, 0, 1}, {1, 1, 1, 0, 1}, {0, 1, 0, 1, 0}, {1, 0, 1, 0, 0}, {0, 0, 0, 0, 1}, {1, 1, 1, 0, 0}, {0, 1, 1, 1, 1}, {1, 1, 0, 0, 1}, {1, 0, 1, 1, 1}, {1, 0, 1, 0, 1}, {1, 0, 0, 0, 1}, {0, 0, 0, 1, 0}, {0, 1, 0, 0, 0}, {1, 1, 1, 1, 1}, {1, 1, 0, 1, 1}, {0, 0, 1, 0, 0}, {0, 0, 0, 0, 0}};
 		int[] wheelpositions = new int[]{47,53,59,61,64,65,67,69,71,73}; //the different positions the wheel can take on.
-
+		
+		/*
+		 * Creates five different arrays filled with "-1".
+		 * I will later fill these with each of the "wheels" that
+		 * I identify later.
+		 */
 		int[] unknown1 = new int[1276];
 		Arrays.fill(unknown1, -1);
 		int[] unknown2 = new int[1276];
@@ -36,45 +41,50 @@ public class FirstFiveWheels {
 		//Iterate over the entire cipher a single time
 		for (int i = 0; i < cipher.length; i++) {
 			if(cipher[i].equals("29")){ //1,1,1,1,1
+				 //The wheel array will contain the 5 different values that represents the wheels 1-0 distribution
 				int[] wheel = xor(plainText.charAt(i), new int[]{1,1,1,1,1});
 				for (int j = 0; j < unknownWheels.length; j++) {
 					unknownWheels[j][i] = wheel[j];
 				}
 			} else if(cipher[i].equals("32")){ //0,0,0,0,0
+				//The wheel array will contain the 5 different values that represents the wheels 1-0 distribution
 				int[] wheel = xor(plainText.charAt(i), new int[]{0,0,0,0,0});
 				for (int j = 0; j < unknownWheels.length; j++) {
 					unknownWheels[j][i] = wheel[j];
 				}
 			}
 		}
-		
-		
-		
+
+
+
 		for(int k = 0; k<unknownWheels.length; k++){ //Iterate through all the 5 unknown wheels we have
 			for(int i = 0; i<wheelpositions.length; i++){ //Iterates through the 10 possible sizes our wheel can have.
 				int[] wheel = new int[wheelpositions[i]];
 				Arrays.fill(wheel, -1);
 				int collision = 0;
 				for(int j = 0; j < cipher.length; j++){ //Iterate through the entire ciphers worth of length
-					
+
 					int wj = j%wheel.length;
-					
+
 					int currentUnknown = unknownWheels[k][j];
-					
+
 					if(currentUnknown != -1){
-						
+
 						if((wheel[wj] == 1 || wheel[wj] == 0) && wheel[wj] != currentUnknown){
-							 collision++;
-							 break;
+							collision++;
+							break;
 						} else{
 							wheel[wj] = currentUnknown;
 						}
 					}
 				}
-					
-				
+
+
 				if(collision == 0){
 					System.out.println("Wheel "+k+" has been identified with size "+wheelpositions[i]);
+					for (int j : wheel) {
+						System.out.println(j);
+					}
 					//break;
 				}
 			}
