@@ -18,24 +18,11 @@ public class Second {
 			plainText = plainText+alphabet;
 		}
 
-
 		int[] wheel47 = new int[]{1, -1, 1, 0, -1, 1, 0, 1, 1, 0, 0, 1, 0, 0, 0, -1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 0, -1, 0, 1, 0, 0, 0, -1, 1, 0, 1, 1};
 		int[] wheel61 = new int[]{0, 1, 0, -1, -1, 0, 1, 1, 0, 1, -1, 0, -1, 0, 1, 1, -1, -1, 0, 0, 0, -1, 1, 0, 1, -1, 1, -1, 1, -1, 0, 0, 1, 0, 0, -1, 1, 0, 1, -1, 0, 0, -1, 1, 1, 1, -1, 1, -1, -1, 0, 0, 1, 0, 1, -1, -1, 0, 0, -1, -1};
 		int[] wheel65 = new int[]{-1, -1, -1, 0, 1, 0, 1, 0, -1, 1, -1, -1, 0, 1, 0, 0, 1, -1, 0, 0, 0, 0, -1, 1, -1, 1, 0, -1, 1, 0, 1, 1, 1, 0, 1, -1, 0, -1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 1, -1, 1, -1, 1, 1, -1, 0, 0, 1, 1, 0, 0, -1, 0, -1, 0, 1};
 		int[] wheel71 = new int[]{0, -1, -1, 1, 1, 1, 1, 0, 0, 1, -1, -1, 0, -1, 0, 0, -1, -1, 1, 1, 0, 0, 1, 1, 1, 1, -1, -1, 1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, 1, 0, -1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1, -1, 1, 1, 1, 0, 1, -1, -1, -1, 0, 1, 1, 0, 1, -1, 0, 0, 0};
 		int[] wheel73 = new int[]{0, -1, -1, -1, 0, 1, 0, 0, -1, -1, 1, 0, -1, 0, 1, 0, 0, -1, -1, -1, 1, 1, 1, 1, -1, 1, -1, 0, 0, 1, -1, 0, 1, 1, 0, -1, 1, 0, 1, 1, 1, -1, 0, -1, 0, 1, 0, -1, 1, 1, 1, 1, -1, 0, 0, -1, -1, -1, 0, 1, -1, 0, 0, 1, 0, -1, -1, 1, -1, 1, -1, 0, 0};				
-
-		int[] unknown1 = new int[1276];
-		Arrays.fill(unknown1, -1);
-		int[] unknown2 = new int[1276];
-		Arrays.fill(unknown2, -1);
-		int[] unknown3 = new int[1276];
-		Arrays.fill(unknown3, -1);
-		int[] unknown4 = new int[1276];
-		Arrays.fill(unknown4, -1);
-		int[] unknown5 = new int[1276];
-		Arrays.fill(unknown5, -1);
-
 
 		alpha5bits = new int[][]{{1, 1, 0, 0, 0}, {1, 0, 0, 1, 1}, {0, 1, 1, 1, 0}, {1, 0, 0, 1, 0}, {1, 0, 0, 0, 0}, {1, 0, 1, 1, 0}, {0, 1, 0, 1, 1}, {0, 0, 1, 0, 1}, {0, 1, 1, 0, 0}, {1, 1, 0, 1, 0}, {1, 1, 1, 1, 0}, {0, 1, 0, 0, 1}, {0, 0, 1, 1, 1}, {0, 0, 1, 1, 0}, {0, 0, 0, 1, 1}, {0, 1, 1, 0, 1}, {1, 1, 1, 0, 1}, {0, 1, 0, 1, 0}, {1, 0, 1, 0, 0}, {0, 0, 0, 0, 1}, {1, 1, 1, 0, 0}, {0, 1, 1, 1, 1}, {1, 1, 0, 0, 1}, {1, 0, 1, 1, 1}, {1, 0, 1, 0, 1}, {1, 0, 0, 0, 1}, {0, 0, 0, 1, 0}, {0, 1, 0, 0, 0}, {1, 1, 1, 1, 1}, {1, 1, 0, 1, 1}, {0, 0, 1, 0, 0}, {0, 0, 0, 0, 0}};
 
@@ -52,7 +39,6 @@ public class Second {
 		bauds_of_weight_4.add("17");
 		bauds_of_weight_4.add("11");
 
-
 		for(int g = 0; g < cipher.length; g++){
 			int[] firstFiveWheels = new int[]{wheel47[g%47],wheel61[g%61],wheel73[g%73],wheel71[g%71],wheel65[g%65]};
 
@@ -65,7 +51,6 @@ public class Second {
 					number_of_known_wheels++;
 				}
 			}
-
 
 			/*
 			 * if we know cipher to be of weight 4, and we know 4 of the 
@@ -81,6 +66,7 @@ public class Second {
 				int unknown = 0;
 				int one = 0;
 				int zero = 0;
+				int unknownPosition = -1;
 				for(int i = 0; i < 5; i++){
 					if(firstFiveWheels[i] != -1){ //if we know the current wheels orientation, we want to extract data from it
 						if((firstFiveWheels[i]^plaintext[i]) == 1){
@@ -89,25 +75,22 @@ public class Second {
 							zero++;
 						}
 					}
+					if(firstFiveWheels[i] == -1)
+						unknownPosition = i;
 				}
 
 				/*
-				 * We know we are looking for a baud with 4x"1" or 4x"0". Simple deduction
-				 * allows us to identify the remaining piece of data.
-				 * 
-				 * ex: If we have 3 x "1"; we know that we are looking for a baud of weight 4,
-				 * and the remaining must surely be "1". If we have 4 x "1"; we also have a baud
-				 * of weight 4, but all the "1"'s has been identified, so the unknown must be "0"
+				 * We know we are looking for a baud with 4x"1" or 4x"0". Simple 
+				 * deduction allows us to identify the remaining piece of data.
 				 */
 				if(one == 3)
-					unknown = 1;
+					unknown = plaintext[unknownPosition]^1;
 				if(one == 4)
-					unknown = 0;
+					unknown = plaintext[unknownPosition]^0;
 				if(zero == 3)
-					unknown = 0;
+					unknown = plaintext[unknownPosition]^0;
 				if(zero == 4)
-					unknown = 1;
-
+					unknown = plaintext[unknownPosition]^1;
 
 				/*
 				 * At this point we have identified a baud code of weight 4, we know that we only have 4
@@ -134,7 +117,6 @@ public class Second {
 						case 4:
 							wheel65[g%65] = unknown;
 							break;
-
 						default:
 							break;
 						}
@@ -157,7 +139,6 @@ public class Second {
 
 		System.out.println("Wheel 65 now contains");
 		System.out.println(Arrays.toString(wheel65));
-
 
 	}
 }

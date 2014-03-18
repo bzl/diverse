@@ -2,7 +2,7 @@ package inf247;
 
 import java.util.Arrays;
 
-public class Main {
+public class Third {
 
 	private static String alphabet;
 	private static int[][] alpha_to_bits;
@@ -20,11 +20,11 @@ public class Main {
 		}
 
 
-		int[] wheel47 = new int[]{1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1};
-		int[] wheel61 = new int[]{0, 1, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1};
-		int[] wheel65 = new int[]{0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1};
-		int[] wheel71 = new int[]{0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0};
-		int[] wheel73 = new int[]{0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0};				
+		int[] wheel47 = new int[]{1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1};
+		int[] wheel61 = new int[]{0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1};
+		int[] wheel65 = new int[]{0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1};
+		int[] wheel71 = new int[]{0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0};
+		int[] wheel73 = new int[]{0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0};				
 
 		int[] unknown1 = new int[1276];
 		Arrays.fill(unknown1, -1);
@@ -58,19 +58,19 @@ public class Main {
 			
 			int[] resultX = xor(plainText.charAt(g), firstFiveWheels);
 			
-			if(Arrays.equals(resultX, new int[]{1,0,0,0,0})){ //Jeg har godt mulig en bug her
-				System.out.println(Arrays.toString(resultX));
-				System.out.println(Arrays.toString(alpha_to_bits[Integer.parseInt(cipher[g])-1]));
-				System.out.println(cipher[g]);
-				System.out.println();
-				System.out.println(Arrays.toString(firstFiveWheels));
-				System.out.println(plainText.charAt(g));
-				System.out.println("g er "+g);
-				break;
-				/**
-				 * Dette er her for å debugge. Jeg går fra plain+first5 med baud 10000 til cipher baud 10010. Noe er åpenbart helt for jævli fukis.
-				 */
-			}
+//			if(Arrays.equals(resultX, new int[]{1,0,0,0,0})){ //Jeg har godt mulig en bug her
+//				System.out.println(Arrays.toString(resultX));
+//				System.out.println(Arrays.toString(alpha_to_bits[Integer.parseInt(cipher[g])-1]));
+//				System.out.println(cipher[g]);
+//				System.out.println();
+//				System.out.println(Arrays.toString(firstFiveWheels));
+//				System.out.println(plainText.charAt(g));
+//				System.out.println("g er "+g);
+//				break;
+//				/**
+//				 * Dette er her for å debugge. Jeg går fra plain+first5 med baud 10000 til cipher baud 10010. Noe er åpenbart helt for jævli fukis.
+//				 */
+//			}
 			
 
 			
@@ -331,11 +331,11 @@ public class Main {
 				}
 
 
-				//if(collision == 0){
-					//System.out.println("Wheel "+k+" can have size "+wheelSizes[i]);
+				if(collision == 0){
+					System.out.println("Wheel "+k+" can have size "+wheelSizes[i]);
 					//System.out.println("Wheel "+k+" can have size "+wheelSizes[i]+" jk, coll: "+collision);
 					//break;
-				//}
+				}
 			}
 		}
 
