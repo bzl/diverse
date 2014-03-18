@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Main {
 
 	private static String alphabet;
-	private static int[][] alpha5bits;
+	private static int[][] alpha_to_bits;
 
 	public static void main(String[] args) {
 		// Obscenely long string :s
@@ -13,6 +13,7 @@ public class Main {
 		String[] cipher = ciphertext.split(", ");
 		String plainText = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		alphabet = plainText;
+		
 
 		for(int i=2; i<50; i++){
 			plainText = plainText+alphabet;
@@ -40,7 +41,7 @@ public class Main {
 
 		int[] tempFix = new int[]{1, 1, 1, 0, 1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 1, -1, 0, -1, -1, 1, 1, 0, 1, 0, -1, -1, -1, -1, -1, 0, 1, 1, 1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 1, -1, -1, -1, 0, 0, -1, -1, 1, -1, -1};
 
-		alpha5bits = new int[][]{{1, 1, 0, 0, 0}, {1, 0, 0, 1, 1}, {0, 1, 1, 1, 0}, {1, 0, 0, 1, 0}, {1, 0, 0, 0, 0}, {1, 0, 1, 1, 0}, {0, 1, 0, 1, 1}, {0, 0, 1, 0, 1}, {0, 1, 1, 0, 0}, {1, 1, 0, 1, 0}, {1, 1, 1, 1, 0}, {0, 1, 0, 0, 1}, {0, 0, 1, 1, 1}, {0, 0, 1, 1, 0}, {0, 0, 0, 1, 1}, {0, 1, 1, 0, 1}, {1, 1, 1, 0, 1}, {0, 1, 0, 1, 0}, {1, 0, 1, 0, 0}, {0, 0, 0, 0, 1}, {1, 1, 1, 0, 0}, {0, 1, 1, 1, 1}, {1, 1, 0, 0, 1}, {1, 0, 1, 1, 1}, {1, 0, 1, 0, 1}, {1, 0, 0, 0, 1}, {0, 0, 0, 1, 0}, {0, 1, 0, 0, 0}, {1, 1, 1, 1, 1}, {1, 1, 0, 1, 1}, {0, 0, 1, 0, 0}, {0, 0, 0, 0, 0}};
+		alpha_to_bits = new int[][]{{1, 1, 0, 0, 0}, {1, 0, 0, 1, 1}, {0, 1, 1, 1, 0}, {1, 0, 0, 1, 0}, {1, 0, 0, 0, 0}, {1, 0, 1, 1, 0}, {0, 1, 0, 1, 1}, {0, 0, 1, 0, 1}, {0, 1, 1, 0, 0}, {1, 1, 0, 1, 0}, {1, 1, 1, 1, 0}, {0, 1, 0, 0, 1}, {0, 0, 1, 1, 1}, {0, 0, 1, 1, 0}, {0, 0, 0, 1, 1}, {0, 1, 1, 0, 1}, {1, 1, 1, 0, 1}, {0, 1, 0, 1, 0}, {1, 0, 1, 0, 0}, {0, 0, 0, 0, 1}, {1, 1, 1, 0, 0}, {0, 1, 1, 1, 1}, {1, 1, 0, 0, 1}, {1, 0, 1, 1, 1}, {1, 0, 1, 0, 1}, {1, 0, 0, 0, 1}, {0, 0, 0, 1, 0}, {0, 1, 0, 0, 0}, {1, 1, 1, 1, 1}, {1, 1, 0, 1, 1}, {0, 0, 1, 0, 0}, {0, 0, 0, 0, 0}};
 
 
 		int teller = 0;
@@ -59,8 +60,16 @@ public class Main {
 			
 			if(Arrays.equals(resultX, new int[]{1,0,0,0,0})){ //Jeg har godt mulig en bug her
 				System.out.println(Arrays.toString(resultX));
-				System.out.println(Arrays.toString(alpha5bits[Integer.parseInt(cipher[g])-1]));
+				System.out.println(Arrays.toString(alpha_to_bits[Integer.parseInt(cipher[g])-1]));
+				System.out.println(cipher[g]);
 				System.out.println();
+				System.out.println(Arrays.toString(firstFiveWheels));
+				System.out.println(plainText.charAt(g));
+				System.out.println("g er "+g);
+				break;
+				/**
+				 * Dette er her for å debugge. Jeg går fra plain+first5 med baud 10000 til cipher baud 10010. Noe er åpenbart helt for jævli fukis.
+				 */
 			}
 			
 
@@ -338,7 +347,7 @@ public class Main {
 		int pos = alphabet.indexOf(bokstav);
 		int[] returnArray = new int[5];
 		for (int i = 0; i < returnArray.length; i++) {
-			returnArray[i] = firstFiveWheels[i]^alpha5bits[pos][i];
+			returnArray[i] = firstFiveWheels[i]^alpha_to_bits[pos][i];
 		}
 		return returnArray;
 	}
