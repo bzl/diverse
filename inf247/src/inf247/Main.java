@@ -19,11 +19,11 @@ public class Main {
 		}
 
 
-		int[] wheel47 = new int[]{1, -1, 1, 0, -1, 1, 0, 1, 1, 0, 0, 1, 0, 0, 0, -1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 0, -1, 0, 1, 0, 0, 0, -1, 1, 0, 1, 1};
-		int[] wheel61 = new int[]{0, 1, 0, -1, -1, 0, 1, 1, 0, 1, -1, 0, -1, 0, 1, 1, -1, -1, 0, 0, 0, -1, 1, 0, 1, -1, 1, -1, 1, -1, 0, 0, 1, 0, 0, -1, 1, 0, 1, -1, 0, 0, -1, 1, 1, 1, -1, 1, -1, -1, 0, 0, 1, 0, 1, -1, -1, 0, 0, -1, -1};
-		int[] wheel65 = new int[]{-1, -1, -1, 0, 1, 0, 1, 0, -1, 1, -1, -1, 0, 1, 0, 0, 1, -1, 0, 0, 0, 0, -1, 1, -1, 1, 0, -1, 1, 0, 1, 1, 1, 0, 1, -1, 0, -1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 1, -1, 1, -1, 1, 1, -1, 0, 0, 1, 1, 0, 0, -1, 0, -1, 0, 1};
-		int[] wheel71 = new int[]{0, -1, -1, 1, 1, 1, 1, 0, 0, 1, -1, -1, 0, -1, 0, 0, -1, -1, 1, 1, 0, 0, 1, 1, 1, 1, -1, -1, 1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, 1, 0, -1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1, -1, 1, 1, 1, 0, 1, -1, -1, -1, 0, 1, 1, 0, 1, -1, 0, 0, 0};
-		int[] wheel73 = new int[]{0, -1, -1, -1, 0, 1, 0, 0, -1, -1, 1, 0, -1, 0, 1, 0, 0, -1, -1, -1, 1, 1, 1, 1, -1, 1, -1, 0, 0, 1, -1, 0, 1, 1, 0, -1, 1, 0, 1, 1, 1, -1, 0, -1, 0, 1, 0, -1, 1, 1, 1, 1, -1, 0, 0, -1, -1, -1, 0, 1, -1, 0, 0, 1, 0, -1, -1, 1, -1, 1, -1, 0, 0};				
+		int[] wheel47 = new int[]{1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1};
+		int[] wheel61 = new int[]{0, 1, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1};
+		int[] wheel65 = new int[]{0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1};
+		int[] wheel71 = new int[]{0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0};
+		int[] wheel73 = new int[]{0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0};				
 
 		int[] unknown1 = new int[1276];
 		Arrays.fill(unknown1, -1);
@@ -42,34 +42,51 @@ public class Main {
 
 		alpha5bits = new int[][]{{1, 1, 0, 0, 0}, {1, 0, 0, 1, 1}, {0, 1, 1, 1, 0}, {1, 0, 0, 1, 0}, {1, 0, 0, 0, 0}, {1, 0, 1, 1, 0}, {0, 1, 0, 1, 1}, {0, 0, 1, 0, 1}, {0, 1, 1, 0, 0}, {1, 1, 0, 1, 0}, {1, 1, 1, 1, 0}, {0, 1, 0, 0, 1}, {0, 0, 1, 1, 1}, {0, 0, 1, 1, 0}, {0, 0, 0, 1, 1}, {0, 1, 1, 0, 1}, {1, 1, 1, 0, 1}, {0, 1, 0, 1, 0}, {1, 0, 1, 0, 0}, {0, 0, 0, 0, 1}, {1, 1, 1, 0, 0}, {0, 1, 1, 1, 1}, {1, 1, 0, 0, 1}, {1, 0, 1, 1, 1}, {1, 0, 1, 0, 1}, {1, 0, 0, 0, 1}, {0, 0, 0, 1, 0}, {0, 1, 0, 0, 0}, {1, 1, 1, 1, 1}, {1, 1, 0, 1, 1}, {0, 0, 1, 0, 0}, {0, 0, 0, 0, 0}};
 
-		//Verified that our xor method works as intended. 
-		//		System.out.println(Arrays.toString(xor(plainText.charAt(0), new int[]{0,1,0,1,0}))); //10010
-		//		System.out.println(Arrays.toString(xor(plainText.charAt(1), new int[]{0,1,0,1,0}))); //11001
-		//		System.out.println(Arrays.toString(xor(plainText.charAt(2), new int[]{0,1,0,1,0}))); //00100
+
 		int teller = 0;
-		int bababooey = 0;
 		for(int g = 0; g < cipher.length; g++){
 			int[] firstFiveWheels = new int[]{wheel47[g%47],wheel61[g%61],wheel73[g%73],wheel71[g%71],wheel65[g%65]};
-			//			if(g == 34){
-			//				System.out.println(cipher[g]);
-			//				System.out.println(plainText.charAt(g));
-			//				System.out.println(Arrays.toString(firstFiveWheels));
-			//			}
+//						if(g == 160){
+//							System.out.println(cipher[g]);
+//							System.out.println(plainText.charAt(g));
+//							System.out.println(Arrays.toString(firstFiveWheels));
+//							System.out.println(Arrays.toString(xor(plainText.charAt(g), firstFiveWheels)));
+//						}
 
-			/* Below is the logic that primarily deals with identifying machine
-			 * positions in which the first five wheels are all identified, so
-			 * that we can use the data from the wheels, xor the plaintext
-			 * (which we know), and then compare with the ciphertext.
-			 */
-			int number_of_known_wheels = 0;
-			for (int i : firstFiveWheels) {
-				if(i != -1){
-					number_of_known_wheels++;
-				}
+			
+			
+			int[] resultX = xor(plainText.charAt(g), firstFiveWheels);
+			
+			if(Arrays.equals(resultX, new int[]{1,0,0,0,0})){ //Jeg har godt mulig en bug her
+				System.out.println(Arrays.toString(resultX));
+				System.out.println(Arrays.toString(alpha5bits[Integer.parseInt(cipher[g])-1]));
+				System.out.println();
 			}
 			
-			teller++;
-			if(number_of_known_wheels == 5){
+
+			
+				
+//				if(g==749){
+//					System.out.println("DEBUG START 749");
+//					int[] result = xor(plainText.charAt(g), firstFiveWheels);
+//					System.out.println(cipher[g]);
+//					System.out.println(Arrays.toString(result));
+//					
+//					System.out.println("DEBUG STOP 749");
+//					
+//				}
+//				
+//				if(g==797){
+//					System.out.println("DEBUG START 797");
+//					int[] result = xor(plainText.charAt(g), firstFiveWheels);
+//					System.out.println(cipher[g]);
+//					System.out.println(Arrays.toString(result));
+//					
+//					System.out.println("DEBUG STOP 797");
+//					
+//				}
+				
+				
 				teller++;
 				/*
 				 * 5, 28, 31, 27 and 20 deals with baud codes of weight 1
@@ -89,9 +106,12 @@ public class Main {
 						unknown4[g] = 0;
 						unknown5[g] = 0;
 					}else if(Arrays.equals(result, new int[]{1,0,0,0,0})){
-						System.out.println("taint");
-						if(tempFix[g%53] != -1)
-							System.out.println("resolveable");
+//						if(tempFix[g%53] != -1){
+//							if(tempFix[g%53] == 1){
+//								unknown1[g] = 1;
+//								unknown5[g] = 1;
+//							}
+//						}
 					}
 				} else if(cipher[g].equals("28")){ //[0, 1, 0, 0, 0]
 					int[] result = xor(plainText.charAt(g), firstFiveWheels);
@@ -108,14 +128,14 @@ public class Main {
 						unknown4[g] = 0;
 						unknown5[g] = 1;
 					}else if(Arrays.equals(result, new int[]{0,0,0,0,1})){ //posioned
-						System.out.println("taint");
-						if(tempFix[g%53] != -1)
-							System.out.println("resolveable");
-						//						unknown1[g] = 1;
-						//						unknown2[g] = 0;
-						//						unknown3[g] = 0;
-						//						unknown4[g] = 0;
-						//						unknown5[g] = 1;
+//						System.out.println("taint");
+//						if(tempFix[g%53] != -1)
+//							System.out.println("resolveable");
+//						//						unknown1[g] = 1;
+//						//						unknown2[g] = 0;
+//						//						unknown3[g] = 0;
+//						//						unknown4[g] = 0;
+//						//						unknown5[g] = 1;
 					}
 				} else if(cipher[g].equals("31")){//[0, 0, 1, 0, 0]
 					int[] result = xor(plainText.charAt(g), firstFiveWheels);
@@ -184,16 +204,13 @@ public class Main {
 						unknown3[g] = 0;
 						unknown4[g] = 0;
 						unknown5[g] = 0;
-					}else if(Arrays.equals(result, new int[]{0,1,1,1,1})){
-						System.out.println("taint");
-						if(tempFix[g%53] != -1){
-							if(tempFix[g%53] == 1){
-								unknown1[g] = 1;
-								unknown5[g] = 1;
-							} else if (tempFix[g%53] == 0){
-								//kan vel egentlig ikke si en drit, siden det fortsatt er to muligheter, ingen ting er ekskludert
-							}
-						}
+					}else if(Arrays.equals(result, new int[]{0,1,1,1,1})){ //posioned
+//						if(tempFix[g%53] != -1){
+//							if(tempFix[g%53] == 1){
+//								unknown1[g] = 1;
+//								unknown5[g] = 1;
+//							}
+//						}
 					}
 				} else if(cipher[g].equals("24")){ //[1, 0, 1, 1, 1]
 					int[] result = xor(plainText.charAt(g), firstFiveWheels);
@@ -210,24 +227,19 @@ public class Main {
 						unknown4[g] = 0;
 						unknown5[g] = 1;
 					}else if(Arrays.equals(result, new int[]{1,1,1,1,0})){ //posioned
-						System.out.println("taint");
-						if(tempFix[g%53] != -1){
-							if(tempFix[g%53] == 1){
-								unknown1[g] = 0;
-								unknown5[g] = 0;
-							} else if (tempFix[g%53] == 0){
-								unknown1[g] = 1;
-								unknown2[g] = 0;
-								unknown3[g] = 0;
-								unknown4[g] = 0;
-								unknown5[g] = 1;
-							}
-						}
-						//						unknown1[g] = 1;
-						//						unknown2[g] = 0;
-						//						unknown3[g] = 0;
-						//						unknown4[g] = 0;
-						//						unknown5[g] = 1;
+//						System.out.println("taint");
+//						if(tempFix[g%53] != -1){
+//							if(tempFix[g%53] == 1){
+//								unknown1[g] = 0;
+//								unknown5[g] = 0;
+//							} else if (tempFix[g%53] == 0){
+//								unknown1[g] = 1;
+//								unknown2[g] = 0;
+//								unknown3[g] = 0;
+//								unknown4[g] = 0;
+//								unknown5[g] = 1;
+//							}
+//						}
 					}
 				} else if(cipher[g].equals("30")){//[1, 1, 0, 1, 1]
 					int[] result = xor(plainText.charAt(g), firstFiveWheels);
@@ -279,7 +291,7 @@ public class Main {
 						unknown2[g] = 1;
 					}
 				}
-			}
+			
 			
 		}
 				System.out.println(teller);
@@ -302,7 +314,7 @@ public class Main {
 
 						if((wheel[wj] == 1 || wheel[wj] == 0) && wheel[wj] != currentUnknown){
 							collision++;
-							break;
+							//break;
 						} else{
 							wheel[wj] = currentUnknown;
 						}
@@ -310,38 +322,16 @@ public class Main {
 				}
 
 
-				if(collision == 0){
-					System.out.println("Wheel "+k+" can have size "+wheelSizes[i]);
+				//if(collision == 0){
+					//System.out.println("Wheel "+k+" can have size "+wheelSizes[i]);
+					//System.out.println("Wheel "+k+" can have size "+wheelSizes[i]+" jk, coll: "+collision);
 					//break;
-				}
+				//}
 			}
 		}
 
-		//		for (int j = 0; j < unknownWheels.length; j++) { //Iterates through all the actual wheels >0-4
-		//			for (int k = 0; k < wheelSizes.length; k++) { //Iterates through all wheel sizes >0-9
-		//				int collisions = 0;
-		//				int currentWheelSize = wheelSizes[k];
-		//				int[] wheel = new int[currentWheelSize];
-		//				Arrays.fill(wheel, -1);
-		//
-		//				for (int l = 0; l < unknownWheels[j].length; l++) {
-		//					if (wheel[l % currentWheelSize] != unknownWheels[j][l]) {
-		//						if(wheel[l % currentWheelSize] == -1){
-		//							wheel[l % currentWheelSize] = unknownWheels[j][l];
-		//						} else {
-		//							collisions++;
-		//						}
-		//					}
-		//				}
-		//
-		//				if(collisions == 0){
-		//					System.out.println("Unknown wheel "+j+" had +"+collisions+"+ collisions with size "+ currentWheelSize);
-		//					System.out.println(Arrays.toString(wheel));
-		//				} else {
-		//					System.out.println("Unknown wheel "+j+" had +"+collisions+"+ collisions with size "+ currentWheelSize);
-		//				}
-		//			}
-		//		}
+		
+
 	}
 
 	private static int[] xor(char bokstav, int[] firstFiveWheels) {
@@ -352,6 +342,5 @@ public class Main {
 		}
 		return returnArray;
 	}
-
 }
 

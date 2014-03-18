@@ -43,9 +43,7 @@ public class Test {
 
 
 
-		for (int j = 0; j < 35; j++) {
-			System.out.print(j+"\t");
-		}
+		System.out.println(0^1);
 	}
 
 }
