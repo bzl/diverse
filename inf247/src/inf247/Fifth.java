@@ -1,7 +1,11 @@
 package inf247;
 
 import java.util.Arrays;
-
+/**
+ * 
+ * @author Kristoffer Tverå
+ *
+ */
 public class Fifth {
 
 	private static String alphabet;
@@ -13,7 +17,6 @@ public class Fifth {
 		String[] cipher = ciphertext.split(", ");
 		String plainText = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		alphabet = plainText;
-
 
 		for(int i=2; i<50; i++){
 			plainText = plainText+alphabet;
@@ -31,9 +34,7 @@ public class Fifth {
 		int[] wheel53 = new int[]{1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0};
 		int[] wheel67 = new int[]{1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0};
 
-
 		alpha_to_bits = new int[][]{{1, 1, 0, 0, 0}, {1, 0, 0, 1, 1}, {0, 1, 1, 1, 0}, {1, 0, 0, 1, 0}, {1, 0, 0, 0, 0}, {1, 0, 1, 1, 0}, {0, 1, 0, 1, 1}, {0, 0, 1, 0, 1}, {0, 1, 1, 0, 0}, {1, 1, 0, 1, 0}, {1, 1, 1, 1, 0}, {0, 1, 0, 0, 1}, {0, 0, 1, 1, 1}, {0, 0, 1, 1, 0}, {0, 0, 0, 1, 1}, {0, 1, 1, 0, 1}, {1, 1, 1, 0, 1}, {0, 1, 0, 1, 0}, {1, 0, 1, 0, 0}, {0, 0, 0, 0, 1}, {1, 1, 1, 0, 0}, {0, 1, 1, 1, 1}, {1, 1, 0, 0, 1}, {1, 0, 1, 1, 1}, {1, 0, 1, 0, 1}, {1, 0, 0, 0, 1}, {0, 0, 0, 1, 0}, {0, 1, 0, 0, 0}, {1, 1, 1, 1, 1}, {1, 1, 0, 1, 1}, {0, 0, 1, 0, 0}, {0, 0, 0, 0, 0}};
-
 
 		for(int g = 0; g < cipher.length; g++){
 			int[] firstFiveWheels = new int[]{wheel47[g%47],wheel61[g%61],wheel73[g%73],wheel71[g%71],wheel65[g%65]};

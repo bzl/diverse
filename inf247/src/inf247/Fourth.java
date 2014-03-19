@@ -1,7 +1,11 @@
 package inf247;
 
 import java.util.Arrays;
-
+/**
+ * 
+ * @author Kristoffer Tverå
+ *
+ */
 public class Fourth {
 
 	private static String alphabet;
@@ -31,10 +35,7 @@ public class Fourth {
 		int[] wheel53 = new int[]{1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, -1, 1, 1, 1, 0, 1, 0, 0, 0, -1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, -1, 0, 1, 0, 0, 1, 1, 1, 1, -1};
 		int[] wheel67 = new int[]{1, 1, 1, 0, -1, 0, -1, -1, -1, -1, -1, 0, 0, 1, 1, 0, -1, -1, 0, 0, 1, -1, -1, -1, 0, -1, -1, -1, -1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, -1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, -1, -1, 1, -1, -1, -1, -1, 0, 0};
 
-		System.out.println(wheel67.length);
-
 		alpha_to_bits = new int[][]{{1, 1, 0, 0, 0}, {1, 0, 0, 1, 1}, {0, 1, 1, 1, 0}, {1, 0, 0, 1, 0}, {1, 0, 0, 0, 0}, {1, 0, 1, 1, 0}, {0, 1, 0, 1, 1}, {0, 0, 1, 0, 1}, {0, 1, 1, 0, 0}, {1, 1, 0, 1, 0}, {1, 1, 1, 1, 0}, {0, 1, 0, 0, 1}, {0, 0, 1, 1, 1}, {0, 0, 1, 1, 0}, {0, 0, 0, 1, 1}, {0, 1, 1, 0, 1}, {1, 1, 1, 0, 1}, {0, 1, 0, 1, 0}, {1, 0, 1, 0, 0}, {0, 0, 0, 0, 1}, {1, 1, 1, 0, 0}, {0, 1, 1, 1, 1}, {1, 1, 0, 0, 1}, {1, 0, 1, 1, 1}, {1, 0, 1, 0, 1}, {1, 0, 0, 0, 1}, {0, 0, 0, 1, 0}, {0, 1, 0, 0, 0}, {1, 1, 1, 1, 1}, {1, 1, 0, 1, 1}, {0, 0, 1, 0, 0}, {0, 0, 0, 0, 0}};
-
 
 		for(int g = 0; g < cipher.length; g++){
 			int[] firstFiveWheels = new int[]{wheel47[g%47],wheel61[g%61],wheel73[g%73],wheel71[g%71],wheel65[g%65]};
@@ -246,7 +247,7 @@ public class Fourth {
 			if(i == -1)
 				negative++;
 		}
-		System.out.println(negative);
+		System.out.println(negative +" unsolved");
 	}
 
 	private static int[] xor(char bokstav, int[] firstFiveWheels) {

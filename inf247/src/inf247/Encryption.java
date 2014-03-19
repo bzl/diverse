@@ -2,9 +2,12 @@ package inf247;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-
+/**
+ * 
+ * @author Kristoffer Tverå
+ *
+ */
 public class Encryption {
-
 
 	public static void main(String[] args) {
 

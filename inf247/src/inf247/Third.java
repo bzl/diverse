@@ -1,7 +1,11 @@
 package inf247;
 
 import java.util.Arrays;
-
+/**
+ * 
+ * @author Kristoffer Tverå
+ *
+ */
 public class Third {
 
 	private static String alphabet;
@@ -261,7 +265,7 @@ public class Third {
 				}
 			}
 		}
-		System.out.println(negative);
+		System.out.println(negative+" unsolved");
 	}
 
 	private static int[] xor(char bokstav, int[] firstFiveWheels) {
