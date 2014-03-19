@@ -56,7 +56,6 @@ public class First {
 		}
 
 
-
 		for(int k = 0; k<unknownWheels.length; k++){ //Iterate through all the 5 unknown wheels we have
 			for(int i = 0; i<wheelpositions.length; i++){ //Iterates through the 10 possible sizes our wheel can have.
 				int[] wheel = new int[wheelpositions[i]];
@@ -69,7 +68,6 @@ public class First {
 					int currentUnknown = unknownWheels[k][j];
 
 					if(currentUnknown != -1){
-
 						if((wheel[wj] == 1 || wheel[wj] == 0) && wheel[wj] != currentUnknown){
 							collision++;
 							break;
@@ -82,6 +80,7 @@ public class First {
 
 				if(collision == 0){
 					System.out.println("Wheel "+k+" has been identified with size "+wheelpositions[i]);
+					//System.out.println(Arrays.toString(wheel)); 
 					break;
 				}
 			}

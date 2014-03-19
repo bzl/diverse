@@ -2,7 +2,7 @@ package inf247;
 
 import java.util.Arrays;
 
-public class Third {
+public class Fourth {
 
 	private static String alphabet;
 	private static int[][] alpha_to_bits;
@@ -19,28 +19,19 @@ public class Third {
 			plainText = plainText+alphabet;
 		}
 
-
 		int[] wheel47 = new int[]{1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1};
 		int[] wheel61 = new int[]{0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1};
 		int[] wheel73 = new int[]{0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0};				
 		int[] wheel71 = new int[]{0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0};
 		int[] wheel65 = new int[]{0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1};
 
+		int[] wheel69 = new int[]{1, 1, 0, 1, 1, 1, -1, 1, 1, -1, -1, 1, 0, -1, 1, -1, 0, 1, -1, 1, 0, 1, 1, 0, -1, 1, 1, 1, 0, -1, 0, 1, 1, -1, -1, 1, -1, -1, 1, 0, -1, -1, 0, 0, 1, 1, -1, 0, 0, 1, 1, 0, 1, 0, 0, 1, -1, -1, 1, 0, 0, 1, -1, 0, -1, 1, -1, -1, 1};
+		int[] wheel59 = new int[]{-1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, -1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, -1, 0, 1, 0, 1, 0, 0, 1};
+		int[] wheel64 = new int[]{1, 1, 1, 0, 0, 0, 0, 1, -1, 0, 0, 1, 1, 1, 1, -1, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1, -1, 1, 1, -1, 0, 1, 1, 1, 1, 1, 1, 1, 1, -1, 0, 0, 0, -1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 0, -1, 1};				
+		int[] wheel53 = new int[]{1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, -1, 1, 1, 1, 0, 1, 0, 0, 0, -1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, -1, 0, 1, 0, 0, 1, 1, 1, 1, -1};
+		int[] wheel67 = new int[]{1, 1, 1, 0, -1, 0, -1, -1, -1, -1, -1, 0, 0, 1, 1, 0, -1, -1, 0, 0, 1, -1, -1, -1, 0, -1, -1, -1, -1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, -1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, -1, -1, 1, -1, -1, -1, -1, 0, 0};
 
-		int[] unknown1 = new int[1276];
-		Arrays.fill(unknown1, -1);
-		int[] unknown2 = new int[1276];
-		Arrays.fill(unknown2, -1);
-		int[] unknown3 = new int[1276];
-		Arrays.fill(unknown3, -1);
-		int[] unknown4 = new int[1276];
-		Arrays.fill(unknown4, -1);
-		int[] unknown5 = new int[1276];
-		Arrays.fill(unknown5, -1);
-
-		int[][] unknownWheels = new int[][]{unknown1, unknown2, unknown3, unknown4, unknown5};
-
-		int[] tempFix = new int[]{1, 1, 1, 0, 1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 1, -1, 0, -1, -1, 1, 1, 0, 1, 0, -1, -1, -1, -1, -1, 0, 1, 1, 1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 1, -1, -1, -1, 0, 0, -1, -1, 1, -1, -1};
+		System.out.println(wheel67.length);
 
 		alpha_to_bits = new int[][]{{1, 1, 0, 0, 0}, {1, 0, 0, 1, 1}, {0, 1, 1, 1, 0}, {1, 0, 0, 1, 0}, {1, 0, 0, 0, 0}, {1, 0, 1, 1, 0}, {0, 1, 0, 1, 1}, {0, 0, 1, 0, 1}, {0, 1, 1, 0, 0}, {1, 1, 0, 1, 0}, {1, 1, 1, 1, 0}, {0, 1, 0, 0, 1}, {0, 0, 1, 1, 1}, {0, 0, 1, 1, 0}, {0, 0, 0, 1, 1}, {0, 1, 1, 0, 1}, {1, 1, 1, 0, 1}, {0, 1, 0, 1, 0}, {1, 0, 1, 0, 0}, {0, 0, 0, 0, 1}, {1, 1, 1, 0, 0}, {0, 1, 1, 1, 1}, {1, 1, 0, 0, 1}, {1, 0, 1, 1, 1}, {1, 0, 1, 0, 1}, {1, 0, 0, 0, 1}, {0, 0, 0, 1, 0}, {0, 1, 0, 0, 0}, {1, 1, 1, 1, 1}, {1, 1, 0, 1, 1}, {0, 0, 1, 0, 0}, {0, 0, 0, 0, 0}};
 
@@ -48,219 +39,142 @@ public class Third {
 		for(int g = 0; g < cipher.length; g++){
 			int[] firstFiveWheels = new int[]{wheel47[g%47],wheel61[g%61],wheel73[g%73],wheel71[g%71],wheel65[g%65]};
 
-			/*
-			 * 5, 28, 31, 27 and 20 deals with baud codes of weight 1
-			 */
 			if(cipher[g].equals("5")){//[1, 0, 0, 0, 0]
 				int[] result = xor(plainText.charAt(g), firstFiveWheels);
-				if(Arrays.equals(result, new int[]{0,1,0,0,0})){
-					unknown4[g] = 1;
-					unknown5[g] = 0;
-				}else if(Arrays.equals(result, new int[]{0,0,1,0,0})){
-					unknown3[g] = 1;
-					unknown4[g] = 0;
-					unknown5[g] = 0;
-				}else if(Arrays.equals(result, new int[]{0,0,0,1,0})){
-					unknown2[g]	= 1;
-					unknown3[g] = 0;
-					unknown4[g] = 0;
-					unknown5[g] = 0;
-				}else if(Arrays.equals(result, new int[]{1,0,0,0,0})){
-					//Complex
+				if(Arrays.equals(result, new int[]{1,0,0,0,0})){
+					if(wheel69[g%69] == 1){
+						wheel67[g%67] = 1;
+					}
+
+					if(wheel59[g%59] == 1 || wheel64[g%64] == 1 || wheel53[g%53] == 1 || wheel67[g%67] == 1){
+						wheel69[g%69] = 1;
+						wheel67[g%67] = 1;
+					}
+
+					if(wheel69[g%69] == 0){
+						wheel59[g%59] = 0;
+						wheel64[g%64] = 0;
+						wheel53[g%53] = 0;
+						wheel67[g%67] = 0;
+					}
+					if(wheel67[g%67] == 0){
+						wheel69[g%69] = 0;
+						wheel64[g%64] = 0;
+						wheel53[g%53] = 0;
+						wheel67[g%67] = 0;
+					}
+
 				}
 			} else if(cipher[g].equals("28")){ //[0, 1, 0, 0, 0]
 				int[] result = xor(plainText.charAt(g), firstFiveWheels);
-				if(Arrays.equals(result, new int[]{0,1,0,0,0})){//absolutt ingen endring
-					unknown4[g] = 1;
-					unknown5[g] = 1;
-				}else if(Arrays.equals(result, new int[]{0,0,1,0,0})){
-					unknown3[g] = 1;
-					unknown4[g] = 0;
-					unknown5[g] = 1;
-				}else if(Arrays.equals(result, new int[]{0,0,0,1,0})){
-					unknown2[g] = 1;
-					unknown3[g] = 0;
-					unknown4[g] = 0;
-					unknown5[g] = 1;
-				}else if(Arrays.equals(result, new int[]{0,0,0,0,1})){ 
-					//Complex
-				}
-			} else if(cipher[g].equals("31")){//[0, 0, 1, 0, 0]
-				int[] result = xor(plainText.charAt(g), firstFiveWheels);
-				if(Arrays.equals(result, new int[]{0,0,1,0,0})){
-					unknown3[g] = 1;
-					unknown4[g] = 1;
-				}else if(Arrays.equals(result, new int[]{0,0,0,1,0})){
-					unknown2[g] = 1;
-					unknown3[g] = 0;
-					unknown4[g] = 1;
-				}else if(Arrays.equals(result, new int[]{0,0,0,0,1})){
-					unknown1[g] = 1;
-					unknown2[g] = 0;
-					unknown3[g] = 0;
-					unknown4[g] = 1;
-				}else if(Arrays.equals(result, new int[]{1,0,0,0,0})){
-					unknown1[g] = 0;
-					unknown2[g] = 0;
-					unknown3[g] = 0;
-					unknown4[g] = 1;
-				}else if(Arrays.equals(result, new int[]{0,1,0,0,0})){
-					unknown4[g] = 0;
-				}
-			} else if(cipher[g].equals("27")){ //[0, 0, 0, 1, 0]
-				int[] result = xor(plainText.charAt(g), firstFiveWheels);
-				if(Arrays.equals(result, new int[]{0,0,0,1,0})){
-					unknown2[g] = 1;
-					unknown3[g] = 1;
-				}else if(Arrays.equals(result, new int[]{0,0,0,0,1})){
-					unknown1[g] = 1;
-					unknown2[g] = 0;
-					unknown3[g] = 1;
-				}else if (Arrays.equals(result, new int[]{0,0,1,0,0})){
-					unknown3[g] = 0;
-				}else if(Arrays.equals(result, new int[]{1,0,0,0,0})){
-					unknown1[g] = 0;
-					unknown2[g] = 0;
-					unknown3[g] = 1;
-				}
-			} else if(cipher[g].equals("20")){ //[0, 0, 0, 0, 1]
-				int[] result = xor(plainText.charAt(g), firstFiveWheels);
 				if(Arrays.equals(result, new int[]{0,0,0,0,1})){
-					unknown1[g] = 1;
-					unknown2[g] = 1;
-				}else if(Arrays.equals(result, new int[]{0,0,0,1,0})){
-					unknown2[g] = 0;
-				}else if(Arrays.equals(result, new int[]{1,0,0,0,0})){
-					unknown1[g] = 0;
-					unknown2[g] = 1;
+					if(wheel69[g%69] == 0){
+						wheel67[g%67] = 0;
+					}
+					if(wheel67[g%67] == 0){
+						wheel69[g%69] = 0;
+					}
+					if(wheel69[g%69] == 1){
+						wheel59[g%59] = 0;
+						wheel64[g%64] = 0;
+						wheel53[g%53] = 0;
+						wheel67[g%67] = 1;
+					}
+
+					if(wheel59[g%59] == 1 || wheel64[g%64] == 1 || wheel53[g%53] == 1){
+						wheel69[g%69] = 0;
+						wheel67[g%67] = 0;
+					}
 				}
 			}
-			/*
-			 * 22, 24, 30, 17 and 11 deals with baudcodes of weight 4
-			 */
+
+
 			else if(cipher[g].equals("22")){//[0, 1, 1, 1, 1]
 				int[] result = xor(plainText.charAt(g), firstFiveWheels);
-				if(Arrays.equals(result, new int[]{1,0,1,1,1})){
-					unknown4[g] = 1;
-					unknown5[g] = 0;
-				}else if(Arrays.equals(result, new int[]{1,1,0,1,1})){
-					unknown3[g] = 1;
-					unknown4[g] = 0;
-					unknown5[g] = 0;
-				}else if(Arrays.equals(result, new int[]{1,1,1,0,1})){
-					unknown2[g]	= 1;
-					unknown3[g] = 0;
-					unknown4[g] = 0;
-					unknown5[g] = 0;
-				}else if(Arrays.equals(result, new int[]{0,1,1,1,1})){ 
-					//Complex
+				if(Arrays.equals(result, new int[]{0,1,1,1,1})){
+					if(wheel69[g%69] == 1){
+						wheel67[g%67] = 1;
+					}
+
+					if(wheel59[g%59] == 1 || wheel64[g%64] == 1 || wheel53[g%53] == 1 || wheel67[g%67] == 1){
+						wheel69[g%69] = 1;
+						wheel67[g%67] = 1;
+					}
+
+					if(wheel69[g%69] == 0){
+						wheel59[g%59] = 0;
+						wheel64[g%64] = 0;
+						wheel53[g%53] = 0;
+						wheel67[g%67] = 0;
+					}
+					if(wheel67[g%67] == 0){
+						wheel69[g%69] = 0;
+						wheel64[g%64] = 0;
+						wheel53[g%53] = 0;
+						wheel67[g%67] = 0;
+					}
+
 				}
 			} else if(cipher[g].equals("24")){ //[1, 0, 1, 1, 1]
 				int[] result = xor(plainText.charAt(g), firstFiveWheels);
-				if(Arrays.equals(result, new int[]{1,0,1,1,1})){//absolutt ingen endring
-					unknown4[g] = 1;
-					unknown5[g] = 1;
-				}else if(Arrays.equals(result, new int[]{1,1,0,1,1})){
-					unknown3[g] = 1;
-					unknown4[g] = 0;
-					unknown5[g] = 1;
-				}else if(Arrays.equals(result, new int[]{1,1,1,0,1})){
-					unknown2[g] = 1;
-					unknown3[g] = 0;
-					unknown4[g] = 0;
-					unknown5[g] = 1;
-				}else if(Arrays.equals(result, new int[]{1,1,1,1,0})){
-					//Complex
-				}
-			} else if(cipher[g].equals("30")){//[1, 1, 0, 1, 1]
-				int[] result = xor(plainText.charAt(g), firstFiveWheels);
-				if(Arrays.equals(result, new int[]{1,1,0,1,1})){
-					unknown3[g] = 1;
-					unknown4[g] = 1;
-				}else if(Arrays.equals(result, new int[]{1,1,1,0,1})){
-					unknown2[g] = 1;
-					unknown3[g] = 0;
-					unknown4[g] = 1;
-				}else if(Arrays.equals(result, new int[]{1,1,1,1,0})){
-					unknown1[g] = 1;
-					unknown2[g] = 0;
-					unknown3[g] = 0;
-					unknown4[g] = 1;
-				}else if(Arrays.equals(result, new int[]{0,1,1,1,1})){
-					unknown1[g] = 0;
-					unknown2[g] = 0;
-					unknown3[g] = 0;
-					unknown4[g] = 1;
-				}else if(Arrays.equals(result, new int[]{1,0,1,1,1})){
-					unknown4[g] = 0;
-				}
-			} else if(cipher[g].equals("17")){ //[1, 1, 1, 0, 1]
-				int[] result = xor(plainText.charAt(g), firstFiveWheels);
-				if(Arrays.equals(result, new int[]{1,1,1,0,1})){
-					unknown2[g] = 1;
-					unknown3[g] = 1;
-				}else if(Arrays.equals(result, new int[]{1,1,1,1,0})){
-					unknown1[g] = 1;
-					unknown2[g] = 0;
-					unknown3[g] = 1;
-				}else if(Arrays.equals(result, new int[]{1,1,0,1,1})){
-					unknown3[g] = 0;
-				}else if(Arrays.equals(result, new int[]{0,1,1,1,1})){
-					unknown1[g] = 0;
-					unknown2[g] = 0;
-					unknown3[g] = 1;
-				}
-			} else if(cipher[g].equals("11")){ //[1, 1, 1, 1, 0]
-				int[] result = xor(plainText.charAt(g), firstFiveWheels);
 				if(Arrays.equals(result, new int[]{1,1,1,1,0})){
-					unknown1[g] = 1;
-					unknown2[g] = 1;
-				}else if(Arrays.equals(result, new int[]{1,1,1,0,1})){
-					unknown2[g] = 0;
-				}else if(Arrays.equals(result, new int[]{0,1,1,1,1})){
-					unknown1[g] = 0;
-					unknown2[g] = 1;
+					if(wheel69[g%69] == 0){
+						wheel67[g%67] = 0;
+					}
+					if(wheel67[g%67] == 0){
+						wheel69[g%69] = 0;
+					}
+					if(wheel69[g%69] == 1){
+						wheel59[g%59] = 0;
+						wheel64[g%64] = 0;
+						wheel53[g%53] = 0;
+						wheel67[g%67] = 1;
+					}
+
+					if(wheel59[g%59] == 1 || wheel64[g%64] == 1 || wheel53[g%53] == 1){
+						wheel69[g%69] = 0;
+						wheel67[g%67] = 0;
+					}
 				}
 			}
 		}
 
-		//DEBUG
+		System.out.println("Wheel 69 now contains");
+		System.out.println(Arrays.toString(wheel69));
+
+		System.out.println("Wheel 59 now contains");
+		System.out.println(Arrays.toString(wheel59));
+
+		System.out.println("Wheel 64 now contains");
+		System.out.println(Arrays.toString(wheel64));
+
+		System.out.println("Wheel 53 now contains");
+		System.out.println(Arrays.toString(wheel53));
+
+		System.out.println("Wheel 67 now contains");
+		System.out.println(Arrays.toString(wheel67));
+
 		int negative = 0;
-		//DEBUG
 		
-		int[] wheelSizes = new int[]{53,59,64,67,69}; //the different positions the wheel can take on.
-
-		for(int k = 0; k<unknownWheels.length; k++){ //Iterate through all the 5 unknown wheels we have
-			for(int i = 0; i<wheelSizes.length; i++){ //Iterates through the 10 possible sizes our wheel can have.
-				int[] wheel = new int[wheelSizes[i]];
-				Arrays.fill(wheel, -1);
-				int collision = 0;
-				for(int j = 0; j < cipher.length; j++){ //Iterate through the entire ciphers worth of length
-
-					int wj = j%wheel.length;
-
-					int currentUnknown = unknownWheels[k][j];
-
-					if(currentUnknown != -1){
-
-						if((wheel[wj] == 1 || wheel[wj] == 0) && wheel[wj] != currentUnknown){
-							collision++;
-							//break;
-						} else{
-							wheel[wj] = currentUnknown;
-						}
-					}
-				}
-
-				if(collision == 0){
-					System.out.println("Wheel "+(k+5)+" has been identified with size "+wheelSizes[i]);
-					System.out.println(Arrays.toString(wheel));
-					for(int p : wheel){
-						if(p == -1)
-							negative++;
-					}
-				}
-			}
+		for (int i : wheel69) {
+			if(i == -1)
+				negative++;
+		}	
+		for (int i : wheel59) {
+			if(i == -1)
+				negative++;
+		}
+		for (int i : wheel64) {
+			if(i == -1)
+				negative++;
+		}
+		for (int i : wheel53) {
+			if(i == -1)
+				negative++;
+		}
+		for (int i : wheel67) {
+			if(i == -1)
+				negative++;
 		}
 		System.out.println(negative);
 	}
