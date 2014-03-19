@@ -230,6 +230,23 @@ public class Fifth {
 				}
 			}
 		}
+		
+		System.out.println("Wheel 69 now contains");
+		System.out.println(Arrays.toString(wheel69));
+
+		System.out.println("Wheel 59 now contains");
+		System.out.println(Arrays.toString(wheel59));
+
+		System.out.println("Wheel 64 now contains");
+		System.out.println(Arrays.toString(wheel64));
+
+		System.out.println("Wheel 53 now contains");
+		System.out.println(Arrays.toString(wheel53));
+
+		System.out.println("Wheel 67 now contains");
+		System.out.println(Arrays.toString(wheel67));
+
+		
 	}
 
 	private static int[] xor(char bokstav, int[] firstFiveWheels) {
