@@ -10,9 +10,10 @@ public class Encryption {
 
 		// Obscenely long string :s
 		String plainText = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-		//int[] ciphertext = encrypt(plainText, 1276, new int[]{0,3,9,8,5,7,2,4,1,6});
-		int[] ciphertext = encrypt(plainText, 0, new int[]{0,3,9,8,5,7,2,4,1,6});
+		//int[] ciphertext = encrypt(plainText, 0, new int[]{0,3,9,8,5,7,2,4,1,6});
+		int[] ciphertext = encrypt(plainText, 1276, new int[]{0,3,9,8,5,7,2,4,1,6});
 
+		System.out.println(ciphertext[2]);
 		System.out.print("Cipertext is ");
 		for (int i : ciphertext) {
 			System.out.print(i+", ");
@@ -56,30 +57,31 @@ public class Encryption {
 		wheels.add(wheel71);
 		wheels.add(wheel73);
 
-		int[][] alpha_to_bits = new int[][]{{1, 1, 0, 0, 0}, {1, 0, 0, 1, 1}, {0, 1, 1, 1, 0}, {1, 0, 0, 1, 0}, {1, 0, 0, 0, 0}, {1, 0, 1, 1, 0}, {0, 1, 0, 1, 1}, {0, 0, 1, 0, 1}, {0, 1, 1, 0, 0}, {1, 1, 0, 1, 0}, {1, 1, 1, 1, 0}, {0, 1, 0, 0, 1}, {0, 0, 1, 1, 1}, {0, 0, 1, 1, 0}, {0, 0, 0, 1, 1}, {0, 1, 1, 0, 1}, {1, 1, 1, 0, 1}, {0, 1, 0, 1, 0}, {1, 0, 1, 0, 0}, {0, 0, 0, 0, 1}, {1, 1, 1, 0, 0}, {0, 1, 1, 1, 1}, {1, 1, 0, 0, 1}, {1, 0, 1, 1, 1}, {1, 0, 1, 0, 1}, {1, 0, 0, 0, 1}, {0, 0, 0, 1, 0}, {0, 1, 0, 0, 0}, {1, 1, 1, 1, 1}, {1, 1, 0, 1, 1}, {0, 0, 1, 0, 0}, {0, 0, 0, 0, 0}};
+		final int[][] alpha_to_bits = new int[][]{{1, 1, 0, 0, 0}, {1, 0, 0, 1, 1}, {0, 1, 1, 1, 0}, {1, 0, 0, 1, 0}, {1, 0, 0, 0, 0}, {1, 0, 1, 1, 0}, {0, 1, 0, 1, 1}, {0, 0, 1, 0, 1}, {0, 1, 1, 0, 0}, {1, 1, 0, 1, 0}, {1, 1, 1, 1, 0}, {0, 1, 0, 0, 1}, {0, 0, 1, 1, 1}, {0, 0, 1, 1, 0}, {0, 0, 0, 1, 1}, {0, 1, 1, 0, 1}, {1, 1, 1, 0, 1}, {0, 1, 0, 1, 0}, {1, 0, 1, 0, 0}, {0, 0, 0, 0, 1}, {1, 1, 1, 0, 0}, {0, 1, 1, 1, 1}, {1, 1, 0, 0, 1}, {1, 0, 1, 1, 1}, {1, 0, 1, 0, 1}, {1, 0, 0, 0, 1}, {0, 0, 0, 1, 0}, {0, 1, 0, 0, 0}, {1, 1, 1, 1, 1}, {1, 1, 0, 1, 1}, {0, 0, 1, 0, 0}, {0, 0, 0, 0, 0}};
+
 
 		for(int i = 0; i<plaintext.length(); i++){
 
-			int[] currentPlainText = alpha_to_bits[alphabet.indexOf(plaintext.charAt(i))];
-
-			int first = wheels.get(cablePermutation[0])[i%wheels.get(cablePermutation[0]).length];
-			int second = wheels.get(cablePermutation[1])[i%wheels.get(cablePermutation[1]).length];
-			int third = wheels.get(cablePermutation[2])[i%wheels.get(cablePermutation[2]).length];
-			int fourth = wheels.get(cablePermutation[3])[i%wheels.get(cablePermutation[3]).length];
-			int fifth = wheels.get(cablePermutation[4])[i%wheels.get(cablePermutation[4]).length];
+			int[] currentPlainText =  Arrays.copyOf(alpha_to_bits[alphabet.indexOf(plaintext.charAt(i))], 5);
+			
+			int first = wheels.get(cablePermutation[0])[(wheelPosition+i)%wheels.get(cablePermutation[0]).length];
+			int second = wheels.get(cablePermutation[1])[(wheelPosition+i)%wheels.get(cablePermutation[1]).length];
+			int third = wheels.get(cablePermutation[2])[(wheelPosition+i)%wheels.get(cablePermutation[2]).length];
+			int fourth = wheels.get(cablePermutation[3])[(wheelPosition+i)%wheels.get(cablePermutation[3]).length];
+			int fifth = wheels.get(cablePermutation[4])[(wheelPosition+i)%wheels.get(cablePermutation[4]).length];
 			int[] firstFiveWheels = new int[]{first,second,third,fourth,fifth};
 
-			int six = wheels.get(cablePermutation[5])[i%wheels.get(cablePermutation[5]).length];
-			int seven = wheels.get(cablePermutation[6])[i%wheels.get(cablePermutation[6]).length];
-			int eight = wheels.get(cablePermutation[7])[i%wheels.get(cablePermutation[7]).length];
-			int nine = wheels.get(cablePermutation[8])[i%wheels.get(cablePermutation[8]).length];
-			int ten = wheels.get(cablePermutation[9])[i%wheels.get(cablePermutation[9]).length];
-
+			int six = wheels.get(cablePermutation[5])[(wheelPosition+i)%wheels.get(cablePermutation[5]).length];
+			int seven = wheels.get(cablePermutation[6])[(wheelPosition+i)%wheels.get(cablePermutation[6]).length];
+			int eight = wheels.get(cablePermutation[7])[(wheelPosition+i)%wheels.get(cablePermutation[7]).length];
+			int nine = wheels.get(cablePermutation[8])[(wheelPosition+i)%wheels.get(cablePermutation[8]).length];
+			int ten = wheels.get(cablePermutation[9])[(wheelPosition+i)%wheels.get(cablePermutation[9]).length];
 
 			// Performs the XOR mechanic
 			for (int j = 0; j < currentPlainText.length; j++) {
 				currentPlainText[j] = firstFiveWheels[j]^currentPlainText[j];
 			}
+			
 
 			// Performs the Switch mechanic
 			if(six == 0){
@@ -108,27 +110,13 @@ public class Encryption {
 				currentPlainText[0] = temp;
 			}
 
+			//translates the baud back to a character
 			for(int k = 0; k < alpha_to_bits.length; k++){
-				if(Arrays.equals(alpha_to_bits[k], currentPlainText))
+				if(Arrays.equals(alpha_to_bits[k], currentPlainText)){
 					returnable[i] = k+1;
-				if(i == 9 && k == 9){
-					System.out.println(Arrays.toString(alpha_to_bits[k]));
-					System.out.println(Arrays.toString(currentPlainText));
-					System.out.println();
 				}
-			}
-			
-			if(i == 9){
-				System.out.println(Arrays.toString(alpha_to_bits[alphabet.indexOf(plaintext.charAt(i))]));
-				System.out.println(Arrays.toString(firstFiveWheels));
-				System.out.println(six+", "+seven+", "+eight+", "+nine+", "+ten);
-				System.out.println(Arrays.toString(currentPlainText));
-				System.out.println(returnable[i]);
-			}
-			
-			
+			}	
 		}
-
 		return returnable;
 	}
 }

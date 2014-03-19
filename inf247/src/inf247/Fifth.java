@@ -38,30 +38,27 @@ public class Fifth {
 		for(int g = 0; g < cipher.length; g++){
 			int[] firstFiveWheels = new int[]{wheel47[g%47],wheel61[g%61],wheel73[g%73],wheel71[g%71],wheel65[g%65]};
 			
-			int[] lastFiveWheels = new int[]{wheel69[g%69],wheel59[g%59],wheel64[g%64],wheel53[g%53],wheel67[g%67]};
-
+			//int[] lastFiveWheels = new int[]{wheel69[g%69],wheel59[g%59],wheel64[g%64],wheel53[g%53],wheel67[g%67]};
+			
+			
 			/* 
 			 * Below we identify how many datapoints per wheel we already know.
 			 */
-			int number_of_known_wheels = 0;
-			for (int i : lastFiveWheels) {
-				if(i != -1){
-					number_of_known_wheels++;
-				}
-			}
+//			int number_of_known_wheels = 0;
+//			for (int i : lastFiveWheels) {
+//				if(i != -1){
+//					number_of_known_wheels++;
+//				}
+//			}
 			
-			if(number_of_known_wheels == 4){
-				System.out.println(g);
-				System.out.println(Arrays.toString(firstFiveWheels));
-				System.out.println(Arrays.toString(alpha_to_bits[alphabet.indexOf(plainText.charAt(g))]));
-				System.out.println("XOR:\t"+Arrays.toString(xor(plainText.charAt(g), firstFiveWheels)));
-				
-				System.out.println("last 5\t"+Arrays.toString(lastFiveWheels));
-				
-				System.out.println("cipher\t" +Arrays.toString(alpha_to_bits[Integer.parseInt(cipher[g])-1]));
-				System.out.println();
-				
-			}
+			//used to find stuff we can manaually resolve
+//			if(number_of_known_wheels == 4){
+//				System.out.println(g);
+//				System.out.println("XOR:\t"+Arrays.toString(xor(plainText.charAt(g), firstFiveWheels)));
+//				System.out.println("last 5\t"+Arrays.toString(lastFiveWheels));
+//				System.out.println("cipher\t" +Arrays.toString(alpha_to_bits[Integer.parseInt(cipher[g])-1]));
+//				System.out.println();
+//			}
 
 			if(cipher[g].equals("5")){//[1, 0, 0, 0, 0]
 				int[] result = xor(plainText.charAt(g), firstFiveWheels);
