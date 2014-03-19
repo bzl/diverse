@@ -2,7 +2,7 @@ package inf247;
 
 import java.util.Arrays;
 
-public class Fourth {
+public class Fifth {
 
 	private static String alphabet;
 	private static int[][] alpha_to_bits;
@@ -25,19 +25,43 @@ public class Fourth {
 		int[] wheel71 = new int[]{0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0};
 		int[] wheel65 = new int[]{0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1};
 
-		int[] wheel69 = new int[]{1, 1, 0, 1, 1, 1, -1, 1, 1, -1, -1, 1, 0, -1, 1, -1, 0, 1, -1, 1, 0, 1, 1, 0, -1, 1, 1, 1, 0, -1, 0, 1, 1, -1, -1, 1, -1, -1, 1, 0, -1, -1, 0, 0, 1, 1, -1, 0, 0, 1, 1, 0, 1, 0, 0, 1, -1, -1, 1, 0, 0, 1, -1, 0, -1, 1, -1, -1, 1};
-		int[] wheel59 = new int[]{-1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, -1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, -1, 0, 1, 0, 1, 0, 0, 1};
-		int[] wheel64 = new int[]{1, 1, 1, 0, 0, 0, 0, 1, -1, 0, 0, 1, 1, 1, 1, -1, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1, -1, 1, 1, -1, 0, 1, 1, 1, 1, 1, 1, 1, 1, -1, 0, 0, 0, -1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 0, -1, 1};				
-		int[] wheel53 = new int[]{1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, -1, 1, 1, 1, 0, 1, 0, 0, 0, -1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, -1, 0, 1, 0, 0, 1, 1, 1, 1, -1};
-		int[] wheel67 = new int[]{1, 1, 1, 0, -1, 0, -1, -1, -1, -1, -1, 0, 0, 1, 1, 0, -1, -1, 0, 0, 1, -1, -1, -1, 0, -1, -1, -1, -1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, -1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, -1, -1, 1, -1, -1, -1, -1, 0, 0};
+		int[] wheel69 = new int[]{1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 1};
+		int[] wheel59 = new int[]{0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 1};
+		int[] wheel64 = new int[]{1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1};				
+		int[] wheel53 = new int[]{1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0};
+		int[] wheel67 = new int[]{1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0};
 
-		System.out.println(wheel67.length);
 
 		alpha_to_bits = new int[][]{{1, 1, 0, 0, 0}, {1, 0, 0, 1, 1}, {0, 1, 1, 1, 0}, {1, 0, 0, 1, 0}, {1, 0, 0, 0, 0}, {1, 0, 1, 1, 0}, {0, 1, 0, 1, 1}, {0, 0, 1, 0, 1}, {0, 1, 1, 0, 0}, {1, 1, 0, 1, 0}, {1, 1, 1, 1, 0}, {0, 1, 0, 0, 1}, {0, 0, 1, 1, 1}, {0, 0, 1, 1, 0}, {0, 0, 0, 1, 1}, {0, 1, 1, 0, 1}, {1, 1, 1, 0, 1}, {0, 1, 0, 1, 0}, {1, 0, 1, 0, 0}, {0, 0, 0, 0, 1}, {1, 1, 1, 0, 0}, {0, 1, 1, 1, 1}, {1, 1, 0, 0, 1}, {1, 0, 1, 1, 1}, {1, 0, 1, 0, 1}, {1, 0, 0, 0, 1}, {0, 0, 0, 1, 0}, {0, 1, 0, 0, 0}, {1, 1, 1, 1, 1}, {1, 1, 0, 1, 1}, {0, 0, 1, 0, 0}, {0, 0, 0, 0, 0}};
 
 
 		for(int g = 0; g < cipher.length; g++){
 			int[] firstFiveWheels = new int[]{wheel47[g%47],wheel61[g%61],wheel73[g%73],wheel71[g%71],wheel65[g%65]};
+			
+			int[] lastFiveWheels = new int[]{wheel69[g%69],wheel59[g%59],wheel64[g%64],wheel53[g%53],wheel67[g%67]};
+
+			/* 
+			 * Below we identify how many datapoints per wheel we already know.
+			 */
+			int number_of_known_wheels = 0;
+			for (int i : lastFiveWheels) {
+				if(i != -1){
+					number_of_known_wheels++;
+				}
+			}
+			
+			if(number_of_known_wheels == 4){
+				System.out.println(g);
+				System.out.println(Arrays.toString(firstFiveWheels));
+				System.out.println(Arrays.toString(alpha_to_bits[alphabet.indexOf(plainText.charAt(g))]));
+				System.out.println("XOR:\t"+Arrays.toString(xor(plainText.charAt(g), firstFiveWheels)));
+				
+				System.out.println("last 5\t"+Arrays.toString(lastFiveWheels));
+				
+				System.out.println("cipher\t" +Arrays.toString(alpha_to_bits[Integer.parseInt(cipher[g])-1]));
+				System.out.println();
+				
+			}
 
 			if(cipher[g].equals("5")){//[1, 0, 0, 0, 0]
 				int[] result = xor(plainText.charAt(g), firstFiveWheels);
@@ -208,45 +232,6 @@ public class Fourth {
 				}
 			}
 		}
-
-		System.out.println("Wheel 69 now contains");
-		System.out.println(Arrays.toString(wheel69));
-
-		System.out.println("Wheel 59 now contains");
-		System.out.println(Arrays.toString(wheel59));
-
-		System.out.println("Wheel 64 now contains");
-		System.out.println(Arrays.toString(wheel64));
-
-		System.out.println("Wheel 53 now contains");
-		System.out.println(Arrays.toString(wheel53));
-
-		System.out.println("Wheel 67 now contains");
-		System.out.println(Arrays.toString(wheel67));
-
-		int negative = 0;
-		
-		for (int i : wheel69) {
-			if(i == -1)
-				negative++;
-		}	
-		for (int i : wheel59) {
-			if(i == -1)
-				negative++;
-		}
-		for (int i : wheel64) {
-			if(i == -1)
-				negative++;
-		}
-		for (int i : wheel53) {
-			if(i == -1)
-				negative++;
-		}
-		for (int i : wheel67) {
-			if(i == -1)
-				negative++;
-		}
-		System.out.println(negative);
 	}
 
 	private static int[] xor(char bokstav, int[] firstFiveWheels) {
