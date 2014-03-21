@@ -84,7 +84,7 @@ public class First {
 
 				if(collision == 0){
 					System.out.println("Wheel "+k+" has been identified with size "+wheelpositions[i]);
-					//System.out.println(Arrays.toString(wheel)); 
+					System.out.println(Arrays.toString(wheel)); 
 					break;
 				}
 			}
