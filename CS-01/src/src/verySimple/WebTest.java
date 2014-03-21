@@ -3,6 +3,13 @@ package src.verySimple;
 /* package whatever; // don't place package name! */
 import java.io.*;
 /* The class name doesn't have to be Main, as long as the class is not public. */
+
+/**
+ * do not ever execute.
+ * 
+ * @author Kristoffer Tverå
+ *
+ */
 class WebTest
 {
 	public static void main (String[] args)
@@ -10,7 +17,7 @@ class WebTest
 		File fil = new File("dump");
 		File parent = fil.getParentFile();
 		sizeOfFolder(parent);
-		int magicValue = 100;
+		int magicValue = 0; //modify
 		for (int i = 0; i < magicValue; i++) {
 			for (int j = 0; j < magicValue; j++) { 
 				for (int x = 0; x < magicValue; x++) {
