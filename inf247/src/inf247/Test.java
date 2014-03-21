@@ -13,5 +13,11 @@ public class Test {
 			byte b3 = (byte) ((byte) b1^b2);
 			String s3 = String.format("%5s", Integer.toBinaryString(b3 & 0xFF)).replace(' ', '0');
 			System.out.println(s3); // 00000010
+			
+			
+			
+			
+			
+			
 	}
 }
