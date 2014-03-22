@@ -104,6 +104,7 @@ public class Main {
 		//Her starter FSM logikken.
 		boolean complete = false;
 		int currentXState = startState;
+		assert currentXState <= numberOfStates; //Potentially posioned.
 		String outputX = "";
 		do{
 			String currentData; //representerer den delen av hele input stringen vi er interesert i ved denne iterasjonen
@@ -120,6 +121,7 @@ public class Main {
 				if(Integer.parseInt(nextStateFunction[i][0]) == currentXState){
 					if(nextStateFunction[i][1].equals(currentData)){
 						currentXState = Integer.parseInt(nextStateFunction[i][2]);
+						assert currentXState <= numberOfStates; //Potentially posioned.
 						outputX += nextStateFunction[i][3];
 						break; // Stop når vi har funnet aktuel regel, og lest/endret nødvendigt.
 					}
