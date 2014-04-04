@@ -7,7 +7,11 @@
 </head>
 <body>
 <script type="text/javascript">
-alert("1.6% droprate (0.016) after 100 attempts: "+dropRate(0.016, 100));
+
+var kills = prompt("Please enter the amount of kills thus far", "kills");
+var rate = prompt("Please enter the droprate on the item", "droprate");
+
+alert("Probability of drop now: "+dropRate(rate, kills));
 </script>
 </body>
 </html>
