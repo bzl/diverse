@@ -89,7 +89,6 @@ public class First {
 				}
 			}
 		}
-
 	}
 
 	private static int[] xor(char bokstav, int[] firstFiveWheels) {
