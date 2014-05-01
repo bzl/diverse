@@ -2,6 +2,12 @@ package inf247;
 
 import java.util.Arrays;
 
+
+/**
+ * 
+ * @author Kristoffer Tverå
+ *
+ */
 public class Collisions {
 
 	public static void main(String[] args) {
