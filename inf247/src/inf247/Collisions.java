@@ -2,7 +2,6 @@ package inf247;
 
 import java.util.Arrays;
 
-
 /**
  * 
  * @author Kristoffer Tverå
