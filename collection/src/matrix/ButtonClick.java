@@ -1,26 +1,21 @@
 package matrix;
+import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import javax.swing.JOptionPane;
 
-public class ButtonClick implements KeyListener {
+class ButtonClick extends KeyAdapter{
 
-	@Override
-	public void keyPressed(KeyEvent arg0) {
-		// TODO Auto-generated method stub
+	public void keyPressed(KeyEvent ke){
 
+		switch (ke.getKeyCode()) {
+		case KeyEvent.VK_ALT:
+			JOptionPane.showMessageDialog(null, "alt clicked");
+			break;
+
+		default:
+			break;
+		}
 	}
-
-	@Override
-	public void keyReleased(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void keyTyped(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-
-	}
-
 }
