@@ -16,6 +16,30 @@ public class Test {
 			
 			
 				
+			float n = 4.0f;
+			
+			float k = 3.0f;
+			
+			float p = 1/6;
+			
+			float q = 1-p;
+			
+			float prod1;
+			
+			float prod2;
+			
+			float prod3;
+			
+			prod1 = n/k;
+			System.out.println(prod1);
+			
+			prod2 = (float) Math.pow(p, k);
+			System.out.println(prod2);
+			
+			prod3 = (float) Math.pow(q, (n-k));
+			System.out.println(prod3);
+			
+			System.out.println(prod1*prod2*prod3);
 			
 			
 			
