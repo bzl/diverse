@@ -24,8 +24,8 @@ public class AutoClicker {
 		 * I add the lower (2400) and 0-->100% of the difference 
 		 * between the two numbers. Simple shit.
 		 */
-		long random_low = 2500;
-		long random_high = 3000;
+		long random_low = 2800;
+		long random_high = 3400;
 		long rate;
 		long random_diff = random_high-random_low;
 		//autoclicker clicks 400 times, and waits aprox 2,5 seconds between each time
