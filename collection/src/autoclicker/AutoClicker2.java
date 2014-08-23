@@ -1,3 +1,4 @@
+package autoclicker;
 
 import java.awt.AWTException;
 import java.awt.Robot;
@@ -10,7 +11,7 @@ import java.io.IOException;
  * @author Kristoffer Tver�
  *
  */
-public class AutoClicker {
+public class AutoClicker2 {
 	public static void main(String[] args) throws IOException {
 		
 		try {
