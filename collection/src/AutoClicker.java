@@ -10,6 +10,12 @@ import java.io.IOException;
  *
  */
 public class AutoClicker {
+	private static long jitter_random_low = 2500;
+	private static long jitter_random_high = 3000;
+	private static long random_low = 2500;
+	private static long random_high = 3000;
+	private static long rate;
+
 	public static void main(String[] args) throws IOException {
 		
 		try {
@@ -18,14 +24,7 @@ public class AutoClicker {
 			e1.printStackTrace();
 		}
 		
-		/*
-		 * In order to obtain a random number between 2400 and 2800
-		 * I add the lower (2400) and 0-->100% of the difference 
-		 * between the two numbers. Simple shit.
-		 */
-		long random_low = 2500;
-		long random_high = 3000;
-		long rate;
+
 		long random_diff = random_high-random_low;
 		//autoclicker clicks 400 times, and waits aprox 2,5 seconds between each time
 		for (int i = 0; i < 500; i++) {
@@ -36,6 +35,8 @@ public class AutoClicker {
 				try {
 					Thread.sleep(rate);
 					robot.mousePress(InputEvent.BUTTON1_MASK);
+					long jitter_rate = jitter_random_low + (long) (Math.random()*jitter_random_high-jitter_random_low);
+					Thread.sleep(jitter_rate);
 					robot.mouseRelease(InputEvent.BUTTON1_MASK);
 				} catch (InterruptedException ex) {
 					//Exception handeling is for the weak

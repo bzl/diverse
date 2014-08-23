@@ -29,8 +29,7 @@ public class AutoClicker {
 		long rate;
 		long random_diff = random_high-random_low;
 		//autoclicker clicks 400 times, and waits aprox 2,5 seconds between each time
-		for (int i = 0; i < 500; i++) {
-			System.out.println(i);
+		while (true) {
 			rate = (long) (random_low+(Math.random()*random_diff));
 			try {
 				Robot robot = new Robot();
@@ -45,7 +44,5 @@ public class AutoClicker {
 				//I like to live risky
 			}
 		}
-		//Audio alert post execution
-		Toolkit.getDefaultToolkit().beep();
 	}
 }
