@@ -4,7 +4,7 @@ import java.awt.event.InputEvent;
 
 /**
  * 
- * @author Kristoffer Tver�
+ * @author Kristoffer Tverå
  *
  */
 class Background implements Runnable {
@@ -59,13 +59,9 @@ class Background implements Runnable {
 				Robot robot = new Robot();
 				try {
 					Thread.sleep(rate);
-//					robot.mousePress(InputEvent.BUTTON1_MASK);
-//					Thread.sleep(jitterRate);
-//					robot.mouseRelease(InputEvent.BUTTON1_MASK);
-					
-					System.out.println(rate);
-					System.out.println(jitterRate);
-					
+					robot.mousePress(InputEvent.BUTTON1_MASK);
+					Thread.sleep(jitterRate);
+					robot.mouseRelease(InputEvent.BUTTON1_MASK);
 					
 				} catch (InterruptedException ex) {
 					//Exception handeling is for the weak

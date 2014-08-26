@@ -6,7 +6,9 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.AbstractAction;
+
 import java.awt.event.ActionEvent;
+
 import javax.swing.Action;
 
 
@@ -105,6 +107,10 @@ public class MainFrame {
 		frame.getContentPane().add(jitter_tooltip2);
 	}
 	private class SwingAction extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = -5858044587180098844L;
 		public SwingAction() {
 			putValue(NAME, "Start");
 			putValue(SHORT_DESCRIPTION, "Start or stop the autoclicker");
@@ -136,6 +142,7 @@ public class MainFrame {
 		return this.running;
 	}
 
+	@SuppressWarnings("deprecation")
 	public void stop() {
 		this.running = false;
 		clicker.stop();
