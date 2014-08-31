@@ -3,121 +3,102 @@
 <head>
 <meta charset="utf-8">
 <title>MittStudium</title>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script
+    src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script type="text/javascript" src="assets/js/navigation.js"></script>
 </head>
 <body>
 
-	<select id="first-choice">
-		<option selected value="base">Velg en utdannings-institusjon</option>
-		<option value="Universitetet i Bergen">Universitetet i Bergen</option>
-		<option value="Universitetet i Oslo">Universitetet i Oslo</option>
-		<option value="NTNU">NTNU</option>
-	</select>
+    <select id="first-choice">
+        <option selected value="base">Velg en utdannings-institusjon</option>
+    </select>
 
-	<br>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var content;
+            $.get('assets/php/skoler.php', function(data) {
+                content = data;
+                $('#first-choice').append(content);
+            });
+        });
+    </script>
 
-	<select id="second-choice">
-		<option>Velg ovenfor først.</option>
-	</select>
+    <br>
 
-	<script type="text/javascript">
-		$("#first-choice").change(function() {
+    <select id="second-choice">
+        <option>Velg ovenfor først.</option>
+    </select>
 
-			var $dropdown = $(this);
+    <script type="text/javascript">
+        $("#first-choice")
+                .change(
+                        function() {
+                            $("#evalueringer").empty();
 
-			$.getJSON("assets/data/studier_ved_skoler.json", function(data) {
+                            var valgtSkole = $("#first-choice").val();
+                            var url = encodeURI("assets/php/studier.php?skole="
+                                    + valgtSkole);
+                            var content;
+                            $
+                                    .get(
+                                            url,
+                                            function(data) {
+                                                content = data;
 
-				var key = $dropdown.val();
-				var vals = [];
+                                                $("#second-choice").empty();
+                                                $("#second-choice")
+                                                        .append(
+                                                                "<option selected value=\"base\">Velg en utdanning</option>");
+                                                $('#second-choice').append(
+                                                        content);
+                                                $("#second-choice")
+                                                        .append(
+                                                                "<option value=\"leggTilNytt\">Finner ikke min utdanning</option>");
+                                            });
 
-				switch (key) {
-				case 'Universitetet i Bergen':
-					vals = data["uib"];
-					break;
-				case 'Universitetet i Oslo':
-					vals = data["uio"];
-					break;
-				case 'NTNU':
-					vals = data["ntnu"];
-					break;
-				case 'base':
-					vals = [ 'Velg ovenfor først.' ];
-				}
+                        });
 
-				var $secondChoice = $("#second-choice");
-				$secondChoice.empty();
-				$secondChoice.append("<option selected value=\"velgEn\"> Velg en studieretning</option>")
-				$.each(vals, function(index, value) {
-					$secondChoice.append("<option>" + value + "</option>");
-				});
-				$secondChoice.append("<option value=\"ingen\"> Finner ikke min studieretning</option>")
+        $("#second-choice")
+                .change(
+                        function() {
+                            var valgtStudie = $("#second-choice").val();
+                            var valgtSkole = $("#first-choice").val();
 
-			});
-		});
+                            if (valgtStudie == "leggTilNytt") {
+                                leggTilNytt()
+                            } else {
 
-		$("#second-choice").change(function() {
+                                $("#evalueringer").empty();
+                                $("#evalueringer")
+                                        .append(
+                                                "<a class=\"lenke\" onclick=\"evaluer()\" ><li> Trykk her for å legge til en evaluering av dette studiet </li></a>");
 
-			var $dropdown2 = $(this);
+                                var url = encodeURI("assets/php/evalueringer.php?skole="
+                                        + valgtSkole + "&studie=" + valgtStudie);
+                                console.log(url);
+                                var content;
+                                $.get(url, function(data) {
+                                    content = data;
+                                    $('#evalueringer').prepend(content);
+                                });
 
-			var $dropdownPre = $("#first-choice");
+                            }
+                        });
 
-			var key2 = $dropdownPre.val();
-			var file;
+        function evaluer() {
+            window.location = "evaluer.html";
+        }
+        function leggTilNytt() {
+            window.location = "leggTilNyttStudie.html";
+        }
+    </script>
 
-			switch (key2) {
-			case 'Universitetet i Bergen':
-				file = "assets/data/uib.json"
-				break;
-			case 'Universitetet i Oslo':
-				file = "assets/data/uio.json"
-				break;
-			case 'NTNU':
-				file = "assets/data/ntnu.json"
-				break;
-			}
+    <ul id="evalueringer">
 
-			$.getJSON(file, function(data) {
+    </ul>
 
-				var key3 = $dropdown2.val();
-				var vals = [];
-
-				switch (key3) {
-				case 'Bachelor i Informatikk':
-					vals = data["bachelorInformatikk"];
-					break;
-				case 'Master i Medisin':
-					vals = data["masterMedisin"];
-					break;
-				case 'Doktorgrad i Arkeologi':
-					vals = data["doktorArkeologi"];
-					break;
-				case 'ingen':
-					window.location = "studium.html";
-					break;
-				}
-
-				$("#pepperoni").empty();
-				$.each(vals, function(index, value) {
-					$("ul#pepperoni").append("<li>" + value + "</li>");
-				});
-				if(vals[0]){
-					$("ul#pepperoni").append("<a class=\"lenke\" onclick=\"leggTil()\" ><li> trykk her for å legge til en evaluering av dette studiet </li></a>")
-				}
-				
-				
-			});
-		});
-		
-		function leggTil(){
-			window.location = "evaluer.html";
-		}
-		
-	</script>
-
-	<ul id="pepperoni">
-
-	</ul>
+    <br>
+    <br>
 
 </body>
 </html>

@@ -5,7 +5,7 @@ function main(){
 
 function plass(){
 	contentX = document.getElementById('contentFrame');
-	contentX.src = "plass.html";
+	contentX.src = "plass2.html"; // TEMPORARILY SET TO plass2
 
 }
 
@@ -42,7 +42,7 @@ function leggTilNytt(){
 
 
 function resizeMe(){
-	console.log("ping");
+	//console.log("ping");
 	
 	contentX = document.getElementById('contentFrame');
 	contentX.style.height = "auto";
