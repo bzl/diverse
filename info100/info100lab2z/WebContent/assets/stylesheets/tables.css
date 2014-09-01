@@ -1,0 +1,31 @@
+@CHARSET "UTF-8";
+
+.fiftyfifty {
+   border-collapse:collapse;
+} 
+.fiftyfifty.one {
+   border:none;
+   outline:none;
+   width:50%;
+}
+.fiftyfifty.two {
+   border:none;
+   outline:none;
+   width:50%;
+}
+
+.twentyeighty {
+   border-collapse:collapse;
+}
+.twentyeighty.one {
+   border:none;
+   outline:none;
+   width:20%;
+}
+.twentyeighty.two {
+   border:none;
+   outline:none;
+   width:80%;
+}
+
+twentyeighty

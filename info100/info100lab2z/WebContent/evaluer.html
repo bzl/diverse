@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Mitt Studium</title>
+<link rel="stylesheet" href="assets/stylesheets/tables.css" type="text/css">
 <script type="text/javascript" src="assets/js/jquery-1.11.1.js"></script>
 <script type="text/javascript" src="assets/js/populateSchools.js"></script>
 <script type="text/javascript" src="assets/js/populateStudies.js"></script>
@@ -17,26 +18,26 @@
 		});
 	</script>
 
-	<table border="" style="border-collapse: collapse; border: 0px none #000000; color: #000000; width: 100%">
-
+	<table class="fiftyfifty">
 		<tr>
-			<td><select id="first-choice">
+			<td class="one"><select id="first-choice">
 					<option selected value="base">Velg en utdannings-institusjon</option>
 			</select></td>
-			<td><select id="second-choice">
+			<td class="two"><select id="second-choice">
 					<option>Først må du velge utdannings-institusjon</option>
 			</select></td>
 		</tr>
 	</table>
+	<br>
 
-	<table border="" style="border-collapse: collapse; border: 0px none #000000; color: #000000; width: 100%">
+	<table class="twentyeighty">
 		<tr>
-			<td>Ditt navn</td>
-			<td><input type="text" id="evaluer_navn" value="Skriv ditt navn her" /></td>
+			<td class="one">Ditt navn</td>
+			<td class="two"><input type="text" id="evaluer_navn" value="Skriv ditt navn her" /></td>
 		</tr>
 		<tr>
-			<td>Din Evaluering</td>
-			<td><textarea id="evaluering" rows="3" cols="60"> Skriv din evaluering her </textarea></td>
+			<td class="one">Din Evaluering</td>
+			<td class="two"><textarea id="evaluering" rows="3" cols="60"> Skriv din evaluering her </textarea></td>
 		</tr>
 	</table>
 
