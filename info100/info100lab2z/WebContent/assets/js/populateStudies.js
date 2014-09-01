@@ -44,7 +44,6 @@ function initializeStudies(){
 
 					var url = encodeURI("assets/php/evalueringer.php?skole="
 							+ valgtSkole + "&studie=" + valgtStudie);
-					console.log(url);
 					var content;
 					$.get(url, function(data) {
 						content = data;

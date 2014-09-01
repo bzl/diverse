@@ -53,7 +53,7 @@ nav ul li {
 nav>ul>li>button {
 	color: #000;
 	display: block;
-	line-height: 30px;
+	line-height: 20px;
 	padding: 0 12px;
 	text-decoration: none;
 }
