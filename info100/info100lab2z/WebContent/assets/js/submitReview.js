@@ -9,9 +9,14 @@ function submitReview(){
 
 	var url = encodeURI("assets/php/leggTilEvaluering.php?skole=" + valgtSkole + "&studie=" + valgtStudie + "&review=" + review);
 	var content;
-	$.get(url, function(data) {
-		content = data;
-		$('#evalueringer').prepend(content);
+	
+	$.ajax({
+	     async: false,
+	     type: 'GET',
+	     url: url,
+	     success: function(data) {
+	    	 content = data;
+	    	 window.location = "kontakt.html";
+	     }
 	});
-	window.location = "kontakt.html";
 }

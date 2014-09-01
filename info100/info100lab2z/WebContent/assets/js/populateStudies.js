@@ -17,7 +17,7 @@ function initializeStudies(){
 							$("#second-choice").empty();
 							$("#second-choice")
 							.append(
-									"<option selected value=\"base\">Velg en utdanning</option>");
+							"<option selected value=\"base\">Velg en utdanning</option>");
 							$('#second-choice').append(
 									content);
 							$("#second-choice")
@@ -55,8 +55,8 @@ function initializeStudies(){
 }
 
 function evaluer() {
-	window.location = "evaluer.html";
+	window.location = "evaluer.html?skole=" + $("#first-choice").val()+"&studie="+ $("#second-choice").val();
 }
 function leggTilNytt() {
-	window.location = "leggTilNyttStudie.html";
+	window.location = "leggTilNyttStudie.html?skole=" + $("#first-choice").val();
 }
