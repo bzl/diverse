@@ -5,21 +5,10 @@ function main(){
 
 function plass(){
 	contentX = document.getElementById('contentFrame');
-	contentX.src = "plass2.html"; // TEMPORARILY SET TO plass2
+	contentX.src = "plass.html";
 
 }
 
-function studium(){
-	contentX = document.getElementById('contentFrame');
-	contentX.src = "studium.html";
-
-}
-
-function bruker(){
-	contentX = document.getElementById('contentFrame');
-	contentX.src = "bruker.html";
-	
-}
 
 function kontakt(){
 	contentX = document.getElementById('contentFrame');
@@ -38,15 +27,11 @@ function leggTilNytt(){
 }
 
 
-
-
-
 function resizeMe(){
 	//console.log("ping");
 	
 	contentX = document.getElementById('contentFrame');
 	contentX.style.height = "auto";
-
     var newheight = contentX.contentWindow.document.body.scrollHeight;
     
     if (newheight < 350){
