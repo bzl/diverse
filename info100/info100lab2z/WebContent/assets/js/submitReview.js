@@ -1,10 +1,10 @@
 function submitReview(){
 
-	var valgtStudie = $("#second-choice").val();
-	var valgtSkole = $("#first-choice").val();
+	var valgtStudie = $("#second-choice").text();
+	var valgtSkole = $("#first-choice").text();
 
-	var reviewText = $("#evaluering").val();
-	var reviewAuthor = $("#evaluer_navn").val();
+	var reviewText = $("#evaluering").text();
+	var reviewAuthor = $("#evaluer_navn").text();
 	var review = "\"" + reviewText + "\" - " + reviewAuthor;
 
 	var url = encodeURI("assets/php/leggTilEvaluering.php?skole=" + valgtSkole + "&studie=" + valgtStudie + "&review=" + review);
