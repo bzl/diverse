@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="assets/stylesheets/tables.css" type="text/css">
 <script type="text/javascript" src="assets/js/jquery-1.11.1.js"></script>
 <script type="text/javascript" src="assets/js/populateSchools.js"></script>
+<script type="text/javascript" src="assets/js/submitReview.js"></script>
 </head>
 <body>
 
@@ -22,7 +23,7 @@
             <td class="one"><select id="first-choice">
                     <option selected value="base">Velg en utdannings-institusjon</option>
             </select></td>
-            <td class="two">Navn på studiet: <input type="text" id="evaluer_navn" value="Skriv navn på studiet her" size="40" /></td>
+            <td class="two">Navn på studiet: <input type="text" id="second-choice" value="Skriv navn på studiet her" size="40" /></td>
         </tr>
     </table>
 	<br>
@@ -37,6 +38,10 @@
             <td class="two"><textarea id="evaluering" rows="3" cols="60"> Skriv din evaluering her </textarea></td>
         </tr>
     </table>
+    
+    <br>
+    
+    <button id="submitReview" onclick="submitReview()"> Send inn din evaluering </button>
 
 </body>
 </html>
