@@ -17,16 +17,12 @@ function settSkoleOgStudie(){
 		//essentially do nothing
 	} else {
 		$("#first-choice").empty();
-		$("#first-choice")
-		.append(
-				"<option selected value=" + skole + "\">" + skole + "</option>");
+		$("#first-choice").append("<option selected>" + skole + "</option>");
 	}
 	if(typeof studie === 'undefined') {
 		//essentially do nothing
 	} else {
 		$("#second-choice").empty();
-		$("#second-choice")
-		.append(
-				"<option selected value=" + studie + "\">" + studie + "</option>");
+		$("#second-choice").append("<option selected>" + studie + "</option>");
 	}
 }
