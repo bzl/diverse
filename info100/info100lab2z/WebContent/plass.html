@@ -3,96 +3,35 @@
 <head>
 <meta charset="utf-8">
 <title>MittStudium</title>
-<script
-    src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script type="text/javascript" src="assets/js/navigation.js"></script>
+<script type="text/javascript" src="assets/js/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="assets/js/populateSchools.js"></script>
+<script type="text/javascript" src="assets/js/populateStudies.js"></script>
 </head>
 <body>
 
-    <select id="first-choice">
-        <option selected value="base">Velg en utdannings-institusjon</option>
-    </select>
-
     <script type="text/javascript">
         $(document).ready(function() {
-            var content;
-            $.get('assets/php/skoler.php', function(data) {
-                content = data;
-                $('#first-choice').append(content);
-            });
+            $(initializeSchools);
+            $(initializeStudies);
         });
     </script>
 
-    <br>
-
-    <select id="second-choice">
-        <option>Velg ovenfor først.</option>
+<table border="" style="border-collapse:collapse;border:0px solid #FFCC00;color:#000000;width:100%">
+    <tr>
+        <td>
+            <select id="first-choice">
+        <option selected value="base">Velg en utdannings-institusjon</option>
     </select>
+        </td>
+        <td>
+    <select id="second-choice">
+        <option>Først må du velge utdannings-institusjon</option>
+    </select>
+</td>
+    </tr>
+</table>
 
-    <script type="text/javascript">
-        $("#first-choice")
-                .change(
-                        function() {
-                            $("#evalueringer").empty();
-
-                            var valgtSkole = $("#first-choice").val();
-                            var url = encodeURI("assets/php/studier.php?skole="
-                                    + valgtSkole);
-                            var content;
-                            $
-                                    .get(
-                                            url,
-                                            function(data) {
-                                                content = data;
-
-                                                $("#second-choice").empty();
-                                                $("#second-choice")
-                                                        .append(
-                                                                "<option selected value=\"base\">Velg en utdanning</option>");
-                                                $('#second-choice').append(
-                                                        content);
-                                                $("#second-choice")
-                                                        .append(
-                                                                "<option value=\"leggTilNytt\">Finner ikke min utdanning</option>");
-                                            });
-
-                        });
-
-        $("#second-choice")
-                .change(
-                        function() {
-                            var valgtStudie = $("#second-choice").val();
-                            var valgtSkole = $("#first-choice").val();
-
-                            if (valgtStudie == "leggTilNytt") {
-                                leggTilNytt()
-                            } else {
-
-                                $("#evalueringer").empty();
-                                $("#evalueringer")
-                                        .append(
-                                                "<a class=\"lenke\" onclick=\"evaluer()\" ><li> Trykk her for å legge til en evaluering av dette studiet </li></a>");
-
-                                var url = encodeURI("assets/php/evalueringer.php?skole="
-                                        + valgtSkole + "&studie=" + valgtStudie);
-                                console.log(url);
-                                var content;
-                                $.get(url, function(data) {
-                                    content = data;
-                                    $('#evalueringer').prepend(content);
-                                });
-
-                            }
-                        });
-
-        function evaluer() {
-            window.location = "evaluer.html";
-        }
-        function leggTilNytt() {
-            window.location = "leggTilNyttStudie.html";
-        }
-    </script>
-
+    
     <ul id="evalueringer">
 
     </ul>

@@ -3,44 +3,44 @@
 <head>
 <meta charset="UTF-8">
 <title>Mitt Studium</title>
+<script type="text/javascript" src="assets/js/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="assets/js/populateSchools.js"></script>
 </head>
 <body>
 
-<h1 style="text-align: center"> Legg til et nytt Studiested</h1>
-
-<p>
-<label> Studiested </label>
-<select>
-<option> Universitetet i Bergen</option>
-<option> Universitetet i Oslo</option>
-<option> NTNU</option>
-</select>
-</p>
-
-<p>
-<label> Navn på studiet: </label>
-<input type="text"
-id="evaluer_navn"
-value="Skriv nanv på studiet her"/>
-</p>
-
-<p>
-<label> Ditt navn </label>
-<input type="text"
-id="evaluer_navn"
-value="Skriv ditt navn her"/>
-</p>
+	<h1 style="text-align: center">Legg til et nytt Studiested</h1>
 
 
-<p>
-<label> Din Evaluering</label>
-<textarea
-id="evaluering"
-rows="3"
-cols="60">
+	<script type="text/javascript">
+        $(document).ready(function() {
+            $(initializeSchools);
+        });
+    </script>
+
+	<table border=""
+		style="border-collapse: collapse; border: 0px solid #FFCC00; color: #000000; width: 100%">
+		<tr>
+			<td><select id="first-choice">
+					<option selected value="base">Velg en
+						utdannings-institusjon</option>
+			</select></td>
+			<td><label> Navn på studiet: </label> <input type="text"
+				id="evaluer_navn" value="Skriv navn på studiet her" /></td>
+		</tr>
+	</table>
+	<br>
+
+	<p>
+		<label> Ditt navn </label> <input type="text" id="evaluer_navn"
+			value="Skriv ditt navn her" />
+	</p>
+
+	<p>
+		<label> Din Evaluering</label>
+		<textarea id="evaluering" rows="3" cols="60">
 Skriv din evaluering her
 </textarea>
-</p>
+	</p>
 
 </body>
 </html>

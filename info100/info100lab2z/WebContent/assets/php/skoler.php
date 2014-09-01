@@ -2,14 +2,14 @@
     header('Content-Type: text/html; charset=utf-8');
     include "integer.php";
     
-    $dbhandle = mysql_connect($hostname, $username, $password) or die("Unable to connect to MySQL");
+    $dbhandle = mysql_connect($hostname, $username, $password) or die("Greier ikke koble til mysql");
     mysql_set_charset('utf8',$dbhandle);
-    $selected = mysql_select_db("bzl_no", $dbhandle) or die("Could not select examples");
+    $selected = mysql_select_db("bzl_no", $dbhandle) or die("kunne ikke velge database");
     
-    $query = "SELECT DISTINCT skole FROM reviews";
+    $query = "SELECT * FROM skolene";
     $result = mysql_query($query);
         
     while ($row = mysql_fetch_array($result)) {
-        echo "<option>" . $row{'skole'} . "</option>";
+        echo "<option>" . $row{'navn'} . "</option>";
     }
 ?>
