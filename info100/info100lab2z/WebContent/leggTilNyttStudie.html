@@ -10,37 +10,32 @@
 
 	<h1 style="text-align: center">Legg til et nytt Studiested</h1>
 
-
 	<script type="text/javascript">
-        $(document).ready(function() {
-            $(initializeSchools);
-        });
-    </script>
+		$(document).ready(function() {
+			$(initializeSchools);
+		});
+	</script>
 
-	<table border=""
-		style="border-collapse: collapse; border: 0px solid #FFCC00; color: #000000; width: 100%">
+	<table border="" style="border-collapse: collapse; border: 0px none #000000; color: #000000; width: 100%">
 		<tr>
 			<td><select id="first-choice">
-					<option selected value="base">Velg en
-						utdannings-institusjon</option>
+					<option selected value="base">Velg en utdannings-institusjon</option>
 			</select></td>
-			<td><label> Navn på studiet: </label> <input type="text"
-				id="evaluer_navn" value="Skriv navn på studiet her" /></td>
+			<td><label> Navn på studiet: </label> <input type="text" id="evaluer_navn" value="Skriv navn på studiet her" /></td>
 		</tr>
 	</table>
 	<br>
 
-	<p>
-		<label> Ditt navn </label> <input type="text" id="evaluer_navn"
-			value="Skriv ditt navn her" />
-	</p>
-
-	<p>
-		<label> Din Evaluering</label>
-		<textarea id="evaluering" rows="3" cols="60">
-Skriv din evaluering her
-</textarea>
-	</p>
+	<table border="" style="border-collapse: collapse; border: 0px none #000000; color: #000000; width: 100%">
+		<tr>
+			<td>Ditt navn</td>
+			<td><input type="text" id="evaluer_navn" value="Skriv ditt navn her" /></td>
+		</tr>
+		<tr>
+			<td>Din Evaluering</td>
+			<td><textarea id="evaluering" rows="3" cols="60"> Skriv din evaluering her </textarea></td>
+		</tr>
+	</table>
 
 </body>
 </html>
