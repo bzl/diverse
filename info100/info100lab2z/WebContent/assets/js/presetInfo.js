@@ -19,7 +19,7 @@ function settSkoleOgStudie(){
 		$("#first-choice").empty();
 		$("#first-choice")
 		.append(
-				"<option selected value=" + skole + ">" + skole + "</option>");
+				"<option selected value=" + skole + "\">" + skole + "</option>");
 	}
 	if(typeof studie === 'undefined') {
 		//essentially do nothing
@@ -27,6 +27,6 @@ function settSkoleOgStudie(){
 		$("#second-choice").empty();
 		$("#second-choice")
 		.append(
-				"<option selected value=" + studie + ">" + studie + "</option>");
+				"<option selected value=" + studie + "\">" + studie + "</option>");
 	}
 }
