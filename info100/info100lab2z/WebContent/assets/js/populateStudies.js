@@ -50,6 +50,26 @@ function initializeStudies(){
 						$('#evalueringer').prepend(content);
 					});
 
+					var url2 = encodeURI("assets/php/score.php?skole="
+							+ valgtSkole + "&studie=" + valgtStudie);
+					var poeng;
+					$.ajax({
+						async: false,
+						type: 'GET',
+						url: url2,
+						success: function(data) {
+							poeng = data;
+						},
+						error: function(){
+							poeng = "5";
+						}
+					});
+
+					var score_text = "Dette studiet har i snitt fått "+poeng+" av 10. Du kan være med på å evaluere det!";
+
+
+					$("#score").text(score_text);
+
 				}
 			});
 }

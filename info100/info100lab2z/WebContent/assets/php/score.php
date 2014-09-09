@@ -7,10 +7,11 @@
     $selected = mysql_select_db("bzl_no", $dbhandle) or die("kunne ikke velge database");
     $skole = mysql_real_escape_string($_GET['skole']);
     $studie = mysql_real_escape_string($_GET['studie']);
-    $review = mysql_real_escape_string($_GET['review']);
-    $score = mysql_real_escape_string($_GET['score']);
     
-    $query = "INSERT INTO reviews (skole,studie,review,score) VALUES ('$skole','$studie','$review','$score')";
+    $query = "SELECT ROUND(AVG(score),1) FROM reviews WHERE skole='$skole' AND studie='$studie'";
     $result = mysql_query($query);
 
+    while ($row = mysql_fetch_array($result)) {
+        echo $row{'ROUND(AVG(score),1)'};
+    }
 ?>
