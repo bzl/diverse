@@ -31,11 +31,37 @@ $( document ).ready(function() {
 	.change(
 			function() {
 				var valgtStudie = $("#second-choice").val();
+				var valgtSkole = $("#first-choice").val();
 
 				if (valgtStudie == "leggTilNytt") {
 					leggTilNytt();
-				}
+				} else {
 
+					$("#evalueringer").empty();
+					$("#evalueringer")
+					.append(
+					"<a class=\"lenke\" onclick=\"evaluer()\" ><li> Trykk her for å legge til en evaluering av dette studiet </li></a>");
+
+					var url = encodeURI("assets/php/evalueringer.php?skole="
+							+ valgtSkole + "&studie=" + valgtStudie);
+					var content;
+					$.get(url, function(data) {
+						content = data;
+						$('#evalueringer').prepend(content);
+					});
+
+					var url2 = encodeURI("assets/php/score.php?skole="
+							+ valgtSkole + "&studie=" + valgtStudie);
+					var poeng;			
+					$.get(url2, function(data) {
+						poeng = data;
+						var score_text = "Dette studiet har i snitt fått "+poeng+" av 10. Du kan være med på å evaluere det!!";
+						$("#score").text(score_text);
+					});
+
+
+
+				}
 			});
 });
 

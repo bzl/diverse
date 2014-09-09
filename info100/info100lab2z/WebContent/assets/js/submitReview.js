@@ -1,10 +1,10 @@
 function submitReview(){
 
-	var valgtStudie = $("#second-choice").text();
-	var valgtSkole = $("#first-choice").text();
+	var valgtStudie = $("#second-choice").val();
+	var valgtSkole = $("#first-choice").val();
 
-	var reviewText = $("#evaluering").text();
-	var reviewAuthor = $("#evaluer_navn").text();
+	var reviewText = $("#evaluering").val();
+	var reviewAuthor = $("#evaluer_navn").val();
 	var review = "\"" + reviewText + "\" - " + reviewAuthor;
 	
 	var score = $("#score").val();
