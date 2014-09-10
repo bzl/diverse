@@ -16,6 +16,12 @@ function kontakt(){
 	
 }
 
+function snitt(){
+	contentX = document.getElementById('contentFrame');
+	contentX.src = "snitt.html";
+	
+}
+
 function evaluer(){
 	contentX = document.getElementById('contentFrame');
 	contentX.src = "evaluer.html";
