@@ -6,3 +6,13 @@ body {
 	height: 100%;
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
+
+@media handheld , screen and (max-width: 500px) {
+	body {
+		background-color: #FFFF;
+		padding: 0px;
+		height: 100%;
+		font-family: "Trebuchet MS", Helvetica, sans-serif;
+		font-size: 70%;
+	}
+}
