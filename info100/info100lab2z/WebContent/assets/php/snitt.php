@@ -17,16 +17,16 @@
         	. '</td> <td class="score">' 
         	. $row{'snitt'} 
 			. '</td> <td class="goodbad">' 
-        	. positivEllerNegativ($row{'snitt'})
+        	. positiveEllerNegativ($row{'snitt'})
         	. '</td> </tr>';
     }
     
     
-    function positiveEllerNegative($score) {
+    function positiveEllerNegativ($score) {
     	if ($score >= 5.0){
-    		return "Good";
+    		return "Bra";
     	} else {
-    		return "Bad";
+    		return "Dårlig";
     	}
 	} 
     
