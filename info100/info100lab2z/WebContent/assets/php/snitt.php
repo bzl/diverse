@@ -16,6 +16,18 @@
       		. $row{'studie'} 
         	. '</td> <td class="score">' 
         	. $row{'snitt'} 
+			. '</td> <td class="goodbad">' 
+        	. positivEllerNegativ($row{'snitt'})
         	. '</td> </tr>';
     }
+    
+    
+    function positiveEllerNegative($score) {
+    	if ($score >= 5.0){
+    		return "Good";
+    	} else {
+    		return "Bad";
+    	}
+	} 
+    
 ?>
