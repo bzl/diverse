@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>Mitt Studium</title>
-<link rel="stylesheet" href="assets/css/stylesheet.css" type="text/css" media="screen, print, projection, tv"/>
-<link rel="stylesheet" href="assets/css/mobile.css" type="text/css" media="handheld" />
-<script type="text/javascript" src="assets/js/navigation.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
+<?php
+echo '<meta charset="utf-8">' .
+		'<title>Mitt Studium</title>' .
+		'<link rel="stylesheet" href="assets/css/stylesheet.css" type="text/css" media="screen, print, projection, tv"/>' .
+		'<link rel="stylesheet" href="assets/css/mobile.css" type="text/css" media="handheld" />' .
+		'<script type="text/javascript" src="assets/js/navigation.js"></script>' .
+		'<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>';
+?>
 </head>
 <body>
 

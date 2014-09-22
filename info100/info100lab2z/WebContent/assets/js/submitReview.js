@@ -18,7 +18,7 @@ function submitReview(){
 	     url: url,
 	     success: function(data) {
 	    	 content = data;
-	    	 window.location = "kontakt.html";
+	    	 window.location = "kontakt.php";
 	     }
 	});
 }

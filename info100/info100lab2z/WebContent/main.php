@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Mitt Studium</title>
-<link rel="stylesheet" href="assets/css/text.css" type="text/css" media="all">
+<?php
+echo 	'<meta charset="UTF-8">' .
+		'<title>Mitt Studium</title>' .
+		'<link rel="stylesheet" href="assets/css/text.css" type="text/css" media="all">';
+?>
 </head>
 <body>
 

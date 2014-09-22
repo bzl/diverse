@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>Mitt Studium</title>
-<link rel="stylesheet" href="assets/css/tables.css" type="text/css">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script type="text/javascript" src="assets/js/populateSchools.js"></script>
-<script type="text/javascript" src="assets/js/populateStudiesExtended.js"></script>
+<?php
+echo 	'<meta charset="utf-8">' .
+		'<title>Mitt Studium</title>' .
+		'<link rel="stylesheet" href="assets/css/tables.css" type="text/css">' .
+		'<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>' .
+		'<script type="text/javascript" src="assets/js/populateSchools.js"></script>' .
+		'<script type="text/javascript" src="assets/js/populateStudiesExtended.js"></script>';
+?>
 </head>
 <body>
 

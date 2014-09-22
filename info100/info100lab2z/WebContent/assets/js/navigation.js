@@ -1,35 +1,35 @@
 function main(){
 	contentX = document.getElementById('contentFrame');
-	contentX.src = "main.html";
+	contentX.src = "main.php";
 }
 
 function plass(){
 	contentX = document.getElementById('contentFrame');
-	contentX.src = "plass.html";
+	contentX.src = "plass.php";
 
 }
 
 
 function kontakt(){
 	contentX = document.getElementById('contentFrame');
-	contentX.src = "kontakt.html";
+	contentX.src = "kontakt.php";
 	
 }
 
 function snitt(){
 	contentX = document.getElementById('contentFrame');
-	contentX.src = "snitt.html";
+	contentX.src = "snitt.php";
 	
 }
 
 function evaluer(){
 	contentX = document.getElementById('contentFrame');
-	contentX.src = "evaluer.html";
+	contentX.src = "evaluer.php";
 }
 
 function leggTilNytt(){
 	contentX = document.getElementById('contentFrame');
-	contentX.src = "leggTilNyttStudie.html";
+	contentX.src = "leggTilNyttStudie.php";
 }
 
 

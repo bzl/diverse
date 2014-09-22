@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Mitt Studium</title>
-<link rel="stylesheet" href="assets/css/tables.css" type="text/css">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script type="text/javascript" src="assets/js/populateSchools.js"></script>
-<script type="text/javascript" src="assets/js/populateStudies.js"></script>
-<script type="text/javascript" src="assets/js/submitReview.js"></script>
-<script type="text/javascript" src="assets/js/presetInfo.js"></script>
+<?php
+echo '<meta charset="UTF-8">' .
+		'<title>Mitt Studium</title>' .
+		'<link rel="stylesheet" href="assets/css/tables.css" type="text/css">' .
+		'<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>' .
+		'<script type="text/javascript" src="assets/js/populateSchools.js"></script>' .
+		'<script type="text/javascript" src="assets/js/submitReview.js"></script>' .
+		'<script type="text/javascript" src="assets/js/presetInfo.js"></script>';
+?>
 </head>
 <body>
 
-    <h1 style="text-align: center">Evaluer et studium</h1>
+    <h1 style="text-align: center">Legg til et nytt Studiested</h1>
+
     <script type="text/javascript">
-					$(document).ready(function() {
-						$(initializeSchools);
-						settSkoleOgStudie();
-					});
-				</script>
+		$(document).ready(function() {
+			$(initializeSchools);
+			settSkoleOgStudie();
+		});
+	</script>
 
     <table class="fiftyfifty">
         <tr>
             <td class="one"><select id="first-choice">
                     <option selected value="base">Velg en utdannings-institusjon</option>
             </select></td>
-            <td class="two"><select id="second-choice">
-                    <option>Først må du velge utdannings-institusjon</option>
-            </select></td>
+            <td class="two">Navn på studiet: <input type="text" id="second-choice" value="Skriv navn på studiet her" size="40" /></td>
         </tr>
     </table>
     <br>

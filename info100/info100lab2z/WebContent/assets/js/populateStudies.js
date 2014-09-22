@@ -40,8 +40,8 @@ $( document ).ready(function() {
 });
 
 function evaluer() {
-	window.location = "evaluer.html?skole=" + $("#first-choice").val()+"&studie="+ $("#second-choice").val();
+	window.location = "evaluer.php?skole=" + $("#first-choice").val()+"&studie="+ $("#second-choice").val();
 }
 function leggTilNytt() {
-	window.location = "leggTilNyttStudie.html?skole=" + $("#first-choice").val();
+	window.location = "leggTilNyttStudie.php?skole=" + $("#first-choice").val();
 }
