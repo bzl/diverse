@@ -16,6 +16,18 @@ echo 	'<meta charset="utf-8">' .
 					$(document).ready(function() {
 						$(initializeSchools);
 						});
+						
+var visInfo = true;
+function visInformasjon() {
+	if(visInfo){
+		document.getElementById("score").style.visibility = "hidden";
+		visInfo = false;
+	} else {
+		document.getElementById("score").style.visibility = "visible";
+		visInfo = true;
+	}
+}
+						
 	</script>
 
     <table class="fiftyfifty">
@@ -35,7 +47,8 @@ echo 	'<meta charset="utf-8">' .
 
     <br>
     <br>
-
+	
+	<button type="button" onclick="visInformasjon()">Vis/Skjul mer informasjon</button>
     <span id="score"></span>
 
     <br>

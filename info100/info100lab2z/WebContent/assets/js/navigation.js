@@ -46,3 +46,14 @@ function resizeMe(){
 
     contentX.style.height= (newheight) + "px";
 }
+
+var gitHubCaps = false;
+function showGitHub() {
+	if(gitHubCaps){
+		document.getElementById("GitHub").innerHTML = "GitHub";
+		gitHubCaps = false;
+	} else {
+		document.getElementById("GitHub").innerHTML = "github";
+		gitHubCaps = true;
+	}
+}

@@ -11,56 +11,36 @@ echo 	'<meta charset="UTF-8">' .
 
     <h1 style="text-align: center;">Hei!</h1>
 
-    <h3>Følgende funksjonalitet funker:</h3>
+    <h3>Fag ved UiB:</h3>
 
-    <ul>
-        <li>Navigering mellom sidene. (Stort sett realisert igjennom javascript/jQuery.) finnes i "headeren"</li>
-        <li>Aktiv tilkobling til en database (mySQL, foreløpig kun lesing fra, men etter hvert skal man kunne skrive til den.)</li>
-        <li>Navigering av en håndful forskjellige fag inne på "Finn din undervisningsplass".</li>
-        <li>En "footer" med min epost adresse.</li>
-        <li>Klikk på Logoen for å komme tilbake til denne referanse siden, ellers kan man navigere ved å klikke på "knappene" rett under logoen.</li>
-        <li>Man kan evaluere fag som ekisterer</li>
-        <li>Man kan legge til nye fag</li>
-        <li>Gjennomsnittskarakteren til fag vises under evalueringene akkurat nå. Den regnes ut i fra snittet på alle stemmer.</li>
-        <li>CSS / stilmessig ser siden mye penere ut. Alt er sentrert bortsett fra tekstblokker som hensiktsmessig flyter mot venstre.</li>
-    </ul>
+    <script>
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.open("GET","assets/xml/kurs.xml",false);
+xmlhttp.send();
+xmlDoc=xmlhttp.responseXML; 
 
-    <hr />
-    <h3>Følgende funksjonalitet er på vei:</h3>
-
-    <ul>
-        <li><del>Muligheten til å legge inn nye studiesteder (For enkelhetens skyld tror jeg dette kommer til å tilbys som en "pakke", der
-                du legger inn et studie sted, navn på studie, og en review; det er enklest slikt mtp databasens oppbygging akkurat nå (dette kan
-                selvfølgelig endre seg).</del></li>
-        <li>Muligheten for å lage seg brukere</li>
-        <li>Diverse for å øke screentime. Mini-twitter-feed, og/eller noe rss feeds kansje?</li>
-        <li>Søking</li>
-        <li>Bør det kansje være slik at hvert studie-retning får sin egen html side? Det vil forenkle arbeidet med å presentere meta-data til
-            brukere.</li>
-        <li><del>Muligheten til å vurdere nåværende studier.</del></li>
-    </ul>
-
-    <hr />
-    <h3>Smått:</h3>
-
-    <ul>
-        <li><del>Knappene i navigasjonsmenyen har for mye padding på top og bottom</del></li>
-        <li><del>Søkefeltet bør strekkes litt mer ut</del></li>
-        <li><del>Jeg har en linje mellom "headeren" og content, men ingen linje mellom footer og content. Kansje noe å se på for å
-                opprettholde konsistens.</del></li>
-        <li>Logoen var opprinnelig en midlertidig placeholder, men tror vi kan si oss fornøyd med den inntil vidre (i hovedsak fordi jeg ikke er
-            flink nok til å lage en skikkelig en).</li>
-        <li>Entonet bakgrunnsfarge kan kansje utbedres med en eller annen form for collage av bilder (som forsåvidt skal være jævli lav
-            resolution, da ingen orker å laste 500 megabytes med bilder kontinuerling).</li>
-    </ul>
-
-    <hr />
-    <h3>TL;DR:</h3>
-
-    <ul>
-        <li>Ting kommer fortløpende.</li>
-        <li>Yay info100</li>
-    </ul>
+document.write("<table border='1'>");
+var x=xmlDoc.getElementsByTagName("FAG");
+  document.write("<tr><td>Fagkode</td> <td>Fag navn</td> <td>Studiepoeng</td></tr>");
+for (i=0;i<x.length;i++)
+  { 
+  document.write("<tr><td>");
+  document.write(x[i].getElementsByTagName("FAGKODE")[0].childNodes[0].nodeValue);
+  document.write("</td><td>");
+  document.write(x[i].getElementsByTagName("TITTEL")[0].childNodes[0].nodeValue);
+  document.write("</td><td>");
+  document.write(x[i].getElementsByTagName("STUDIEPOENG")[0].childNodes[0].nodeValue);
+  document.write("</td></tr>");
+  }
+document.write("</table>");
+</script>
 
 </body>
 </html>
