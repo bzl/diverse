@@ -18,15 +18,13 @@ function myFunction(arr) {
 window.onload = function(){
 	var xmlhttp = new XMLHttpRequest();
 	var url = "assets/json/vurderinger.json";
-	var author;
 
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-			author = JSON.parse(xmlhttp.responseText);
-			myFunction(myArr);
+			var author = JSON.parse(xmlhttp.responseText);
+			myFunction(author);
 		}
 	}
 	xmlhttp.open("GET", url, true);
 	xmlhttp.send();
-
 }

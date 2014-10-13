@@ -14,7 +14,7 @@ echo 	'<meta charset="UTF-8">' .
     <h3>Resultat Siden:</h3>
 <script type="text/javascript" src="/assets/js/arrayFromJSON.js"></script>
 
-    <table id="resultat">
+    <table id="resultater">
     
     </table>
 

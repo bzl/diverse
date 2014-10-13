@@ -71,7 +71,7 @@ function showAuthor(){
 	xmlhttp.onreadystatechange = function() {
 	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 	        author = JSON.parse(xmlhttp.responseText);
-	        document.getElementById("author").innerHTML = author.firstname + " " + author.lastname;
+	        document.getElementById("author").innerHTML = author.firstName + " " + author.lastName;
 	    }
 	}
 	xmlhttp.open("GET", url, true);
