@@ -1,16 +1,13 @@
-
-
 function myFunction(arr) {
 	var out = "<tr> <th>Skole</th> <th>Fag</th> <th>Navn</th> <th>Score</th> <th>Vurdering</th>  </tr> ";
 	var i;
 	for(i = 0; i < arr.length; i++) {
-		out += '<a href="' + arr[i].url + '">' + arr[i].display + '</a><br>';
-		out += 	"<tr> <th>"+ arr[i].skole +
-		"</th> <th>"+arr[i].fag +
-		"</th> <th>"+ arr[i].navn +
-		"</th> <th>"+ arr[i].score +
-		"</th> <th>"+ arr[i].vurdering +
-		"</th>  </tr>";
+		out += 	"<tr> <td>"+ arr[i].skole +
+		"</td> <td>"+arr[i].fag +
+		"</td> <td>"+ arr[i].navn +
+		"</td> <td>"+ arr[i].score +
+		"</td> <td>"+ arr[i].vurdering +
+		"</td>  </tr>";
 	}
 	document.getElementById("resultater").innerHTML = out;
 }
