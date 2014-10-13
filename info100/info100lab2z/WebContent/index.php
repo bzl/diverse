@@ -47,7 +47,7 @@ echo 	'<meta charset="utf-8">' .
 
 	<footer>
 		<p align="center">
-			Created by <a href="mailTo:Bluekristoffer@gmail.com">Kristoffer Tverå</a>, 
+			Created by <span id="author"> </span>, 
 			<button type="button" onclick="showGitHub()">Skift navn:</button><a id="GitHub"
 				href="https://github.com/bzl/skolen/tree/master/info100/info100lab2z">GitHub</a>
 		</p>

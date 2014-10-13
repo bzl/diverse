@@ -1,3 +1,7 @@
+window.onload = function(){
+	showAuthor();
+};
+
 function main(){
 	contentX = document.getElementById('contentFrame');
 	contentX.src = "main.php";
@@ -56,4 +60,20 @@ function showGitHub() {
 		document.getElementById("GitHub").innerHTML = "github";
 		gitHubCaps = true;
 	}
+}
+
+function showAuthor(){
+	
+	var xmlhttp = new XMLHttpRequest();
+	var url = "assets/json/author.json";
+	var author;
+
+	xmlhttp.onreadystatechange = function() {
+	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+	        author = JSON.parse(xmlhttp.responseText);
+	        document.getElementById("author").innerHTML = author.firstname + " " + author.lastname;
+	    }
+	}
+	xmlhttp.open("GET", url, true);
+	xmlhttp.send();
 }
