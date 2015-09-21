@@ -1,5 +1,9 @@
 package src.runnable.samples;
-
+/**
+ * Example code used for university course work.
+ * 
+ * @author Kristoffer Tverå (Bluekristoffer@gmail.com)
+ */
 public class CopyOfChineseRemainder {
 
     public static void main(String[] args)

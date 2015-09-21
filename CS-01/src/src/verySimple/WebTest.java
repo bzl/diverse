@@ -1,14 +1,13 @@
 package src.verySimple;
 
-/* package whatever; // don't place package name! */
 import java.io.*;
-/* The class name doesn't have to be Main, as long as the class is not public. */
 
 /**
- * do not ever execute.
+ * Example code used for university course work.
  * 
- * @author Kristoffer Tverå
- *
+ * --- NEVER RUN THIS ---
+ * 
+ * @author Kristoffer TverÃ¥ (Bluekristoffer@gmail.com)
  */
 class WebTest
 {

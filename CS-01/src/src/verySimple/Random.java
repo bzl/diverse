@@ -1,12 +1,15 @@
 package src.verySimple;
-
+/**
+ * Example code used for university course work.
+ * 
+ * @author Kristoffer Tverå (Bluekristoffer@gmail.com)
+ */
 public class Random {
 
-	/**
+	/*
 	 * Displays the low average difference of running javas
 	 *  random method an obscene amount of time, and also proves
 	 *  why it is no good for crypto
-	 * @param args
 	 */
 	public static void main(String[] args) {
 

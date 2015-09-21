@@ -1,11 +1,15 @@
 package src.runnable.samples;
-
-public class GFX {
+/**
+ * Example code used for university course work.
+ * 
+ * @author Kristoffer TverÃ¥ (Bluekristoffer@gmail.com)
+ */
+public class pg1100h2012sem2 {
 
 	/**
-	 * PG1100, Høsten 2012, Innlevering 2
+	 * PG1100, Hï¿½sten 2012, Innlevering 2
 	 * 
-	 * @author Kristoffer Tverå
+	 * @author Kristoffer Tverï¿½
 	 */
 	public static void main(String[] args) {
 		System.out.println("Firkant:");
@@ -22,8 +26,8 @@ public class GFX {
 	/**
 	 * Tegner en krystall
 	 * 
-	 * @param tegn tegnet som brukes for å tegne krystallen
-	 * @param size størrelsen på krystallen
+	 * @param tegn tegnet som brukes for ï¿½ tegne krystallen
+	 * @param size stï¿½rrelsen pï¿½ krystallen
 	 */
 	private static void krystall(char tegn, int size) {
 		pyramide(tegn, size/3, false);
@@ -34,8 +38,8 @@ public class GFX {
 	/**
 	 * Tegner et timeglass
 	 * 
-	 * @param tegn tegnet som brukes for å tegne timeglasses
-	 * @param size størrelsen på timeglasset
+	 * @param tegn tegnet som brukes for ï¿½ tegne timeglasses
+	 * @param size stï¿½rrelsen pï¿½ timeglasset
 	 */
 	private static void timeglass(char tegn, int size) {
 		pyramide(tegn, size/2, true);
@@ -45,8 +49,8 @@ public class GFX {
 	/**
 	 * Tegner en diamant
 	 * 
-	 * @param tegn tegnet som brukes for å tegne diamanten
-	 * @param size størrelsen på diamanten
+	 * @param tegn tegnet som brukes for ï¿½ tegne diamanten
+	 * @param size stï¿½rrelsen pï¿½ diamanten
 	 */
 	private static void diamant(char tegn, int size) {
 		pyramide(tegn, size/2, false);
@@ -56,8 +60,8 @@ public class GFX {
 	/**
 	 * Tegner en pyramide
 	 * 
-	 * @param tegn tegnet som brukes for å tegne pyramiden
-	 * @param size størrelsen på pyramiden
+	 * @param tegn tegnet som brukes for ï¿½ tegne pyramiden
+	 * @param size stï¿½rrelsen pï¿½ pyramiden
 	 * @param peker retningen til pyramiden. false = peker opp, true = peker ned
 	 */
 	private static void pyramide(char tegn, int size, boolean peker) {
@@ -88,8 +92,8 @@ public class GFX {
 	/**
 	 * Tegner en firkant
 	 * 
-	 * @param tegn tegnet som brukes for å tegne firkanten
-	 * @param size størrelsen på firkanten
+	 * @param tegn tegnet som brukes for ï¿½ tegne firkanten
+	 * @param size stï¿½rrelsen pï¿½ firkanten
 	 */
 	private static void firkant(char tegn, int size) {
 		for(int i = 0; i < size; i++){

@@ -1,6 +1,6 @@
 package src.runnable.samples;
 
-public class Bit_Shift {
+public class Bit_Add {
 	public static void main(String[] args){
 	
 		byte b = 64;

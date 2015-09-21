@@ -6,9 +6,9 @@ import java.awt.event.InputEvent;
 import java.io.IOException;
 
 /**
+ * Example code used for university course work.
  * 
- * @author Kristoffer Tver�
- *
+ * @author Kristoffer Tverå (Bluekristoffer@gmail.com)
  */
 public class AutoClicker {
 	public static void main(String[] args) throws IOException {

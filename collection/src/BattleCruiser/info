@@ -1,6 +1,0 @@
-I stedefor å bruke swing/awt kan jeg implementere det hele i samme gui framework som vi brukte på et prosjekt tidligere.
-
-Minimal funksjonalitet, mange "random" måleapparat, 
-tie-in med moduler som representerer prosjekt jeg har gjort allerede kansje, goto randomizer modul kan være filler.
-
-2 fillers, en helt blank, og en randomizer.

@@ -3,8 +3,6 @@
  * @author Kristoffer Tverå
  * 
  * INF210 mandatory assignment 1
- * 
- *
  */
 public class UniversalFiniteStateMachine {
 

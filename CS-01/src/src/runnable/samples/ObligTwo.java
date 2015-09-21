@@ -1,12 +1,19 @@
 package src.runnable.samples;
 
 import java.math.BigInteger;
+
+/**
+ * Example code used for university course work.
+ * 
+ * @author Kristoffer TverÃ¥ (Bluekristoffer@gmail.com)
+ */
+
 public class ObligTwo {
 
 	/**
 	 * Utilizes Chinese Rest Theorem to break a RSA encrypted cipher text
 	 * with a low expotent of only e=3
-	 * @author Kristoffer Tverå
+	 * @author Kristoffer Tverï¿½
 	 */
 	public static void main(String[] args) {
 

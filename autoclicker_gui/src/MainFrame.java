@@ -11,7 +11,11 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.Action;
 
-
+/**
+ * Example code used for university course work.
+ * 
+ * @author Kristoffer Tverå (Bluekristoffer@gmail.com)
+ */
 public class MainFrame {
 
 	private JFrame frame;

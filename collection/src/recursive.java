@@ -4,7 +4,7 @@ public class recursive {
 
 	/**
 	 * Very siple examples of recursive calls.
-	 * @author ktv095
+	 * @author Kristoffer Tverå (Bluekristoffer@gmail.com)
 	 */
 	public static void main(String[] args) {
 		/*

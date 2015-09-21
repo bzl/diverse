@@ -3,9 +3,9 @@ import java.awt.Robot;
 import java.awt.event.InputEvent;
 
 /**
+ * Example code used for university course work.
  * 
- * @author Kristoffer Tverå
- *
+ * @author Kristoffer Tverå (Bluekristoffer@gmail.com)
  */
 class Background implements Runnable {
 	

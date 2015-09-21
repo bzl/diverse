@@ -2,7 +2,11 @@ package src.runnable.samples;
 
 import java.math.BigInteger;
 
-
+/**
+ * Example code used for university course work.
+ * 
+ * @author Kristoffer Tverå (Bluekristoffer@gmail.com)
+ */
 public class BigIntExtendedEuclid {
 
    //  return array [d, a, b] such that d = gcd(p, q), ap + bq = d

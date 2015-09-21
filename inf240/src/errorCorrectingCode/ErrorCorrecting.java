@@ -1,7 +1,11 @@
 package errorCorrectingCode;
 
 import java.util.Arrays;
-
+/**
+ * Example code used for university course work.
+ * 
+ * @author Kristoffer TverÃ¥ (Bluekristoffer@gmail.com)
+ */
 public class ErrorCorrecting {
 
 	/**
@@ -14,7 +18,7 @@ public class ErrorCorrecting {
 	 * Process is automated, utilizing a hardcoded Hamming
 	 * parity check matrix, and a received vector.
 	 * 
-	 * @author Kristoffer Tverå
+	 * @author Kristoffer Tverï¿½
 	 * @author Bluekristoffer@gmail.com
 	 * @category ErrorCorrectingCode, INF240
 	 */

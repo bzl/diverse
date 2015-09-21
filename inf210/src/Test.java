@@ -1,7 +1,7 @@
 /**
+ * Example code used for university course work.
  * 
- * @author Kristoffer Tverå
- *
+ * @author Kristoffer TverÃ¥ (Bluekristoffer@gmail.com)
  */
 
 public class Test {

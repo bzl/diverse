@@ -1,10 +1,8 @@
 /**
  * 
- * @author Kristoffer Tverå
+ * @author Kristoffer TverÃ¥
  * 
  * INF210 mandatory assignment 1
- * 
- *
  */
 public class Main {
 
@@ -30,8 +28,8 @@ public class Main {
 
 
 		/*
-		 * Om rippleadder er true vil variablene få verdier til seg som simulrerer 
-		 * figur 3.10 altså rippleadder, med test tallene 14+28. 
+		 * Om rippleadder er true vil variablene fï¿½ verdier til seg som simulrerer 
+		 * figur 3.10 altsï¿½ rippleadder, med test tallene 14+28. 
 		 * 
 		 * Om rippleadder er false brukes test tallene fra oppgave teksten.
 		 */
@@ -70,18 +68,18 @@ public class Main {
 					{"3","01","2","0"},
 					{"3","11","3","1"}};
 			/*
-			 * I mitt ripple adder eksempel bruker jeg tallene 14+28, altså
+			 * I mitt ripple adder eksempel bruker jeg tallene 14+28, altsï¿½
 			 * 001110+011100. Da eksemplet i forelesningsnotatene har tillat
-			 * seg å gjøre forenklingen som skal til for at det parses, gjør
-			 * jeg også dette, så regnestykkets input format blir da
+			 * seg ï¿½ gjï¿½re forenklingen som skal til for at det parses, gjï¿½r
+			 * jeg ogsï¿½ dette, sï¿½ regnestykkets input format blir da
 			 * 00 10 11 11 01 00, siden vi parer de 2 bakerste bits fra 
-			 * hvert tall, og beveger oss fra venstre til høyre på tallene.
-			 * Dette gjør forsåvidt at output svaret kommer i "feil retning".
-			 * Det løser vi ved å manuelt snu svaret i min implementasjon.
+			 * hvert tall, og beveger oss fra venstre til hï¿½yre pï¿½ tallene.
+			 * Dette gjï¿½r forsï¿½vidt at output svaret kommer i "feil retning".
+			 * Det lï¿½ser vi ved ï¿½ manuelt snu svaret i min implementasjon.
 			 * 
 			 * Jeg har verifisert at maskinen fungerer. Den avslutter i 
-			 * state Q1, med output 010101, snur man outputten får man 101010,
-			 * altså 42, altså svaret på 14+28 :=)
+			 * state Q1, med output 010101, snur man outputten fï¿½r man 101010,
+			 * altsï¿½ 42, altsï¿½ svaret pï¿½ 14+28 :=)
 			 * Visualisert ser det hele slik ut:
 			 * https://www.youtube.com/watch?v=exIJ7sBBuB4
 			 * 
@@ -109,21 +107,21 @@ public class Main {
 		do{
 			String currentData; //representerer den delen av hele input stringen vi er interesert i ved denne iterasjonen
 
-			if(inputData.length() == alphabetX[0].length()){ //Hånderer slutten av en iterasjon
+			if(inputData.length() == alphabetX[0].length()){ //Hï¿½nderer slutten av en iterasjon
 				complete = true;
 				currentData = inputData;
 			} else {
 				currentData  = inputData.substring(0, alphabetX[0].length()); 
-				inputData = inputData.substring(alphabetX[0].length(), inputData.length()); //beskjærer input (i stedefor å lage en ny variabel som lagrer vår posisjon).
+				inputData = inputData.substring(alphabetX[0].length(), inputData.length()); //beskjï¿½rer input (i stedefor ï¿½ lage en ny variabel som lagrer vï¿½r posisjon).
 			}
 
-			for(int i = 0; i < nextStateFunction.length; i++){ //iterer igjennom alle regler for å finne den aktuelle for denne iterasjonen
+			for(int i = 0; i < nextStateFunction.length; i++){ //iterer igjennom alle regler for ï¿½ finne den aktuelle for denne iterasjonen
 				if(Integer.parseInt(nextStateFunction[i][0]) == currentXState){
 					if(nextStateFunction[i][1].equals(currentData)){
 						currentXState = Integer.parseInt(nextStateFunction[i][2]);
 						assert currentXState <= numberOfStates; //Potentially posioned.
 						outputX += nextStateFunction[i][3];
-						break; // Stop når vi har funnet aktuel regel, og lest/endret nødvendigt.
+						break; // Stop nï¿½r vi har funnet aktuel regel, og lest/endret nï¿½dvendigt.
 					}
 				}
 			}

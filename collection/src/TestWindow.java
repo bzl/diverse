@@ -2,7 +2,11 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 
-
+/**
+ * Example code used for university course work.
+ * 
+ * @author Kristoffer Tverå (Bluekristoffer@gmail.com)
+ */
 public class TestWindow {
 
 	private JFrame frame;

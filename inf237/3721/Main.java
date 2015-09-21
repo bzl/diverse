@@ -2,7 +2,11 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
-
+/**
+ * Example code used for university course work.
+ * 
+ * @author Kristoffer Tverå (Bluekristoffer@gmail.com)
+ */
 class Main {
 
 	static BufferedReader stdin = new BufferedReader(
@@ -132,7 +136,7 @@ class Main {
 
 
 		} catch (Exception e) {
-//empy
+//empty
 		}
 
 	}

@@ -1,6 +1,10 @@
 package src.runnable.samples;
 
-
+/**
+ * Example code used for university course work.
+ * 
+ * @author Kristoffer Tverå (Bluekristoffer@gmail.com)
+ */
 public class ExtendedEuclid {
 
    //  return array [d, a, b] such that d = gcd(p, q), ap + bq = d
