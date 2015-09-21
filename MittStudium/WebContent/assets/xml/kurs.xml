@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="stil.xsl" ?>
+
+<UIB>
+<FAG>
+<FAGKODE>Info100</FAGKODE>
+<TITTEL>Examen facultatum - Grunnkurs i informasjonsvitskap</TITTEL>
+<STUDIEPOENG>10</STUDIEPOENG>
+<Undervisingssemester>Høst</Undervisingssemester>
+<Fakultet>Institutt for informasjons- og medievitenskap</Fakultet>
+</FAG>
+
+<FAG>
+<FAGKODE>Info125</FAGKODE>
+<TITTEL>Datahåndtering</TITTEL>
+<STUDIEPOENG>10</STUDIEPOENG>
+<Undervisingssemester>Høst</Undervisingssemester>
+<Fakultet>Institutt for informasjons- og medievitenskap</Fakultet>
+</FAG>
+
+<FAG>
+<FAGKODE>Info115</FAGKODE>
+<TITTEL>The Social Web</TITTEL>
+<STUDIEPOENG>10</STUDIEPOENG>
+<Undervisingssemester>Høst</Undervisingssemester>
+<Fakultet>Institutt for informasjons- og medievitenskap</Fakultet>
+</FAG>
+
+<FAG>
+<FAGKODE>Inf100</FAGKODE>
+<TITTEL>Grunnkurs i programmering</TITTEL>
+<STUDIEPOENG>10</STUDIEPOENG>
+<Undervisingssemester>Høst</Undervisingssemester>
+<Fakultet>Institutt for informatikk</Fakultet>
+</FAG>
+
+<FAG>
+<FAGKODE>PSYK120</FAGKODE>
+<TITTEL>Biologisk og kognitiv psykologi</TITTEL>
+<STUDIEPOENG>10</STUDIEPOENG>
+<Undervisingssemester>Vår</Undervisingssemester>
+<Fakultet>Institutt for samfunnspsykologi</Fakultet>
+</FAG>
+
+<FAG>
+<FAGKODE>DASP252</FAGKODE>
+<TITTEL>Datalingvistisk fordjupningsemne: Aktuelle tema innan datalingvistikk</TITTEL>
+<STUDIEPOENG>15</STUDIEPOENG>
+<Undervisingssemester>Vår</Undervisingssemester>
+<Fakultet>Institutt for lingvistiske, litterære og estetiske studier</Fakultet>
+</FAG>
+</UIB>

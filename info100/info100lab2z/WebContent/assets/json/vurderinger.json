@@ -1,8 +1,0 @@
-[
-    {"skole":"UiB", "fag":"info100", "navn":"Ole Olsen", "score":"8.0", "vurdering":"Meget bra"},
-    {"skole":"UiB", "fag":"info125", "navn":"Ole Olsen", "score":"6.0", "vurdering":"Bra"},
-    {"skole":"UiB", "fag":"psy100", "navn":"Ole Olsen", "score":"4.0", "vurdering":"Tilfredstillende"},
-    {"skole":"UiB", "fag":"med101", "navn":"Ole Olsen", "score":"6.0", "vurdering":"Kjedelig"},
-    {"skole":"UiB", "fag":"mat229", "navn":"Ole Olsen", "score":"8.0", "vurdering":"Bravo!"},
-    {"skole":"UiB", "fag":"stat110", "navn":"Ole Olsen", "score":"6.0", "vurdering":"Spennende"}
-]
